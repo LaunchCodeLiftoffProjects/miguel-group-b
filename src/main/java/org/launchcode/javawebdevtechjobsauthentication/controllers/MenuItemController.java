@@ -27,6 +27,7 @@ public class MenuItemController {
 
     @GetMapping("add")
     public String addMenuItem(Model model){
+        model.addAttribute("title", "Add Item");
         model.addAttribute(new MenuItem());
         return "menuitems/add";
     }
@@ -47,13 +48,13 @@ public class MenuItemController {
         return "menuitems/delete";
     }
 
-//    @PostMapping("delete")
-//    public String processDeleteMenuItem(@RequestParam(required = false) int[] menuItemIds) {
-//        if (menuItemIds != null) {
-//            for(int id : menuItemIds) {
-//                menuItemRepository.delete(menuItemIds);
-//            }
-//        }
-//    return "redirect:";
-//    }
+    @PostMapping("delete")
+    public String processDeleteMenuItem(@RequestParam(required = false) int[] menuItemIds) {
+        if (menuItemIds != null) {
+            for(int id : menuItemIds) {
+                menuItemRepository.deleteById(id);
+            }
+        }
+    return "redirect:";
+    }
 }

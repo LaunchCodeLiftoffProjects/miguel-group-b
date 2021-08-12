@@ -10,10 +10,12 @@
     <h2>Products</h2>
     <ul>
         <li th:each="item : ${menuItems}">
-            <a th:href="@{'/view/' + ${item.id}}" th:text="${item.name}"></a>
+<!--            <a th:href="@{'/view/' + ${item.id}}" th:text="${item.name}"></a>-->
+            <a th:href="@{'/view'}" th:text="${item.name}"></a>
+
         </li>
     </ul>
-    <input type="submit" th:href="${'/menuitems/add'}" value="Add Items"/>
+    <input type="submit" th:href="${'menuitems/add'}" value="Add Items"/>
 
 </div>
 
