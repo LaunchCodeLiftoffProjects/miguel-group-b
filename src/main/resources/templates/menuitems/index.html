@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+    <h2>Products</h2>
+    <ul>
+        <li th:each="item : ${menuItems}">
+            <a th:href="@{'/view/' + ${item.id}}" th:text="${item.name}"></a>
+        </li>
+    </ul>
+    <input type="submit" th:href="${'/menuitems/add'}" value="Add Items"/>
+
+</div>
+
+</body>
