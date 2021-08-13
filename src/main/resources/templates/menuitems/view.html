@@ -8,9 +8,10 @@
 <nav th:replace="fragments :: page-header"></nav>
 
 <div class="job-listing">
-    <p th:text="${'Name: ' + menuItem.name}"></p>
-    <p th:text="${'Description: ' + menuItem.description}"></p>
-    <p th:text="${'Price: ' + menuItem.price}"></p>
+    <p th:text="${'ID: ' + item.id}"></p>
+    <p th:text="${'Name: ' + item.name}"></p>
+    <p th:text="${'Description: ' + item.description}"></p>
+    <p th:text="${'Price: ' + item.price}"></p>
 </div>
 
 </body>

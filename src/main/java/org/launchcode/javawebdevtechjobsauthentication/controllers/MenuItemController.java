@@ -21,7 +21,7 @@ public class MenuItemController {
     @GetMapping
     public String index(Model model){
         model.addAttribute("title", "All Items");
-        model.addAttribute("item", menuItemRepository.findAll());
+        model.addAttribute("menuItems", menuItemRepository.findAll());
         return "menuitems/index";
     }
 
@@ -56,5 +56,17 @@ public class MenuItemController {
             }
         }
     return "redirect:";
+    }
+
+    @GetMapping("view/{menuItemId}/")
+    public String viewMenuItemById(Model model, @PathVariable int menuItemId){
+        Optional optItem = menuItemRepository.findById(menuItemId);;
+        if(optItem.isPresent()){
+            MenuItem menuItem = (MenuItem) optItem.get();
+            model.addAttribute("item", menuItem);
+            return "menuitems/view/{menuItemId}";
+        } else {
+            return "redirect:../";
+        }
     }
 }
