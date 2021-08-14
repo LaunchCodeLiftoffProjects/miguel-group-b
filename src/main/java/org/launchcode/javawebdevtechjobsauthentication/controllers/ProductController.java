@@ -45,7 +45,7 @@ public class ProductController {
     public String renderDeleteProduct(Model model){
         model.addAttribute("title", "Delete Item");
         model.addAttribute("products", productRepository.findAll());
-        return "menuitems/delete";
+        return "products/delete";
     }
 
     @PostMapping("delete")
@@ -58,15 +58,41 @@ public class ProductController {
     return "redirect:";
     }
 
-    @GetMapping("view/{productId}/")
+    @GetMapping("view/{productId}")
     public String viewProductById(Model model, @PathVariable int productId){
         Optional optItem = productRepository.findById(productId);;
         if(optItem.isPresent()){
             Product product = (Product) optItem.get();
-            model.addAttribute("item", product);
+            model.addAttribute("product", product);
             return "view/{productId}";
         } else {
             return "redirect:../";
         }
     }
+//
+//    @GetMapping("view")
+//    public String viewAllProducts(Model model){
+//        model.addAttribute("title", "View Products");
+//        model.addAttribute("product", productRepository.findAll());
+//        return "products/view";
+//    }
+@GetMapping("view")
+public String displayProducts(@RequestParam(required = false) Integer productId, Model model) {
+
+    if (productId == null) {
+        model.addAttribute("title", "All Products");
+        model.addAttribute("products", productRepository.findAll());
+    } else {
+        Optional<Product> result = productRepository.findById(productId);
+        if (result.isEmpty()) {
+            model.addAttribute("title", "Invalid ID: " + productId);
+        } else {
+            Product product = result.get();
+            model.addAttribute("title", "Products: " + product.getName());
+            model.addAttribute("products", product.getName());
+        }
+    }
+
+    return "products/view";
+}
 }
