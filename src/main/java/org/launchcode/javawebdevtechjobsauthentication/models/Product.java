@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-public class MenuItem extends AbstractEntity{
+public class Product extends AbstractEntity{
 
     @NotNull
     private String name;
@@ -17,9 +17,9 @@ public class MenuItem extends AbstractEntity{
     @NotNull
     private Double price;
 
-    public MenuItem (){}
+    public Product(){}
 
-    public MenuItem(String name, String description, Double price) {
+    public Product(String name, String description, Double price) {
         this.name = name;
         this.description = description;
         this.price = price;
