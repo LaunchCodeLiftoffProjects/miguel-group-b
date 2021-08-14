@@ -1,17 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
+<head>
+<!--    Font Awesome CDN -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+<!--    Bootstrap 4.3.1-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
 
 <body class="container  body-content">
-<!--<h1 th:text="${'Job: ' + job.name}">Default Title</h1>-->
-<h1>Product Listing</h1>
+
 <nav th:replace="fragments :: page-header"></nav>
 
-<div class="job-listing">
-    <p th:text="${'ID: ' + item.id}"></p>
-    <p th:text="${'Name: ' + item.name}"></p>
-    <p th:text="${'Description: ' + item.description}"></p>
-    <p th:text="${'Price: ' + item.price}"></p>
+<div class="container">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-6 text-center align-self-center"> <img class="img-fluid" src="#"> </div>
+            <div class="col-md-6 info">
+                <div class="row title">
+                    <div class="col">
+                        <h2>Product Listing</h2>
+                    </div>
+                    <div class="col text-right"><a href="#"><i class="fa fa-heart-o"></i></a></div>
+                </div>
+                <p>Product Description Lorem Ipsum Lorem Ipsum Etc </p>
+<!--                <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star-half-full"></span> <span id="reviews">1590 Reviews</span>-->
+            </div>
+        </div>
+
+        <div class="row lower">
+            <div class="col text-right align-self-center"> <button class="btn btn-primary">Add to cart</button></div>
+        </div>
+
+    </div>
 </div>
 
 </body>

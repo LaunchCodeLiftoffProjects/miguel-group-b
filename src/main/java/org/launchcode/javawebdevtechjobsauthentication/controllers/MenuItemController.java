@@ -19,10 +19,10 @@ public class MenuItemController {
     private MenuItemRepository menuItemRepository;
 
     @GetMapping
-    public String index(Model model){
+    public String viewMenuItems(Model model){
         model.addAttribute("title", "All Items");
         model.addAttribute("menuItems", menuItemRepository.findAll());
-        return "menuitems/index";
+        return "menuitems/view";
     }
 
     @GetMapping("add")
