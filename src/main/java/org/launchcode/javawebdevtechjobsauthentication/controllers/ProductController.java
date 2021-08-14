@@ -22,7 +22,7 @@ public class ProductController {
     public String index(Model model){
         model.addAttribute("title", "Products Home");
         model.addAttribute("products", productRepository.findAll());
-        return "index";
+        return "products/index";
     }
 
     @GetMapping("add")

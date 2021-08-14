@@ -1,87 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <!--    Font Awesome CDN -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <!--    Bootstrap 4.3.1-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</head>
-
+<!--&lt;!&ndash;    TODO: FIGURE OUT IF YOU CAN USE DIFFERENT BOOTSTRAP V&ndash;&gt;-->
+<head th:replace="fragments :: head"></head>
 <body>
-<!--Start Nav-->
-<div class="navbar navbar-inverse navbar-fixed-top text-white bg-dark">
+<!--TODO: FIX NAVBAR-->
+<!--<div th:replace="fragments :: page-header"></div>-->
+<div th:fragment="navigation" class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <a th:href="@{/}" class="navbar-brand">BarApp</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a th:href="@{/products/index}">View Products</a></li>
+                <li><a th:href="@{/products}">Products</a></li>
+                <li><a th:href="@{/products/add}">Add Products</a></li>
                 <li><a th:href="@{/logout}">Logout</a></li>
-                <li><a th:href="@{#}">View Cart</a></li>
-                <li><a th:href="@{#}">Checkout</a></li>
             </ul>
         </div>
     </div>
 </div>
-<!--End of Nav-->
 
 <div class="container body-content">
     <div class="jumbotron">
-        <h2>Products Home</h2>
-        <p class="lead"> This is the home page for product listings. In the future, search and sorting functionality will be added to this page.</p>
+        <h1>Products Home</h1>
+        <p class="lead"> This is the home page for product listings. In the future, search and sorting functionality will be added to this page. Another possible feature to be implemented is sorting by category</p>
         <hr class="my-4">
         <p>The main content of this page will be featured items.</p>
         <a class="btn btn-primary btn-lg" href="#" role="button">View All</a>
     </div>
-
-    <ul class="list-unstyled" th:each="featureProduct : ${products}">
-        <li class="media" td th:text="${featureProduct.name}">
-            <img src="..." class="mr-3" alt="...">
-            <div class="media-body">
-                <h5 class="mt-0 mb-1">List-based media object</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-            </div>
-        </li>
-<!--        <li class="media my-4" td th:text="${featureProduct.name}">-->
-<!--            <img src="..." class="mr-3" alt="...">-->
-<!--            <div class="media-body">-->
-<!--                <h5 class="mt-0 mb-1">List-based media object</h5>-->
-<!--                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.-->
-<!--            </div>-->
-<!--        </li>-->
-<!--        <li class="media" td th:text="${featureProduct.name}">-->
-<!--            <img src="..." class="mr-3" alt="...">-->
-<!--            <div class="media-body">-->
-<!--                <h5 class="mt-0 mb-1">List-based media object</h5>-->
-<!--                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.-->
-<!--            </div>-->
-<!--        </li>-->
-    </ul>
-
+<!--TODO: WRITE FUNCTION TO DISPLAY RANDOM ITEMS-->
+<!--TODO: INCLUDE IMAGES-->
+    <h4>Featured Products</h4>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.description}"></td>
+            <td th:text="${product.price}"></td>
+        </tr>
+    </table>
 </div>
 </body>
-<!--<div class="container body-content">-->
-<!--    <h2>Products</h2>-->
-<!--    <ul>-->
-<!--        <li th:each="item : ${menuItems}">-->
-<!--            <a th:href="@{'/view' + ${item.id}}" th:text="${item.name}"></a>-->
-<!--&lt;!&ndash;            <a th:href="@{'/view'}" th:text="${item.name}"></a>&ndash;&gt;-->
-
-<!--        </li>-->
-<!--    </ul>-->
-<!--    <input type="submit" th:href="${'menuitems/add'}" value="Add Items"/>-->
-<!--    <input type="submit" th:href="${'menuitems/delete'}" value="Delete Items"/>-->
-<!--</div>-->
-<!--<div class="container">-->
-<!--    <h2>All Products</h2>-->
-<!--    <ul>-->
-<!--        <li th:each=" item : ${menuItems}">-->
-<!--            <a th:href="@'/view/' + ${item.id}" th:text="${item.name}"></a>-->
-<!--        </li>-->
-<!--    </ul>-->
-<!--        <input type="submit" th:href="${'menuitems/add'}" value="Add Items"/>-->
-<!--        <input type="submit" th:href="${'menuitems/delete'}" value="Delete Items"/>-->
-<!--</div>-->
-
