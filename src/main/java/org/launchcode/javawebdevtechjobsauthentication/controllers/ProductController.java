@@ -69,13 +69,15 @@ public class ProductController {
             return "redirect:../";
         }
     }
+
 //
-//    @GetMapping("view")
+//    @GetMapping("products/view")
 //    public String viewAllProducts(Model model){
 //        model.addAttribute("title", "View Products");
 //        model.addAttribute("product", productRepository.findAll());
 //        return "products/view";
 //    }
+
 @GetMapping("view")
 public String displayProducts(@RequestParam(required = false) Integer productId, Model model) {
 
@@ -92,7 +94,6 @@ public String displayProducts(@RequestParam(required = false) Integer productId,
             model.addAttribute("products", product.getName());
         }
     }
-
     return "products/view";
 }
 }

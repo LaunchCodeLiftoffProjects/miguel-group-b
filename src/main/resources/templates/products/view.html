@@ -13,14 +13,41 @@
             <th>Name</th>
             <th>Description</th>
             <th>Price</th>
+            <th>Add to Cart</th>
         </tr>
         <tr th:each="product : ${products}">
             <td th:text="${product.name}"></td>
             <td th:text="${product.description}"></td>
             <td th:text="${product.price}"></td>
+            <td><button class="btn btn-success-sm" role="button">Add</button></td>
         </tr>
     </table>
 
+<!--<table>-->
+<!--    <div th:each="product : ${products}">-->
+<!--<div class="card" style="width: 18rem;">-->
+<!--    <img class="card-img-top" src="..." alt="Card image cap">-->
+<!--    <div class="card-body">-->
+<!--        <h5 class="card-title" th:text="${product.name}"></h5>-->
+<!--        <p class="card-text" th:text="${product.description}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--        <a href="#" class="btn btn-primary">Add</a>-->
+<!--    </div>-->
+<!--</div>-->
+<!--    </div>-->
+<!--</table>-->
+<!--TODO INSTEAD OF A TABLE, DISPLAY ITEMS AS CARDS-->
+<!--<div class="row">-->
+<!--    <div class="column">-->
+<!--        <div class="card" th:each="product : ${products}">-->
+<!--            <img class="card-img-top" style="width:286px;height:180px;" src="..." alt="Card image cap">-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title" th:text="${product.name}"></h5>-->
+<!--                    <p class="card-text" th:text="${product.description}"></p>-->
+<!--                    <a href="#" class="btn btn-primary btn-sm">Add</a>-->
+<!--                </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 </body>
 </html>
