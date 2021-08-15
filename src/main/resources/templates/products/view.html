@@ -13,12 +13,15 @@
             <th>Name</th>
             <th>Description</th>
             <th>Price</th>
+            <th>Quantity</th>
             <th>Add to Cart</th>
         </tr>
+<!--TODO: MAKE PRODUCT NAME A LINK TO THE INDIVIDUAL PRODUCT-->
         <tr th:each="product : ${products}">
             <td th:text="${product.name}"></td>
             <td th:text="${product.description}"></td>
             <td th:text="${product.price}"></td>
+            <td><input type="number" min="0" max="10"></td>
             <td><button class="btn btn-success-sm" role="button">Add</button></td>
         </tr>
     </table>
