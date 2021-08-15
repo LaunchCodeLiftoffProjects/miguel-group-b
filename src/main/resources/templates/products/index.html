@@ -4,7 +4,7 @@
 <head th:replace="fragments :: head"></head>
 <body>
 <!--TODO: FIX NAVBAR-->
-<!--<div th:replace="fragments :: page-header"></div>-->
+<div th:replace="fragments :: page-header"></div>
 <div th:fragment="navigation" class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -14,11 +14,9 @@
             <ul class="nav navbar-nav">
                 <li><a th:href="@{/products}">Products</a></li>
                 <li><a th:href="@{/products/add}">Add Products</a></li>
+                <li><a th:href="@{/products/delete}">Delete Products</a></li>
                 <li><a th:href="@{/logout}">Logout</a></li>
-<!--TODO: FIX BUTTON MARGIN-->
-                <li><a class="btn btn-primary btn-md" role="button">Cart</a></li>
             </ul>
-
         </div>
     </div>
 </div>
@@ -51,7 +49,7 @@
         </div>
         <div class="col-md-6 col-md-3">
             <a th:href="@{/products/view/6}" class="thumbnail">
-                <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1049&q=80" style="height:300px;width:400px;" alt="cosmopolitan">
+                <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1049&q=80" style="height:300px;width:400px;" alt="whiskey sour">
             </a>
         </div>
     </div>
