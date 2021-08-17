@@ -1,7 +1,7 @@
 package org.launchcode.javawebdevtechjobsauthentication.controllers;
 
-import org.launchcode.javawebdevtechjobsauthentication.models.data.JobRepository;
-import org.launchcode.javawebdevtechjobsauthentication.models.Job;
+import org.launchcode.javawebdevtechjobsauthentication.models.Vendor;
+import org.launchcode.javawebdevtechjobsauthentication.models.data.VendorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,39 +18,40 @@ import java.util.Optional;
 public class HomeController {
 
     @Autowired
-    private JobRepository jobRepository;
+    private VendorRepository vendorRepository;
 
     @RequestMapping("")
     public String index(Model model) {
-        model.addAttribute("jobs", jobRepository.findAll());
+        model.addAttribute("vendors", vendorRepository.findAll());
+        model.addAttribute("title", "test stuff");
         return "index";
     }
 
-    @GetMapping("add")
+    @GetMapping("addVendor")
     public String displayAddJobForm(Model model) {
-        model.addAttribute(new Job());
-        return "add";
+        model.addAttribute(new Vendor());
+        return "addVendor";
     }
 
-    @PostMapping("add")
-    public String processAddJobForm(@ModelAttribute @Valid Job newJob,
+    @PostMapping("addVendor")
+    public String processAddVendorForm(@ModelAttribute @Valid Vendor newVendor,
                                        Errors errors) {
 
         if (errors.hasErrors()) {
-            return "add";
+            return "addVendor";
         }
 
-        jobRepository.save(newJob);
+        vendorRepository.save(newVendor);
         return "redirect:";
     }
 
-    @GetMapping("view/{jobId}")
-    public String displayViewJob(Model model, @PathVariable int jobId) {
+    @GetMapping("view/{vendorId}")
+    public String displayViewVendor(Model model, @PathVariable int jobId) {
 
-        Optional optJob = jobRepository.findById(jobId);
+        Optional optJob = vendorRepository.findById(jobId);
         if (!optJob.isEmpty()) {
-            Job job = (Job) optJob.get();
-            model.addAttribute("job", job);
+            Vendor vendor = (Vendor) optJob.get();
+            model.addAttribute("vendor", vendor);
             return "view";
         } else {
             return "redirect:/";
