@@ -25,7 +25,7 @@
     <div class="jumbotron">
         <h1>Products Home</h1>
         <p class="lead"> This is the home page for product listings. In the future, search and sorting functionality will be added to this page. Another possible feature to be implemented is sorting by category</p>
-        <p><a class="btn btn-primary btn-lg" th:href="@{/products/view}" role="button">View All</a></p>
+<!--        <p><a class="btn btn-primary btn-lg" role="button">View All</a></p>-->
     </div>
 
 <!--TODO: WRITE FUNCTION TO DISPLAY RANDOM ITEMS-->
@@ -53,6 +53,25 @@
         </div>
     </div>
 
-</div>
+    <h1>All Products</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Add to Cart</th>
+            </tr>
+    <!--TODO: MAKE PRODUCT NAME A LINK TO THE INDIVIDUAL PRODUCT-->
+            <tr th:each="product : ${products}">
+                <td th:text="${product.name}"></td>
+                <td th:text="${product.description}"></td>
+                <td th:text="${product.price}"></td>
+                <td><input type="number" min="0" max="10"></td>
+                <td><button class="btn btn-success-sm" role="button">Add</button></td>
+            </tr>
+        </table>
 
+</div>
 </body>
+</html>

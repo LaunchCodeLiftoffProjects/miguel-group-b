@@ -64,31 +64,31 @@ public class ProductController {
         if(optItem.isPresent()){
             Product product = (Product) optItem.get();
             model.addAttribute("product", product);
-            return "view/{productId}";
+            return "products/view";
         } else {
             return "redirect:";
         }
     }
 
-@GetMapping("view")
-public String displayProducts(@RequestParam(required = false) Integer productId, Model model) {
-
-    if (productId == null) {
-        model.addAttribute("title", "All Products");
-        model.addAttribute("products", productRepository.findAll());
-    } else {
-        Optional<Product> result = productRepository.findById(productId);
-        if (result.isEmpty()) {
-            model.addAttribute("title", "Invalid ID: " + productId);
-        } else {
-            Product product = result.get();
-            model.addAttribute("title", "Products: " + product.getName());
-            model.addAttribute("products", product.getId());
-            return "products/view/{productId}";
-            }
-        }
-        return "products/view";
-    }
+//@GetMapping("view")
+//public String displayProducts(@RequestParam(required = false) Integer productId, Model model) {
+//
+//    if (productId == null) {
+//        model.addAttribute("title", "All Products");
+//        model.addAttribute("products", productRepository.findAll());
+//    } else {
+//        Optional<Product> result = productRepository.findById(productId);
+//        if (result.isEmpty()) {
+//            model.addAttribute("title", "Invalid ID: " + productId);
+//        } else {
+//            Product product = result.get();
+//            model.addAttribute("title", "Products: " + product.getName());
+//            model.addAttribute("products", product.getId());
+//            return "products/view/{productId}";
+//            }
+//        }
+//        return "products/view";
+//    }
 
 //    @GetMapping("edit/{productId}")
 //    public String editProductForm(Model model, @PathVariable int productId){

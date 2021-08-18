@@ -21,25 +21,40 @@
     </div>
 </div>
 
+<div class="job-listing">
+    <p th:text="${'Name: ' + product.name}"></p>
+    <p th:text="${'Description: ' + product.description}"></p>
+    <p th:text="${'Price: ' + product.price}"></p>
 
-<h1>All Products</h1>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Add to Cart</th>
-        </tr>
-<!--TODO: MAKE PRODUCT NAME A LINK TO THE INDIVIDUAL PRODUCT-->
-        <tr th:each="product : ${products}">
-            <td th:text="${product.name}"></td>
-            <td th:text="${product.description}"></td>
-            <td th:text="${product.price}"></td>
-            <td><input type="number" min="0" max="10"></td>
-            <td><button class="btn btn-success-sm" role="button">Add</button></td>
-        </tr>
-    </table>
+    <!--    <p> Jobs:-->
+<!--    <ul>-->
+<!--        <li th:each="product : ${prod.jobs}">-->
+<!--            <a th:href="@{'/view/' + ${job.id}}" th:text="${job.name}"></a>-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--    </p>-->
+</div>
+
+
+
+<!--<h1>All Products</h1>-->
+<!--    <table>-->
+<!--        <tr>-->
+<!--            <th>Name</th>-->
+<!--            <th>Description</th>-->
+<!--            <th>Price</th>-->
+<!--            <th>Quantity</th>-->
+<!--            <th>Add to Cart</th>-->
+<!--        </tr>-->
+<!--&lt;!&ndash;TODO: MAKE PRODUCT NAME A LINK TO THE INDIVIDUAL PRODUCT&ndash;&gt;-->
+<!--        <tr th:each="product : ${products}">-->
+<!--            <td th:text="${product.name}"></td>-->
+<!--            <td th:text="${product.description}"></td>-->
+<!--            <td th:text="${product.price}"></td>-->
+<!--            <td><input type="number" min="0" max="10"></td>-->
+<!--            <td><button class="btn btn-success-sm" role="button">Add</button></td>-->
+<!--        </tr>-->
+<!--    </table>-->
 
 </body>
 </html>
