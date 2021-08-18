@@ -19,6 +19,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
+
 public class AuthenticationController {
 
     @Autowired
