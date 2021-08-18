@@ -1,7 +1,7 @@
 package org.launchcode.javawebdevtechjobsauthentication.registration.token;
 
 
-import com.example.demo.appuser.AppUser;
+import org.launchcode.javawebdevtechjobsauthentication.appuser.AppUser;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

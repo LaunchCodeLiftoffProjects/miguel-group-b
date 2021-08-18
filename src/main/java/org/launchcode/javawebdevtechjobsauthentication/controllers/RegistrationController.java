@@ -1,6 +1,8 @@
 package org.launchcode.javawebdevtechjobsauthentication.controllers;
 
 import lombok.AllArgsConstructor;
+import org.launchcode.javawebdevtechjobsauthentication.registration.RegistrationRequest;
+import org.launchcode.javawebdevtechjobsauthentication.registration.RegistrationService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

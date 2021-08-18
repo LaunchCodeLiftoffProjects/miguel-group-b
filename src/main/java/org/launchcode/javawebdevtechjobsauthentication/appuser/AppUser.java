@@ -1,4 +1,5 @@
-package org.launchcode.javawebdevtechjobsauthentication.appuser
+package org.launchcode.javawebdevtechjobsauthentication.appuser;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
