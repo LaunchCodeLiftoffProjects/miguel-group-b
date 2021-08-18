@@ -6,7 +6,7 @@ import org.launchcode.javawebdevtechjobsauthentication.registration.Registration
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "api/v1/registration")
+@RequestMapping(value = "api/v1/registration")
 @AllArgsConstructor
 public class RegistrationController {
 
