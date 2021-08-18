@@ -1,0 +1,49 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org/">-->
+
+<!--<head th:replace="fragments :: head"></head>-->
+
+<!--<body class="container body-content">-->
+
+<!--<div th:fragment="navigation" class="navbar navbar-inverse navbar-fixed-top">-->
+<!--    <div class="container">-->
+<!--        <div class="navbar-header">-->
+<!--            <a th:href="@{/}" class="navbar-brand">BarApp</a>-->
+<!--        </div>-->
+<!--        <div class="navbar-collapse collapse">-->
+<!--            <ul class="nav navbar-nav">-->
+<!--                <li><a th:href="@{/products}">Products</a></li>-->
+<!--                <li><a th:href="@{/products/add}">Add Products</a></li>-->
+<!--                <li><a th:href="@{/products/delete}">Delete Products</a></li>-->
+<!--                <li><a th:href="@{/logout}">Logout</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<h1>Edit Product</h1>-->
+
+<!--<form method="post" style="max-width:600px;" th:action="@{/products/edit}">-->
+<!--    <div class="form-group">-->
+<!--        <label th:for="name">Name</label>-->
+<!--        <input class="form-control" th:field="${product.name}" />-->
+<!--        <span th:errors="${product.name}" class="error"></span>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label th:for="name">Description</label>-->
+<!--        <input class="form-control" th:field="${product.description}" />-->
+<!--        <span th:errors="${product.description}" class="error"></span>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label th:for="name">Price</label>-->
+<!--        <input class="form-control" th:field="${product.price}" />-->
+<!--        <span th:errors="${product.price}" class="error"></span>-->
+<!--    </div>-->
+
+<!--    <input type="submit" value="Edit Item"/>-->
+<!--&lt;!&ndash;    <input type="hidden" th:value="${product.id}" name="productId" />&ndash;&gt;-->
+
+<!--</form>-->
+
+<!--</body>-->
+<!--</html>-->

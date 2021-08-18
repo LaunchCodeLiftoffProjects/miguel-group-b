@@ -66,7 +66,7 @@ public class ProductController {
             model.addAttribute("product", product);
             return "view/{productId}";
         } else {
-            return "redirect:../";
+            return "redirect:";
         }
     }
 
@@ -84,9 +84,25 @@ public String displayProducts(@RequestParam(required = false) Integer productId,
             Product product = result.get();
             model.addAttribute("title", "Products: " + product.getName());
             model.addAttribute("products", product.getId());
-            return "products/view/${productId}";
+            return "products/view/{productId}";
             }
         }
         return "products/view";
     }
+
+//    @GetMapping("edit/{productId}")
+//    public String editProductForm(Model model, @PathVariable int productId){
+//        model.addAttribute("title", "Edit Product");
+//        model.addAttribute("product", productRepository.findById(productId));
+//        return "edit/{productId}";
+//    }
+//
+//    @PostMapping("edit/{productId}")
+//    public String processEditProductForm(@ModelAttribute Product newProduct, Model model){
+//        model.addAttribute("name", newProduct.setName());
+//        model.addAttribute("description", newProduct.setDescription());
+//        model.addAttribute("price", newProduct.setPrice());
+//        return "redirect:";
+//    }
+
 }
