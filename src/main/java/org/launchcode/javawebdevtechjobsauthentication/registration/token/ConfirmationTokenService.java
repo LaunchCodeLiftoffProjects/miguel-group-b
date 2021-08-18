@@ -1,5 +1,6 @@
 package org.launchcode.javawebdevtechjobsauthentication.registration.token;
 
+import org.launchcode.javawebdevtechjobsauthentication.models.data.ConfirmationTokenRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,7 @@
 package org.launchcode.javawebdevtechjobsauthentication.appuser;
 
 import org.launchcode.javawebdevtechjobsauthentication.models.data.AppUserRepository;
+import org.launchcode.javawebdevtechjobsauthentication.registration.token.ConfirmationToken;
 import org.launchcode.javawebdevtechjobsauthentication.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
