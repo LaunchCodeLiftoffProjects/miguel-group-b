@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+<h1>View Cart</h1>
+    <div th:each="order:${orders}">
+        <p th:text="${order.dateCreated}"></p>
+    </div>
+</div>
+
+</body>
+</html>
