@@ -10,6 +10,8 @@ org/launchcode/javawebdevtechjobsauthentication/WebApplicationConfig.java
  org.launchcode.javawebdevtechjobsauthentication.WebApplicationConfig
 org/launchcode/javawebdevtechjobsauthentication/models/DTO/RegisterFormDTO.java
  org.launchcode.javawebdevtechjobsauthentication.models.DTO.RegisterFormDTO
+org/launchcode/javawebdevtechjobsauthentication/controllers/ProductController.java
+ org.launchcode.javawebdevtechjobsauthentication.controllers.ProductController
 org/launchcode/javawebdevtechjobsauthentication/models/data/ProductRepository.java
  org.launchcode.javawebdevtechjobsauthentication.models.data.ProductRepository
 org/launchcode/javawebdevtechjobsauthentication/models/User.java
@@ -22,5 +24,5 @@ org/launchcode/javawebdevtechjobsauthentication/models/Product.java
  org.launchcode.javawebdevtechjobsauthentication.models.Product
 org/launchcode/javawebdevtechjobsauthentication/AuthenticationFilter.java
  org.launchcode.javawebdevtechjobsauthentication.AuthenticationFilter
-org/launchcode/javawebdevtechjobsauthentication/controllers/ProductController.java
- org.launchcode.javawebdevtechjobsauthentication.controllers.ProductController
+org/launchcode/javawebdevtechjobsauthentication/models/Menu.java
+ org.launchcode.javawebdevtechjobsauthentication.models.Menu

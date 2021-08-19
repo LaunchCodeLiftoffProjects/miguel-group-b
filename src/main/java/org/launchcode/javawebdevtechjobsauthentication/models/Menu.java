@@ -8,12 +8,11 @@ import java.util.List;
 @Entity
 public class Menu extends AbstractEntity {
 
-    @OneToMany(mappedBy = "menu")
-    @JoinColumn
+    @OneToMany
     private List<Product> productList;
 
+//    placeholder for Restaurant object
     private String restaurantTitle;
-
 
     public Menu() {
     }

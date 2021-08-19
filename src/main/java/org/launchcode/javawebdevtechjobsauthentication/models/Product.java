@@ -7,7 +7,7 @@ import javax.validation.constraints.Size;
 @Entity
 public class Product extends AbstractEntity{
 
-    @NotNull
+    @NotNull(message = "Product name is required")
     private String name;
 
     @NotNull
@@ -17,12 +17,15 @@ public class Product extends AbstractEntity{
     @NotNull
     private Double price;
 
+    private String pictureURL;
+
     public Product(){}
 
-    public Product(String name, String description, Double price) {
+    public Product(String name, String description, Double price, String pictureURL) {
         this.name = name;
         this.description = description;
         this.price = price;
+        this.pictureURL = pictureURL;
     }
 
     public String getName() {
@@ -48,4 +51,13 @@ public class Product extends AbstractEntity{
     public void setPrice(Double price) {
         this.price = price;
     }
+
+    public String getPictureURL() {
+        return pictureURL;
+    }
+
+    public void setPictureURL(String pictureURL) {
+        this.pictureURL = pictureURL;
+    }
+
 }
