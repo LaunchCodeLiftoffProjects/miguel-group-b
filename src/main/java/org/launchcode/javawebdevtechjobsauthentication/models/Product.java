@@ -1,6 +1,7 @@
 package org.launchcode.javawebdevtechjobsauthentication.models;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -19,13 +20,24 @@ public class Product extends AbstractEntity{
 
     private String pictureURL;
 
+    private Order order;
+
     public Product(){}
 
-    public Product(String name, String description, Double price, String pictureURL) {
+    public Product(String name, String description, Double price, String pictureURL, Order order) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.pictureURL = pictureURL;
+        this.order=order;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     public String getName() {

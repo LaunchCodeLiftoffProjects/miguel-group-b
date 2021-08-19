@@ -1,7 +1,6 @@
 package org.launchcode.javawebdevtechjobsauthentication.models;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import java.util.List;
 
@@ -11,7 +10,7 @@ public class Menu extends AbstractEntity {
     @OneToMany
     private List<Product> productList;
 
-//    placeholder for Restaurant object
+//  placeholder for Restaurant object
     private String restaurantTitle;
 
     public Menu() {

@@ -1,7 +1,8 @@
 package org.launchcode.javawebdevtechjobsauthentication.models;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,25 +10,25 @@ import java.util.List;
 @Entity
 public class Order extends AbstractEntity{
 
-
-    private User username;
-
+//    private User username;
 
     private LocalDate dateCreated;
 
     private String status;
 
-    @Valid
     private List<Product> orderProducts = new ArrayList<>();
 
-    public Order(User username, LocalDate dateCreated, String status, List<Product> orderProducts) {
-        this.username = username;
+    public Order(LocalDate dateCreated, String status, List<Product> orderProducts) {
         this.dateCreated = dateCreated;
         this.status = status;
         this.orderProducts = orderProducts;
     }
 
     public Order() {
+    }
+
+    public void addOrderProducts(Product product){
+        this.orderProducts.add(product);
     }
 
     public Double getOrderTotal() {
@@ -37,14 +38,6 @@ public class Order extends AbstractEntity{
             sum += p.getPrice();
         }
         return sum;
-    }
-
-    public User getUsername() {
-        return username;
-    }
-
-    public void setUsername(User username) {
-        this.username = username;
     }
 
     public int getNumberOfProducts(){

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
 <head th:replace="fragments :: head"></head>
 
 <body class="container body-content">
@@ -20,20 +21,26 @@
     </div>
 </div>
 
-<h1>Add Products To Cart</h1>
+<h1>Create Cart</h1>
 
-<form method="post">
+<form method="post" style="max-width:600px;">
+    <div class="form-group">
+        <label th:for="name">Name</label>
+        <input class="form-control" th:field="${product.name}" />
+        <span th:errors="${product.name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="name">Description</label>
+        <input class="form-control" th:field="${product.description}" />
+        <span th:errors="${product.description}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="name">Price</label>
+        <input class="form-control" th:field="${product.price}" />
+        <span th:errors="${product.price}" class="error"></span>
+    </div>
 
-    <th:block th:each="product : ${products}">
-        <div class="form-group">
-            <label>
-                <span th:text="${product.name}"></span>
-                <input type="checkbox" name="productIds" th:value="${product.id}" class="form-control">
-            </label>
-        </div>
-    </th:block>
-
-    <input type="submit" value="Add To Cart" class="btn btn-danger">
+    <input type="submit" value="Add Item"/>
 </form>
 
 </body>
