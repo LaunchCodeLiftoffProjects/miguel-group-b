@@ -12,7 +12,7 @@ public class RegistrationController {
 
     private final RegistrationService registrationService;
 
-    @PostMapping()
+    @PostMapping(path = "register2")
     public String register(@RequestBody RegistrationRequest request) {
         return registrationService.register(request);
     }
