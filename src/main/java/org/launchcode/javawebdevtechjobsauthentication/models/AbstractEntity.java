@@ -3,6 +3,7 @@ package org.launchcode.javawebdevtechjobsauthentication.models;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @MappedSuperclass
@@ -10,6 +11,7 @@ public abstract class AbstractEntity {
 
     @Id
     @GeneratedValue
+    @NotNull
     private int id;
 
     public int getId() {
