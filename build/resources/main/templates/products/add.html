@@ -30,15 +30,21 @@
         <span th:errors="${product.name}" class="error"></span>
     </div>
     <div class="form-group">
-        <label th:for="name">Description</label>
+        <label th:for="description">Description</label>
         <input class="form-control" th:field="${product.description}" />
         <span th:errors="${product.description}" class="error"></span>
     </div>
     <div class="form-group">
-        <label th:for="name">Price</label>
+        <label th:for="price">Price</label>
         <input class="form-control" th:field="${product.price}" />
         <span th:errors="${product.price}" class="error"></span>
     </div>
+    <div class="form-group">
+        <label th:for="pictureURL">Picture URL</label>
+        <input class="form-control" th:field="${product.pictureURL}" />
+        <span th:errors="${product.pictureURL}" class="error"></span>
+    </div>
+
 
     <input type="submit" value="Add Item"/>
 </form>

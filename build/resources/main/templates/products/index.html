@@ -25,53 +25,79 @@
     <div class="jumbotron">
         <h1>Products Home</h1>
         <p class="lead"> This is the home page for product listings. In the future, search and sorting functionality will be added to this page. Another possible feature to be implemented is sorting by category</p>
-<!--        <p><a class="btn btn-primary btn-lg" role="button">View All</a></p>-->
+        <p><a class="btn btn-primary btn-lg" role="button" href="/#product-table">View as Table</a></p>
     </div>
 
 <!--TODO: WRITE FUNCTION TO DISPLAY RANDOM ITEMS-->
-    <h4>Featured Products</h4>
-    <div class="row">
-        <div class="col-md-6 col-md-3">
-            <a th:href="@{/products/view/5}" class="thumbnail">
-                <img src="https://images.unsplash.com/photo-1582993232955-39424b2cef01?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2133&q=80" style="height:300px;width:400px;" alt="martini">
-            </a>
-        </div>
-        <div class="col-md-6 col-md-3">
-            <a th:href="@{/products/view/7}" class="thumbnail">
-                <img src="https://images.unsplash.com/photo-1558645836-e44122a743ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2134&q=80" style="height:300px;width:400px;" alt="mimosa">
-            </a>
-        </div>
-        <div class="col-md-6 col-md-3">
-            <a th:href="@{/products/view/4}" class="thumbnail">
-                <img src="https://images.unsplash.com/photo-1556881261-e41e8db21055?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80" style="height:300px;width:400px;" alt="cosmopolitan">
-            </a>
-        </div>
-        <div class="col-md-6 col-md-3">
-            <a th:href="@{/products/view/6}" class="thumbnail">
-                <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1049&q=80" style="height:300px;width:400px;" alt="whiskey sour">
-            </a>
+<!--    <h4>Featured Products</h4>-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-6 col-md-3">-->
+<!--            <a th:href="@{/products/view/5}" class="thumbnail">-->
+<!--                <img src="https://images.unsplash.com/photo-1582993232955-39424b2cef01?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2133&q=80" style="height:300px;width:400px;" alt="martini">-->
+<!--            </a>-->
+<!--        </div>-->
+<!--        <div class="col-md-6 col-md-3">-->
+<!--            <a th:href="@{/products/view/7}" class="thumbnail">-->
+<!--                <img src="https://images.unsplash.com/photo-1558645836-e44122a743ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2134&q=80" style="height:300px;width:400px;" alt="mimosa">-->
+<!--            </a>-->
+<!--        </div>-->
+<!--        <div class="col-md-6 col-md-3">-->
+<!--            <a th:href="@{/products/view/4}" class="thumbnail">-->
+<!--                <img src="https://images.unsplash.com/photo-1556881261-e41e8db21055?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80" style="height:300px;width:400px;" alt="cosmopolitan">-->
+<!--            </a>-->
+<!--        </div>-->
+<!--        <div class="col-md-6 col-md-3">-->
+<!--            <a th:href="@{/products/view/}" class="thumbnail">-->
+<!--                <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1049&q=80" style="height:300px;width:400px;" alt="whiskey sour">-->
+<!--            </a>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3" th:each="product : ${products}">
+                <div class="content mx-auto">
+                    <a href="@{'/products/view/' + ${product.id}}">
+                        <div class="content-overlay"></div>
+                        <img class="content-image" th:src="${product.pictureURL}" alt="placeholder">
+                        <div class="content-details fadeIn-bottom">
+                            <button class="btn btn-md btn-secondary m-4" th:href="@{'/products/view/' + ${productId}}">View</button><br>
+                            <a href="@{/cart/add}"><i class="fas fa-heart"></i></a>
+                            <a href="@{/cart/add}"><i class="fas fa-plus"></i></a>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
+
+<div class="container" id="product-table">
     <h1>All Products</h1>
         <table>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Add to Cart</th>
-            </tr>
-    <!--TODO: MAKE PRODUCT NAME A LINK TO THE INDIVIDUAL PRODUCT-->
-            <tr th:each="product : ${products}">
-                <td th:text="${product.name}"></td>
-                <td th:text="${product.description}"></td>
-                <td th:text="${product.price}"></td>
-                <td><input type="number" min="0" max="10"></td>
-                <td><button class="btn btn-success-sm" role="button">Add</button></td>
-            </tr>
-        </table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Add To Cart</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.description}"></td>
+                    <td th:text="'$' + ${product.price}"></td>
+                    <td><input type="number" min="0" max="10"></td>
+                    <td><button class="btn btn-primary" role="button" th:href="@{'/cart/add'}">Add</button></td>
+                    <td><a th:href="@{'/cart/add'}"></a></td>
 
+<!--                                    <td><button class="btn btn-primary" role="button" th:href="@{/cart/add/ + ${product.id}}">Add</button></td>-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 </body>
 </html>

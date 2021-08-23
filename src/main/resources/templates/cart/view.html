@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container  body-content">
+
+<nav th:replace="fragments :: page-header"></nav>
+
+<!--<div class="job-listing">-->
+<!--    <p th:text="${'ID: ' + product.id}"></p>-->
+<!--    <p th:text="${'Name: ' + product.name}"></p>-->
+<!--    <p th:text="${'Description: ' + product.description}"></p>-->
+<!--    <p th:text="${'Price: ' + product.price}"></p>-->
+<!--</div>-->
+
+<div class="container" >
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+<!--            <th th:each="items : ${cartItems}"></th>-->
+<!--            <td th:text="${items.product}"></td>-->
+<!--            <td th:text="${items.quantity}"></td>-->
+<!--            <td th:text="${items.price}"></td>-->
+        </tr>
+
+<!--        <tr>-->
+<!--            <th scope="row">Total</th>-->
+<!--            <td>$00.00</td>-->
+<!--        </tr>-->
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

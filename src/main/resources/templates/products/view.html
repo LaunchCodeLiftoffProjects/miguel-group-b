@@ -21,18 +21,17 @@
     </div>
 </div>
 
-<div class="job-listing">
-    <p th:text="${'Name: ' + product.name}"></p>
-    <p th:text="${'Description: ' + product.description}"></p>
-    <p th:text="${'Price: ' + product.price}"></p>
-
-    <!--    <p> Jobs:-->
-<!--    <ul>-->
-<!--        <li th:each="product : ${prod.jobs}">-->
-<!--            <a th:href="@{'/view/' + ${job.id}}" th:text="${job.name}"></a>-->
-<!--        </li>-->
-<!--    </ul>-->
-<!--    </p>-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6"><img th:src="${product.pictureURL}" style="height:auto;width:75%;">
+    </div>
+        <div class="col-md-6" style="font-size:2rem;">
+            <p th:text="${'Name: ' + product.name}"></p>
+            <p th:text="${'Description: ' + product.description}"></p>
+            <p th:text="${'Price: ' + product.price}"></p>
+            <button class="btn btn-md btn-primary" role="button" th:href="@{'/cart/add'}">Add</button>
+        </div>
+    </div>
 </div>
 
 

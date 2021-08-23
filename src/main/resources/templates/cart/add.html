@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:replace="fragments :: head"></head>
+
+<body class="container body-content">
+
+<div th:fragment="navigation" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a th:href="@{/}" class="navbar-brand">BarApp</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a th:href="@{/products}">Products</a></li>
+                <li><a th:href="@{/products/add}">Add Products</a></li>
+                <li><a th:href="@{/products/delete}">Delete Products</a></li>
+                <li><a th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h1>Add Items To Cart</h1>
+
+<form method="post">
+
+    <th:block th:each="product : ${products}">
+        <div class="form-group">
+            <label>
+                <span th:text="${product.name}"></span>
+                <input type="checkbox" name="cartItems" th:value="${product.id}" class="form-control">
+            </label>
+        </div>
+    </th:block>
+
+    <input type="submit" value="Add" class="btn btn-danger">
+</form>
+
+<!--<p th:unless="${cart} and ${cart.size()}">no jobs!</p>-->
+
+<!--<div class="container body-content">-->
+<!--    <h2>Cart</h2>-->
+<!--    <ul>-->
+<!--        <li th:each="product : ${products}">-->
+<!--            <a th:href="@{'/products/view/' + ${product.id}}" th:text="${product.name}"></a>-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--    <a th:href="@{'/cart/view'}">Add Products</a>-->
+
+<!--</div>-->
+
+</body>
+</html>
