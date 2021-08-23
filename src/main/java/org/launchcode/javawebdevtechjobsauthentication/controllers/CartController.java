@@ -21,7 +21,7 @@ public class CartController {
 
     @GetMapping("view")
     public String viewCart(Model model, @ModelAttribute Cart newCart){
-        model.addAttribute("cartItems", newCart.getCartItems());
+        model.addAttribute("cart", newCart.getCartItems());
         return "cart/view";
     }
 
@@ -33,13 +33,13 @@ public class CartController {
     }
 
     @PostMapping("add")
-    public String processAddProduct(@ModelAttribute @Valid Product newProduct,
-                                    @RequestParam List<Product> cartItems,
+    public String processAddProductToCart(@ModelAttribute Product newProduct,
+                                    @ModelAttribute Cart newCart,
                                     Errors errors, Model model){
         if(errors.hasErrors()){
             return "cart/add";
         }
-        cartItems.add(newProduct);
+        newCart.addCartItems(newProduct);
         return "redirect:";
     }
 

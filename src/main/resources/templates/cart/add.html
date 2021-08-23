@@ -24,17 +24,19 @@
 <h1>Add Items To Cart</h1>
 
 <form method="post">
+    <div class="container">
+        <th:block th:each="product : ${products}">
+            <div class="form-group">
+                <label>
+                    <p th:text="${product.name}"></p>
+                    <input type="checkbox" name="cartItems" th:value="${product.id}" class="form-control">
+                </label>
+            </div>
+        </th:block>
 
-    <th:block th:each="product : ${products}">
-        <div class="form-group">
-            <label>
-                <span th:text="${product.name}"></span>
-                <input type="checkbox" name="cartItems" th:value="${product.id}" class="form-control">
-            </label>
-        </div>
-    </th:block>
+        <input type="submit" value="Add" class="btn btn-danger">
+    </div>
 
-    <input type="submit" value="Add" class="btn btn-danger">
 </form>
 
 <!--<p th:unless="${cart} and ${cart.size()}">no jobs!</p>-->
