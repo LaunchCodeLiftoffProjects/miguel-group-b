@@ -1,20 +1,27 @@
 package org.launchcode.javawebdevtechjobsauthentication.models;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import java.util.ArrayList;
 import java.util.List;
-
 public class Cart extends AbstractEntity {
 
     private Product product;
-    private Double quantity;
+
+//    TODO: THIS RELATIONSHIP MAY BE INCORRECT
+    @OneToOne
+    @JoinColumn(name = "cartDetails_id")
+    private CartDetails cartDetails;
+
+    @OneToMany(mappedBy = "cart")
     private List<Product> cartItems = new ArrayList<>();
 
     public Cart(){}
 
-    public Cart(Product product, Double quantity, List<Product> cartItems) {
+    public Cart(Product product, List<Product> cartItems) {
         this.product = product;
-        this.quantity = quantity;
         this.cartItems = cartItems;
     }
 
@@ -24,14 +31,6 @@ public class Cart extends AbstractEntity {
 
     public void setProduct(Product product) {
         this.product = product;
-    }
-
-    public Double getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Double quantity) {
-        this.quantity = quantity;
     }
 
     public List<Product> getCartItems() {
@@ -46,7 +45,7 @@ public class Cart extends AbstractEntity {
         this.cartItems.add(product);
     }
 
-    public void removeCartItems(Product product){
-        this.cartItems.remove(product);
-    }
+//    public void removeCartItems(Product product){
+//        this.cartItems.remove(product);
+//    }
 }

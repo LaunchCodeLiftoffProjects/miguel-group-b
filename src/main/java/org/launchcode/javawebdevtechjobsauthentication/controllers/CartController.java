@@ -56,16 +56,14 @@ public class CartController {
         return "cart/delete";
     }
 
-    @PostMapping("delete")
-    public String processDeleteProductFromCart(@RequestParam(required = false) Product[] products, @ModelAttribute Cart newCart) {
-        if (products != null) {
-            for(Product p : products) {
-                newCart.removeCartItems(p);
-            }
-        }
-        return "redirect:";
-    }
-
-
+//    @PostMapping("delete")
+//    public String processDeleteProductFromCart(@RequestParam(required = false) Product[] products, @ModelAttribute Cart newCart) {
+//        if (products != null) {
+//            for(Product p : products) {
+//                newCart.removeCartItems(p);
+//            }
+//        }
+//        return "redirect:";
+//    }
 
 }
