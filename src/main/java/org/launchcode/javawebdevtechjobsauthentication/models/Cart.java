@@ -45,4 +45,8 @@ public class Cart extends AbstractEntity {
     public void addCartItems(Product product){
         this.cartItems.add(product);
     }
+
+    public void removeCartItems(Product product){
+        this.cartItems.remove(product);
+    }
 }
