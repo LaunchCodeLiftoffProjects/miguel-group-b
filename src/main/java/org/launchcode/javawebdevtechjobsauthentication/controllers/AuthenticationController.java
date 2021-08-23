@@ -41,7 +41,7 @@ public class AuthenticationController {
         return user.get();
     }
 
-    @GetMapping("/register")
+    @GetMapping("/register2")
     public String displayRegistrationForm(Model model) {
         model.addAttribute(new RegisterFormDTO());
         model.addAttribute("title", "Register");
@@ -52,14 +52,14 @@ public class AuthenticationController {
         session.setAttribute(userSessionKey, user.getId());
     }
 
-    @PostMapping("/register")
+    @PostMapping("/register2")
     public String processRegistrationForm(@ModelAttribute @Valid RegisterFormDTO registerFormDTO,
                                           Errors errors, HttpServletRequest request,
                                           Model model) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Register");
-            return "register";
+            return "register2";
         }
 
         User existingUser = userRepository.findByUsername(registerFormDTO.getUsername());
@@ -67,7 +67,7 @@ public class AuthenticationController {
         if (existingUser != null) {
             errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
             model.addAttribute("title", "Register");
-            return "register";
+            return "register2";
         }
 
         String password = registerFormDTO.getPassword();
@@ -75,7 +75,7 @@ public class AuthenticationController {
         if (!password.equals(verifyPassword)) {
             errors.rejectValue("password", "passwords.mismatch", "Passwords do not match");
             model.addAttribute("title", "Register");
-            return "register";
+            return "register2";
         }
 
         User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword());
@@ -120,7 +120,7 @@ public class AuthenticationController {
 
         setUserInSession(request.getSession(), theUser);
 
-        return "redirect:";
+        return "view";
     }
 
     @GetMapping("/logout")
