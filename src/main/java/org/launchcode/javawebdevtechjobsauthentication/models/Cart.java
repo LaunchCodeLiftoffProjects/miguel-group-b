@@ -6,6 +6,7 @@ import java.util.List;
 @Entity
 public class Cart extends AbstractEntity {
 
+//  TODO:CHANGE RELATIONSHIP - MANY TO MANY
     @OneToMany(mappedBy = "cart")
     private List<Product> products = new ArrayList<>();
 
