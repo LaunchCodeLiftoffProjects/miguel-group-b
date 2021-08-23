@@ -3,17 +3,18 @@
 <head th:replace="fragments :: head"></head>
 
 <body class="container  body-content">
+<!--<h1 th:text="${'vendor: ' + vendor.name}">Vendors</h1>-->
 <nav th:replace="fragments :: page-header"></nav>
-<h1>Vendors</h1>
 
 
 
-<th:block class="vendor-listing" th:text="${'vendor: ' + vendor.name}">
+
+<div class="vendor-listing">
     <p th:text="${'ID: ' + vendor.id}"></p>
     <p th:text="${'Name: ' + vendor.name}"></p>
     <p th:text="${'Location: ' + vendor.location}"></p>
     <p th:text="${'Product Type: ' + vendor.productType}"></p>
-</th:block>
+</div>
 
 
 </body>

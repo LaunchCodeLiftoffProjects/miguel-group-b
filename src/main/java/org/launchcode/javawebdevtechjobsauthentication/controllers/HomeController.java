@@ -22,7 +22,7 @@ public class HomeController {
 
     @RequestMapping("")
     public String index(Model model) {
-        model.addAttribute("vendors", vendorRepository.findAll());
+        model.addAttribute("vendor", vendorRepository.findAll());
         model.addAttribute("title", "test stuff");
         return "index";
     }
@@ -46,11 +46,11 @@ public class HomeController {
     }
 
     @GetMapping("view/{vendorId}")
-    public String displayViewVendor(Model model, @PathVariable int jobId) {
+    public String displayViewVendor(Model model, @PathVariable int vendorId) {
 
-        Optional optJob = vendorRepository.findById(jobId);
-        if (!optJob.isEmpty()) {
-            Vendor vendor = (Vendor) optJob.get();
+        Optional optVendor = vendorRepository.findById(vendorId);
+        if (!optVendor.isEmpty()) {
+            Vendor vendor = (Vendor) optVendor.get();
             model.addAttribute("vendor", vendor);
             return "view";
         } else {
