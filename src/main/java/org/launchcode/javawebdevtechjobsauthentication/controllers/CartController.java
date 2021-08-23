@@ -2,6 +2,7 @@ package org.launchcode.javawebdevtechjobsauthentication.controllers;
 
 import org.launchcode.javawebdevtechjobsauthentication.models.Cart;
 import org.launchcode.javawebdevtechjobsauthentication.models.Product;
+import org.launchcode.javawebdevtechjobsauthentication.models.data.CartRepository;
 import org.launchcode.javawebdevtechjobsauthentication.models.data.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,35 +20,37 @@ public class CartController {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private CartRepository cartRepository;
+
     @GetMapping
     public String index(Model model){
         return "cart/index";
     }
 
     @GetMapping("view")
-    public String viewCart(Model model, @ModelAttribute Cart newCart){
-        model.addAttribute("cart", newCart.getCartItems());
+    public String viewCart(Model model){
+        model.addAttribute("cart", cartRepository.findAll());
         return "cart/view";
     }
 
     @GetMapping("add")
     public String addProductToCart(Model model){
         model.addAttribute(new Product());
-        model.addAttribute("products", productRepository.findAll());
         return "cart/add";
     }
 
     @PostMapping("add")
     public String processAddProductToCart(@ModelAttribute Product newProduct,
-                                    @ModelAttribute Cart newCart,
                                     Errors errors, Model model){
         if(errors.hasErrors()){
             return "cart/add";
         }
-        newCart.addCartItems(newProduct);
+        cartRepository.save(newProduct);
         System.out.println("nice");
         return "cart/view";
     }
+
 
     @GetMapping("delete")
     public String renderDeleteProductFromCart(Model model){

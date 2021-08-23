@@ -1,16 +1,13 @@
 package org.launchcode.javawebdevtechjobsauthentication.models;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import java.beans.Transient;
+
+import javax.persistence.Entity;
 import java.time.LocalDate;
 
+@Entity
 public class CartDetails extends AbstractEntity{
 
 //    TODO: Add Cart Property
-    @OneToOne(mappedBy = "cartDetails")
-    private Cart cart;
-
     private String username;
     private String email;
     private String status;
@@ -19,20 +16,11 @@ public class CartDetails extends AbstractEntity{
     public CartDetails() {
     }
 
-    public CartDetails(Cart cart, String username, String email, String status, LocalDate dateCreated) {
-        this.cart = cart;
+    public CartDetails(String username, String email, String status, LocalDate dateCreated) {
         this.username = username;
         this.email = email;
         this.status = status;
         this.dateCreated = dateCreated;
-    }
-
-    public Cart getCart() {
-        return cart;
-    }
-
-    public void setCart(Cart cart) {
-        this.cart = cart;
     }
 
     public String getUsername() {

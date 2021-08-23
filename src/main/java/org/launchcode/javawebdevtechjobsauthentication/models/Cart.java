@@ -1,48 +1,30 @@
 package org.launchcode.javawebdevtechjobsauthentication.models;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+@Entity
 public class Cart extends AbstractEntity {
 
-    private Product product;
-
-//    TODO: THIS RELATIONSHIP MAY BE INCORRECT
-    @OneToOne
-    @JoinColumn(name = "cartDetails_id")
-    private CartDetails cartDetails;
-
     @OneToMany(mappedBy = "cart")
-    private List<Product> cartItems = new ArrayList<>();
+    private List<Product> products = new ArrayList<>();
 
     public Cart(){}
 
-    public Cart(Product product, List<Product> cartItems) {
-        this.product = product;
-        this.cartItems = cartItems;
+    public Cart(List<Product> products) {
+        this.products = products;
     }
 
-    public Product getProduct() {
-        return product;
+    public List<Product> getProducts() {
+        return products;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public List<Product> getCartItems() {
-        return cartItems;
-    }
-
-    public void setCartItems(List<Product> cartItems) {
-        this.cartItems = cartItems;
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     public void addCartItems(Product product){
-        this.cartItems.add(product);
+        this.products.add(product);
     }
 
 //    public void removeCartItems(Product product){

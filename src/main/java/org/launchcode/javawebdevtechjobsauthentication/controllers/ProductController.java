@@ -70,6 +70,8 @@ public class ProductController {
         }
     }
 
+
+
 //@GetMapping("view")
 //public String displayProducts(@RequestParam(required = false) Integer productId, Model model) {
 //

@@ -52,9 +52,9 @@
 <!--    </div>-->
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-3" th:each="product : ${products}">
-                <div class="content mx-auto">
+        <div class="row" >
+            <div class="col-md-4" th:each="product : ${products}">
+                <div class="content" >
                     <a href="@{'/products/view/' + ${product.id}}">
                         <div class="content-overlay"></div>
                         <img class="content-image" th:src="${product.pictureURL}" alt="placeholder">
@@ -70,8 +70,8 @@
     </div>
 
 
-<div class="container" id="product-table">
-    <h1>All Products</h1>
+<div class="container">
+    <h1 id="product-table">All Products</h1>
         <table>
             <thead>
                 <tr>

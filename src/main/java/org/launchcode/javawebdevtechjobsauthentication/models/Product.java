@@ -2,6 +2,7 @@ package org.launchcode.javawebdevtechjobsauthentication.models;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -22,7 +23,7 @@ public class Product extends AbstractEntity{
     private String pictureURL;
 
     @ManyToOne
-    @JoinColumn(name="cart_id");
+    @JoinColumn(name="cart_id")
     private Cart cart;
 
     public Product(){}
