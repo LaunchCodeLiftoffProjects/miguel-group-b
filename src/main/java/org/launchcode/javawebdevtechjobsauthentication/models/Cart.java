@@ -6,27 +6,26 @@ import java.util.List;
 @Entity
 public class Cart extends AbstractEntity {
 
-//  TODO:CHANGE RELATIONSHIP - MANY TO MANY
     @OneToMany(mappedBy = "cart")
-    private List<Product> products = new ArrayList<>();
+    private List<CartItem> cartItems = new ArrayList<>();
 
     public Cart(){}
 
-    public Cart(List<Product> products) {
-        this.products = products;
+    public Cart(List<CartItem> cartItems) {
+        this.cartItems = cartItems;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public List<CartItem> getCartItems() {
+        return cartItems;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setCartItems(List<CartItem> cartItems) {
+        this.cartItems = cartItems;
     }
 
-    public void addCartItems(Product product){
-        this.products.add(product);
-    }
+//    public void addCartItems(Product product){
+//        this.products.add(product);
+//    }
 
 //    public void removeCartItems(Product product){
 //        this.cartItems.remove(product);

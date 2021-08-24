@@ -22,11 +22,6 @@ public class Product extends AbstractEntity{
 
     private String pictureURL;
 
-//  TODO: CHANGE RELATIONSHIP - MANY TO MANY
-    @ManyToOne
-    @JoinColumn(name="cart_id")
-    private Cart cart;
-
     public Product(){}
 
     public Product(String name, String description, Double price, String pictureURL) {
