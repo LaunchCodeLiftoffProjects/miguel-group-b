@@ -5,21 +5,7 @@
 
 <body class="container body-content">
 
-<div th:fragment="navigation" class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <a th:href="@{/}" class="navbar-brand">BarApp</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a th:href="@{/products}">Products</a></li>
-                <li><a th:href="@{/products/add}">Add Products</a></li>
-                <li><a th:href="@{/products/delete}">Delete Products</a></li>
-                <li><a th:href="@{/logout}">Logout</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
+<div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top"></div>
 
 <h1>Add Product</h1>
 
