@@ -8,13 +8,13 @@
 <div th:fragment="navigation" class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a th:href="@{/}" class="navbar-brand">BarApp</a>
+            <a th:href="@{/}" class="navbar-brand">SnapSnap</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a th:href="@{/products}">Products</a></li>
-                <li><a th:href="@{/products/add}">Add Products</a></li>
-                <li><a th:href="@{/products/delete}">Delete Products</a></li>
+<!--                <li><a th:href="@{/products/add}">Add Products</a></li>-->
+<!--                <li><a th:href="@{/products/delete}">Delete Products</a></li>-->
                 <li><a th:href="@{/logout}">Logout</a></li>
             </ul>
         </div>
@@ -25,11 +25,11 @@
 
 <form method="post">
     <div class="container">
-        <th:block th:each="product : ${cart}">
+        <th:block th:each="item : ${cartItem}">
             <div class="form-group">
                 <label>
-                    <p th:text="${product.name}"></p>
-                    <input type="checkbox" name="cartItems" th:value="${product.id}" class="form-control">
+                    <p th:text="${item.product}"></p>
+                    <input type="checkbox" name="cartItems" th:value="${cartItem.id}" class="form-control">
                 </label>
             </div>
         </th:block>

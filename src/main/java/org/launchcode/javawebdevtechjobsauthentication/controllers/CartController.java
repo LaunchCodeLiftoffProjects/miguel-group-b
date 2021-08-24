@@ -1,7 +1,9 @@
 package org.launchcode.javawebdevtechjobsauthentication.controllers;
 
 import org.launchcode.javawebdevtechjobsauthentication.models.Cart;
+import org.launchcode.javawebdevtechjobsauthentication.models.CartItem;
 import org.launchcode.javawebdevtechjobsauthentication.models.Product;
+import org.launchcode.javawebdevtechjobsauthentication.models.data.CartItemRepository;
 import org.launchcode.javawebdevtechjobsauthentication.models.data.CartRepository;
 import org.launchcode.javawebdevtechjobsauthentication.models.data.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,39 +25,36 @@ public class CartController {
     @Autowired
     private CartRepository cartRepository;
 
-    @GetMapping
-    public String index(Model model){
-        return "cart/index";
-    }
+    @Autowired
+    private CartItemRepository cartItemRepository;
 
     @GetMapping("view")
     public String viewCart(Model model){
-        model.addAttribute("cart", cartRepository.findAll());
+        model.addAttribute("cartItems", cartItemRepository.findAll());
         return "cart/view";
     }
 
     @GetMapping("add")
     public String addProductToCart(Model model){
-        model.addAttribute(new Product());
+        model.addAttribute(new CartItem());
+        model.addAttribute("products", productRepository.findAll());
         return "cart/add";
     }
 
-    @PostMapping("add")
-    public String processAddProductToCart(@ModelAttribute Product newProduct,
-                                    Errors errors, Model model){
-        if(errors.hasErrors()){
-            return "cart/add";
-        }
-        cartRepository.save(newProduct);
-        System.out.println("nice");
-        return "cart/view";
-    }
-
+//    @PostMapping("add")
+//    public String processAddProductToCart(@ModelAttribute List<CartItem> cartItems,
+//                                    Errors errors){
+//        cartItems
+//
+////        cartItemRepository.save(newCartItem);
+//        return "cart/view";
+//    }
+//
 
     @GetMapping("delete")
     public String renderDeleteProductFromCart(Model model){
         model.addAttribute("title", "Delete Item");
-        model.addAttribute("products", productRepository.findAll());
+        model.addAttribute("cartItems", cartItemRepository.findAll());
         return "cart/delete";
     }
 

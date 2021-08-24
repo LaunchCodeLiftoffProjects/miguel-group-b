@@ -18,8 +18,8 @@ org/launchcode/javawebdevtechjobsauthentication/models/data/UserRepository.java
  org.launchcode.javawebdevtechjobsauthentication.models.data.UserRepository
 org/launchcode/javawebdevtechjobsauthentication/controllers/AuthenticationController.java
  org.launchcode.javawebdevtechjobsauthentication.controllers.AuthenticationController
-org/launchcode/javawebdevtechjobsauthentication/controllers/CartController.java
- org.launchcode.javawebdevtechjobsauthentication.controllers.CartController
+org/launchcode/javawebdevtechjobsauthentication/models/CartItem.java
+ org.launchcode.javawebdevtechjobsauthentication.models.CartItem
 org/launchcode/javawebdevtechjobsauthentication/AuthenticationFilter.java
  org.launchcode.javawebdevtechjobsauthentication.AuthenticationFilter
 org/launchcode/javawebdevtechjobsauthentication/models/data/VendorRepository.java
@@ -36,9 +36,11 @@ org/launchcode/javawebdevtechjobsauthentication/controllers/HomeController.java
  org.launchcode.javawebdevtechjobsauthentication.controllers.HomeController
 org/launchcode/javawebdevtechjobsauthentication/models/Product.java
  org.launchcode.javawebdevtechjobsauthentication.models.Product
-org/launchcode/javawebdevtechjobsauthentication/models/Cart.java
- org.launchcode.javawebdevtechjobsauthentication.models.Cart
-org/launchcode/javawebdevtechjobsauthentication/models/CartItem.java
- org.launchcode.javawebdevtechjobsauthentication.models.CartItem
 org/launchcode/javawebdevtechjobsauthentication/controllers/CartItemController.java
  org.launchcode.javawebdevtechjobsauthentication.controllers.CartItemController
+org/launchcode/javawebdevtechjobsauthentication/models/Cart.java
+ org.launchcode.javawebdevtechjobsauthentication.models.Cart
+org/launchcode/javawebdevtechjobsauthentication/models/data/CartItemRepository.java
+ org.launchcode.javawebdevtechjobsauthentication.models.data.CartItemRepository
+org/launchcode/javawebdevtechjobsauthentication/controllers/CartController.java
+ org.launchcode.javawebdevtechjobsauthentication.controllers.CartController

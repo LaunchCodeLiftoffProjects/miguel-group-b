@@ -31,19 +31,19 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
+                        <tr th:each="item : ${cartItems}">
                             <th scope="row" class="border-0">
 <!--                                <div class="p-2">-->
-                                <td th:each="product : ${products}">
-                                    <img th:src="${product.pictureURL}">
+                                <td>
+                                    <img th:src="${item.product.pictureURL}">
                                     <div class="ml-3 d-inline-block align-middle">
                                         <h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"></a>Placeholder</h5>
                                     </div>
                                 </td>
 <!--                                </div>-->
                             </th>
-                            <td class="border-0 align-middle">Placeholder</td>
-                            <td class="border-0 align-middle">Placeholder</td>
+                            <td class="border-0 align-middle" th:text="${item.product.name}"></td>
+                            <td class="border-0 align-middle" th:text="${item.product.name}">Placeholder</td>
                             <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
                         </tr>
                         </tbody>
