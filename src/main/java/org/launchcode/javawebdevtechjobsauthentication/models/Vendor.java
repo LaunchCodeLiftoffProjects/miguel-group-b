@@ -1,11 +1,13 @@
 package org.launchcode.javawebdevtechjobsauthentication.models;
 
+
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Job extends AbstractEntity{
+public class Vendor extends AbstractEntity {
 
     @NotNull
     @Size(min=3, max=50)
@@ -13,11 +15,11 @@ public class Job extends AbstractEntity{
     private String employer;
     private String skill;
 
-    public Job() {
+    public Vendor() {
     }
 
     // Initialize the id and value fields.
-    public Job(String aName, String anEmployer, String someSkill) {
+    public Vendor(String aName, String anEmployer, String someSkill) {
         super();
         this.name = aName;
         this.employer = anEmployer;
