@@ -3,15 +3,15 @@
 <head th:replace="fragments :: head"></head>
 
 <body class="container  body-content">
-<h1 th:text="${'Job: ' + job.name}">Default Title</h1>
+<h1 th:text="${'vendor: ' + vendor.name}">Default Title</h1>
 
 <nav th:replace="fragments :: page-header"></nav>
 
-<div class="job-listing">
-    <p th:text="${'ID: ' + product.id}"></p>
-    <p th:text="${'Name: ' + product.name}"></p>
-    <p th:text="${'Description: ' + product.description}"></p>
-    <p th:text="${'Price: ' + product.price}"></p>
+<div class="vendor-listing">
+    <p th:text="${'ID: ' + vendor.id}"></p>
+    <p th:text="${'Name: ' + vendor.name}"></p>
+    <p th:text="${'Employer: ' + vendor.employer}"></p>
+    <p th:text="${'Skill: ' + vendor.skill}"></p>
 </div>
 
 
