@@ -20,8 +20,8 @@ org/launchcode/javawebdevtechjobsauthentication/controllers/AuthenticationContro
  org.launchcode.javawebdevtechjobsauthentication.controllers.AuthenticationController
 org/launchcode/javawebdevtechjobsauthentication/controllers/CartController.java
  org.launchcode.javawebdevtechjobsauthentication.controllers.CartController
-org/launchcode/javawebdevtechjobsauthentication/models/Cart.java
- org.launchcode.javawebdevtechjobsauthentication.models.Cart
+org/launchcode/javawebdevtechjobsauthentication/AuthenticationFilter.java
+ org.launchcode.javawebdevtechjobsauthentication.AuthenticationFilter
 org/launchcode/javawebdevtechjobsauthentication/models/data/VendorRepository.java
  org.launchcode.javawebdevtechjobsauthentication.models.data.VendorRepository
 org/launchcode/javawebdevtechjobsauthentication/controllers/ProductController.java
@@ -36,7 +36,9 @@ org/launchcode/javawebdevtechjobsauthentication/controllers/HomeController.java
  org.launchcode.javawebdevtechjobsauthentication.controllers.HomeController
 org/launchcode/javawebdevtechjobsauthentication/models/Product.java
  org.launchcode.javawebdevtechjobsauthentication.models.Product
+org/launchcode/javawebdevtechjobsauthentication/models/Cart.java
+ org.launchcode.javawebdevtechjobsauthentication.models.Cart
 org/launchcode/javawebdevtechjobsauthentication/models/CartItem.java
  org.launchcode.javawebdevtechjobsauthentication.models.CartItem
-org/launchcode/javawebdevtechjobsauthentication/AuthenticationFilter.java
- org.launchcode.javawebdevtechjobsauthentication.AuthenticationFilter
+org/launchcode/javawebdevtechjobsauthentication/controllers/CartItemController.java
+ org.launchcode.javawebdevtechjobsauthentication.controllers.CartItemController

@@ -15,19 +15,30 @@ public class Cart extends AbstractEntity {
         this.cartItems = cartItems;
     }
 
-    public List<CartItem> getCartItems() {
-        return cartItems;
+    public List<CartItem> getCartItems() { return cartItems; }
+
+    public void setCartItems(List<CartItem> cartItems) {this.cartItems = cartItems; }
+
+    public void addItemToCart(CartItem cartItem){
+        this.cartItems.add(cartItem);
     }
 
-    public void setCartItems(List<CartItem> cartItems) {
-        this.cartItems = cartItems;
+//    public Double getCartTotal(List<CartItem> cartItems){
+//        double sum = 0;
+//
+//        for(CartItem c : cartItems){
+//            sum += c.getProduct().getPrice();
+//        }
+//        return sum;
+//    }
+
+    public Double getCartTotal(List<CartItem> cartItems){
+        double sum = 0;
+
+        for(int i = 0; i < cartItems.size();i++){
+            sum += cartItems.get(i).getProduct().getPrice();
+        }
+        return sum;
     }
 
-//    public void addCartItems(Product product){
-//        this.products.add(product);
-//    }
-
-//    public void removeCartItems(Product product){
-//        this.cartItems.remove(product);
-//    }
 }
