@@ -7,10 +7,10 @@
 <div th:replace="fragments :: page-header"></div>
 
 <div class="container body-content">
-    <h2>Vendors</h2>
+    <h2>Restaurant List</h2>
     <ul>
-        <li th:each="vendor : ${vendors}">
-            <a th:href="@{'/view/' + ${vendor.id}}" th:text="${vendor.name}"></a>
+        <li th:each="restaurant : ${restaurants}">
+            <a th:href="@{'/view/' + ${restaurant.id}}" th:text="${restaurant.name}"></a>
         </li>
     </ul>
 

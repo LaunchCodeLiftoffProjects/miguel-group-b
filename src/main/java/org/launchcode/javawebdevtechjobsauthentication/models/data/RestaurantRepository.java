@@ -1,7 +1,6 @@
 package org.launchcode.javawebdevtechjobsauthentication.models.data;
 
-import org.launchcode.javawebdevtechjobsauthentication.models.Vendor;
-import org.launchcode.javawebdevtechjobsauthentication.models.Vendor;
+import org.launchcode.javawebdevtechjobsauthentication.models.Restaurant;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,6 +8,6 @@ import javax.transaction.Transactional;
 
 @Repository
 @Transactional
-public interface VendorRepository extends CrudRepository<Vendor, Integer> {
+public interface RestaurantRepository extends CrudRepository<Restaurant, Integer> {
 }
 

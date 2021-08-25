@@ -1,7 +1,7 @@
 package org.launchcode.javawebdevtechjobsauthentication.controllers;
 
-import org.launchcode.javawebdevtechjobsauthentication.models.data.VendorRepository;
-import org.launchcode.javawebdevtechjobsauthentication.models.Vendor;
+import org.launchcode.javawebdevtechjobsauthentication.models.Restaurant;
+import org.launchcode.javawebdevtechjobsauthentication.models.data.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +12,6 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 
-
 /**
  * Created by LaunchCode
  */
@@ -20,39 +19,39 @@ import java.util.Optional;
 public class HomeController {
 
     @Autowired
-    private VendorRepository vendorRepository;
+    private RestaurantRepository restaurantRepository;
 
     @RequestMapping("")
     public String index(Model model) {
-        model.addAttribute("vendors", vendorRepository.findAll());
+        model.addAttribute("restaurants", restaurantRepository.findAll());
         return "index";
     }
 
     @GetMapping("add")
-    public String displayAddvendorForm(Model model) {
-        model.addAttribute(new Vendor());
+    public String displayAddRestaurantForm(Model model) {
+        model.addAttribute(new Restaurant());
         return "add";
     }
 
     @PostMapping("add")
-    public String processAddvendorForm(@ModelAttribute @Valid Vendor newvendor,
+    public String processAddRestaurantForm(@ModelAttribute @Valid Restaurant newrestaurant,
                                        Errors errors) {
 
         if (errors.hasErrors()) {
             return "add";
         }
 
-        vendorRepository.save(newvendor);
+        restaurantRepository.save(newrestaurant);
         return "redirect:";
     }
 
-    @GetMapping("view/{vendorId}")
-    public String displayViewvendor(Model model, @PathVariable int vendorId) {
+    @GetMapping("view/{restaurantId}")
+    public String displayViewRestaurant(Model model, @PathVariable int restaurantId) {
 
-        Optional optvendor = vendorRepository.findById(vendorId);
-        if (!optvendor.isEmpty()) {
-            Vendor vendor = (Vendor) optvendor.get();
-            model.addAttribute("vendor", vendor);
+        Optional optRestaurant = restaurantRepository.findById(restaurantId);
+        if (!optRestaurant.isEmpty()) {
+            Restaurant restaurant = (Restaurant) optRestaurant.get();
+            model.addAttribute("restaurant", restaurant);
             return "view";
         } else {
             return "redirect:/";

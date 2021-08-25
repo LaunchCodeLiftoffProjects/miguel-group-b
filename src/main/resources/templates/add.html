@@ -5,26 +5,26 @@
 
 <nav th:replace="fragments :: page-header"></nav>
 
-<h1>Add vendor</h1>
+<h1>Add restaurant</h1>
 
 <form method="post" style="max-width:600px;">
     <div class="form-group">
         <label th:for="name">Name</label>
-        <input class="form-control" th:field="${vendor.name}" />
-        <span th:errors="${vendor.name}" class="error"></span>
+        <input class="form-control" th:field="${restaurant.name}" />
+        <span th:errors="${restaurant.name}" class="error"></span>
     </div>
     <div class="form-group">
-        <label th:for="name">Employer</label>
-        <input class="form-control" th:field="${vendor.employer}" />
-        <span th:errors="${vendor.employer}" class="error"></span>
+        <label th:for="name">Location</label>
+        <input class="form-control" th:field="${restaurant.location}" />
+        <span th:errors="${restaurant.location}" class="error"></span>
     </div>
     <div class="form-group">
-        <label th:for="name">Skill</label>
-        <input class="form-control" th:field="${vendor.skill}" />
-        <span th:errors="${vendor.skill}" class="error"></span>
+        <label th:for="name">Rating</label>
+        <input class="form-control" th:field="${restaurant.rating}" />
+        <span th:errors="${restaurant.rating}" class="error"></span>
     </div>
 
-    <input type="submit" value="Add vendor" />
+    <input type="submit" value="Add restaurant" />
 </form>
 
 </body>
