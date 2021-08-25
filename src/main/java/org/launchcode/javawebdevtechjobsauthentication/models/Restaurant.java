@@ -13,16 +13,16 @@ public class Restaurant extends AbstractEntity {
     @Size(min=3, max=50)
     private String name;
     private String location;
-    private String rating;
+    private Integer rating;
 
     public Restaurant() {
     }
 
     // Initialize the id and value fields.
-    public Restaurant(String nameame, String locationocation, String rating) {
+    public Restaurant(String name, String aLocation, Integer rating) {
         super();
         this.name = name;
-        this.location = location;
+        this.location = aLocation;
         this.rating = rating;
     }
 
@@ -40,15 +40,15 @@ public class Restaurant extends AbstractEntity {
         return location;
     }
 
-    public void setEmployer(String employer) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
-    public String getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(String rating) {
+    public void setRating(Integer rating) {
         this.rating = rating;
     }
 
