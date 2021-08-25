@@ -7,23 +7,23 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Vendor extends AbstractEntity {
+public class Restaurant extends AbstractEntity {
 
     @NotNull
     @Size(min=3, max=50)
     private String name;
-    private String employer;
-    private String skill;
+    private String location;
+    private String rating;
 
-    public Vendor() {
+    public Restaurant() {
     }
 
     // Initialize the id and value fields.
-    public Vendor(String aName, String anEmployer, String someSkill) {
+    public Restaurant(String nameame, String locationocation, String rating) {
         super();
-        this.name = aName;
-        this.employer = anEmployer;
-        this.skill = someSkill;
+        this.name = name;
+        this.location = location;
+        this.rating = rating;
     }
 
     // Getters and setters.
@@ -36,20 +36,20 @@ public class Vendor extends AbstractEntity {
         this.name = name;
     }
 
-    public String getEmployer() {
-        return employer;
+    public String getLocation() {
+        return location;
     }
 
     public void setEmployer(String employer) {
-        this.employer = employer;
+        this.location = location;
     }
 
-    public String getSkill() {
-        return skill;
+    public String getRating() {
+        return rating;
     }
 
-    public void setSkill(String skill) {
-        this.skill = skill;
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 
     @Override
