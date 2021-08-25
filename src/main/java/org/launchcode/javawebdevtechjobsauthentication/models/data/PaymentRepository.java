@@ -8,6 +8,5 @@ import javax.transaction.Transactional;
 
 @Repository
 @Transactional
-public interface paymentRepository extends CrudRepository<UserPayment, Double> {
-
+public interface PaymentRepository extends CrudRepository<UserPayment, Double> {
 }

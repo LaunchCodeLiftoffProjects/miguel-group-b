@@ -8,13 +8,13 @@
 <h1>User Payment</h1>
 <h5>Please proceed to payment:</h5> </br>
 
-<div align="">
+<form method="post">
     <label>Enter your credit card number:</label> </br>
-    </br><input type="text" name="creditCardNo"></br>
+    </br><input type="text" th:field="${userPayment.creditCardNo}"></br>
     </br><label>Enter CVC:</label> </br>
-    </br><input type="text", name="cvcNo"></br>
+    </br><input type="text"th:field="${userPayment.cvcNo}"></br>
     </br><label>Expiration Date:</label></br>
-   </br> <select>
+   </br> <select th:field="${userPayment.expirationDate}">
         <option value="01">January</option>
         <option value="02">February </option>
         <option value="03">March</option>
@@ -28,7 +28,7 @@
         <option value="11">November</option>
         <option value="12">December</option>
     </select>
-    <select>
+    <select th:field="${userPayment.expirationDate}">
         <option value="21"> 2021</option>
         <option value="21"> 2022</option>
         <option value="23"> 2023</option>
@@ -36,8 +36,8 @@
         <option value="25"> 2025</option>
         <option value="26"> 2026</option>
     </select></br>
-    </br><button type="submit" >Proceed</button>
-</div>
+    </br><input type="submit" value="proceed"/>
+</form>
 
 </body>
 </html>

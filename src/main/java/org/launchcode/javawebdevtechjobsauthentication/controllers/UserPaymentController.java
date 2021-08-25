@@ -1,7 +1,8 @@
 package org.launchcode.javawebdevtechjobsauthentication.controllers;
 
 import org.launchcode.javawebdevtechjobsauthentication.models.UserPayment;
-import org.launchcode.javawebdevtechjobsauthentication.models.data.paymentRepository;
+import org.launchcode.javawebdevtechjobsauthentication.models.data.PaymentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -14,8 +15,13 @@ import javax.validation.Valid;
 public class UserPaymentController {
 
 
+    @Autowired
+    private PaymentRepository paymentRepository;
+
     @GetMapping("add")
     public String index(Model model) {
+        model.addAttribute("title", "userPayment");
+        model.addAttribute(new UserPayment());
         return "userPayment";
     }
 
@@ -31,7 +37,7 @@ public class UserPaymentController {
             return "add";
         }
 
-//        paymentRepository.save(newUserPayment);
-        return "redirect:";
+        paymentRepository.save(newUserPayment);
+        return "redirect:/";
     }
     }
