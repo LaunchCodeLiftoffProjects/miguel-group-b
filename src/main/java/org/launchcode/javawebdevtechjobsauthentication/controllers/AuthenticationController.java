@@ -45,7 +45,7 @@ public class AuthenticationController {
     public String displayRegistrationForm(Model model) {
         model.addAttribute(new RegisterFormDTO());
         model.addAttribute("title", "Register");
-        return "register";
+        return "register2";
     }
 
     private static void setUserInSession(HttpSession session, User user) {
