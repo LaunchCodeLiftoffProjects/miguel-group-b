@@ -25,19 +25,33 @@
 
 <form method="post">
     <div class="container">
-        <th:block th:each="item : ${cartItem}">
+
+        <th:block th:each="item:${cartItems}">
             <div class="form-group">
-                <label>
-                    <p th:text="${item.product}"></p>
-                    <input type="checkbox" name="cartItems" th:value="${cartItem.id}" class="form-control">
-                </label>
+                <input type="checkbox" name="cartItems" th:value="${cartItem.product}" class="form-control">
             </div>
         </th:block>
-
-        <input type="submit" value="Add" class="btn btn-danger">
+        <input type="submit" value="Add" class="btn btn-primary">
     </div>
-
 </form>
+
+
+
+
+<!--<form method="post">-->
+<!--    <div class="container">-->
+<!--        <th:block th:each="item : ${cartItem}">-->
+<!--            <div class="form-group">-->
+<!--                <label>-->
+<!--                    <p th:text="${item.product}"></p>-->
+<!--                    <input type="checkbox" name="cartItems" th:value="${cartItem.id}" class="form-control">-->
+<!--                </label>-->
+<!--            </div>-->
+<!--        </th:block>-->
+
+<!--        <input type="submit" value="Add" class="btn btn-danger">-->
+<!--    </div>-->
+<!--</form>-->
 
 <!--<p th:unless="${cart} and ${cart.size()}">no jobs!</p>-->
 

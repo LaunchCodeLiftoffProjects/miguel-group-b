@@ -35,11 +35,23 @@ public class CartController {
     }
 
     @GetMapping("add")
-    public String addProductToCart(Model model){
+    public String addCartItem(Model model){
         model.addAttribute(new CartItem());
-        model.addAttribute("products", productRepository.findAll());
         return "cart/add";
     }
+//    TODO: method add product by id
+    @PostMapping("add")
+    public String processAddCartItem(@RequestParam(required = false) CartItem[] cartItems, @ModelAttribute Cart newCart, Model model, Errors errors){
+        if(errors.hasErrors()){
+            return "cart/add";
+        }
+//  TODO: TEST METHOD
+        for( CartItem item : cartItems) {
+            newCart.addItemToCart(item);
+        }
+        return "redirect:";
+    }
+
 
 //    @PostMapping("add")
 //    public String processAddProductToCart(@ModelAttribute List<CartItem> cartItems,
@@ -51,12 +63,12 @@ public class CartController {
 //    }
 //
 
-    @GetMapping("delete")
-    public String renderDeleteProductFromCart(Model model){
-        model.addAttribute("title", "Delete Item");
-        model.addAttribute("cartItems", cartItemRepository.findAll());
-        return "cart/delete";
-    }
+//    @GetMapping("delete")
+//    public String renderDeleteProductFromCart(Model model){
+//        model.addAttribute("title", "Delete Item");
+//        model.addAttribute("cartItems", cartItemRepository.findAll());
+//        return "cart/delete";
+//    }
 
 //    @PostMapping("delete")
 //    public String processDeleteProductFromCart(@RequestParam(required = false) Product[] products, @ModelAttribute Cart newCart) {
