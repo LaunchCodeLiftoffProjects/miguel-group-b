@@ -24,47 +24,19 @@
 <h1>Add Items To Cart</h1>
 
 <form method="post">
-    <div class="container">
 
-        <th:block th:each="item:${cartItems}">
-            <div class="form-group">
-                <input type="checkbox" name="cartItems" th:value="${cartItem.product}" class="form-control">
-            </div>
-        </th:block>
-        <input type="submit" value="Add" class="btn btn-primary">
-    </div>
+    <th:block th:each="product : ${products}">
+        <div class="form-group">
+            <label>
+                <span th:text="${product.name}"></span>
+                <input type="checkbox" name="productsIds" th:value="${product.id}" class="form-control">
+            </label>
+        </div>
+    </th:block>
+
+    <input type="submit" value="Add" class="btn btn-primary">
 </form>
 
-
-
-
-<!--<form method="post">-->
-<!--    <div class="container">-->
-<!--        <th:block th:each="item : ${cartItem}">-->
-<!--            <div class="form-group">-->
-<!--                <label>-->
-<!--                    <p th:text="${item.product}"></p>-->
-<!--                    <input type="checkbox" name="cartItems" th:value="${cartItem.id}" class="form-control">-->
-<!--                </label>-->
-<!--            </div>-->
-<!--        </th:block>-->
-
-<!--        <input type="submit" value="Add" class="btn btn-danger">-->
-<!--    </div>-->
-<!--</form>-->
-
-<!--<p th:unless="${cart} and ${cart.size()}">no jobs!</p>-->
-
-<!--<div class="container body-content">-->
-<!--    <h2>Cart</h2>-->
-<!--    <ul>-->
-<!--        <li th:each="product : ${products}">-->
-<!--            <a th:href="@{'/products/view/' + ${product.id}}" th:text="${product.name}"></a>-->
-<!--        </li>-->
-<!--    </ul>-->
-<!--    <a th:href="@{'/cart/view'}">Add Products</a>-->
-
-<!--</div>-->
 
 </body>
 </html>

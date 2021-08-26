@@ -1,9 +1,6 @@
 package org.launchcode.javawebdevtechjobsauthentication.models;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -21,6 +18,9 @@ public class Product extends AbstractEntity{
     private Double price;
 
     private String pictureURL;
+
+    @ManyToOne
+    private Cart cart;
 
     public Product(){}
 
