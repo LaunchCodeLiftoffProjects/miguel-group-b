@@ -25,10 +25,10 @@
 
 <form method="post">
 
-    <th:block th:each="product : ${products}">
+    <th:block th:each="item : ${cart}">
         <div class="form-group">
             <label>
-                <span th:text="${product.name}"></span>
+                <span th:text="${item.cartItems}"></span>
                 <input type="checkbox" name="productsIds" th:value="${product.id}" class="form-control">
             </label>
         </div>
@@ -37,6 +37,23 @@
     <input type="submit" value="Add" class="btn btn-primary">
 </form>
 
+<div class="container">
+    <div class="row" >
+        <div class="col-md-4" th:each="product : ${cart}">
+            <div class="content" >
+                <a href="@{'/products/view/' + ${product.id}}">
+                    <div class="content-overlay"></div>
+                    <img class="content-image" th:src="${product.cartItems}" alt="placeholder">
+                    <div class="content-details fadeIn-bottom">
+                        <button class="btn btn-md btn-secondary m-4" th:href="@{'/products/view/' + ${productId}}">View</button><br>
+                        <a href="@{/cart/add}"><i class="fas fa-heart"></i></a>
+                        <a href="@{/cart/add}"><i class="fas fa-plus"></i></a>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
