@@ -1,5 +1,6 @@
 package org.launchcode.javawebdevtechjobsauthentication.controllers;
 
+import org.launchcode.javawebdevtechjobsauthentication.models.Cart;
 import org.launchcode.javawebdevtechjobsauthentication.models.Product;
 import org.launchcode.javawebdevtechjobsauthentication.models.data.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,7 +71,18 @@ public class ProductController {
         }
     }
 
-
+//    @GetMapping("add")
+//    public String addItemToCart(Model model){
+//        model.addAttribute("products", productRepository.findAll());
+//        return "products/add";
+//    }
+//
+//    @PostMapping("add")
+//    public String processAddItemToCart(@ModelAttribute Product newProduct, @ModelAttribute Cart newCart, Model model){
+//        newCart.addProduct(newProduct);
+//        return "products/add";
+//    }
+//
 
 //@GetMapping("view")
 //public String displayProducts(@RequestParam(required = false) Integer productId, Model model) {

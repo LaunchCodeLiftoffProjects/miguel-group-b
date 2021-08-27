@@ -31,10 +31,15 @@ public class Cart extends AbstractEntity {
         this.cartItems.add(product);
         return cartItems;
     }
-//
-//    public List<Product> addToCartById(Product product){
-//        for(int i : product){
-//            cartItems.add(i);
+
+    public List<Product> removeProduct(int productId){
+        this.cartItems.remove(productId);
+        return cartItems;
+    }
+
+//    public List<Product> addToCartById(Product product, int[] productIds){
+//        for(int i : productIds){
+//            cartItems.g
 //        }
 //    }
 

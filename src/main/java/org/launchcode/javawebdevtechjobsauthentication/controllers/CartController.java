@@ -14,45 +14,53 @@ import org.springframework.web.bind.annotation.*;
 public class CartController {
 
     @Autowired
-    private ProductRepository productRepository;
-
-    @Autowired
     private CartRepository cartRepository;
 
 
     @GetMapping("view")
-    public String viewCart(Model model){
-        model.addAttribute("cart", cartRepository.findAll());
+    public String viewCart(Model model, @ModelAttribute Cart newCart){
+//        model.addAttribute("cart", cartRepository.findAll());
+        model.addAttribute("cart", newCart.getCartItems());
         return "cart/view";
     }
 
     @GetMapping("add")
-    public String addItemToCart(Model model){
-        model.addAttribute("products", productRepository.findAll());
+    public String addItemToCart(@ModelAttribute Cart newCart, @ModelAttribute Product newProduct){
+//        model.addAttribute("products", productRepository.findAll());
+        newCart.addProduct(newProduct);
         return "cart/add";
     }
 
     @PostMapping("add")
-    public String processAddItemToCart(@ModelAttribute Product newProduct, @ModelAttribute Cart newCart){
+    public String processAddItemToCart(@ModelAttribute Product newProduct, @ModelAttribute Cart newCart, Model model){
         newCart.addProduct(newProduct);
         return "cart/add";
     }
 
     @GetMapping("delete")
-    public String renderDeleteProductFromCart(Model model){
+    public String renderDeleteProductFromCart(Model model, @ModelAttribute Cart newCart){
         model.addAttribute("title", "Delete Item");
-        model.addAttribute("products", productRepository.findAll());
+        model.addAttribute("cart", newCart.getCartItems());
         return "cart/delete";
     }
 
     @PostMapping("delete")
-    public String processDeleteProductFromCart(@RequestParam(required = false) int[] productIds) {
-        if (productIds != null) {
-            for(int p : productIds) {
-                cartRepository.deleteById(p);
-            }
+    public String processDeleteProductFromCart(@RequestParam int[] productIds, @ModelAttribute Cart cart){
+        for(int p : productIds){
+            cart.removeProduct(p);
         }
         return "redirect:";
     }
+
+
+//    @PostMapping("delete")
+//    public String processDeleteProductFromCart(@RequestParam(required = false) int[] productIds) {
+//        if (productIds != null) {
+//            for(int p : productIds) {
+//                cartRepository.deleteById(p);
+//            }
+//        }
+//        return "redirect:";
+//    }
 
 }
