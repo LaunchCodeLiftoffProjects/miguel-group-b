@@ -30,11 +30,11 @@ org/launchcode/javawebdevtechjobsauthentication/models/data/ProductRepository.ja
  org.launchcode.javawebdevtechjobsauthentication.models.data.ProductRepository
 org/launchcode/javawebdevtechjobsauthentication/models/Vendor.java
  org.launchcode.javawebdevtechjobsauthentication.models.Vendor
-org/launchcode/javawebdevtechjobsauthentication/controllers/ProductController.java
- org.launchcode.javawebdevtechjobsauthentication.controllers.ProductController
-org/launchcode/javawebdevtechjobsauthentication/models/Product.java
- org.launchcode.javawebdevtechjobsauthentication.models.Product
-org/launchcode/javawebdevtechjobsauthentication/models/Cart.java
- org.launchcode.javawebdevtechjobsauthentication.models.Cart
 org/launchcode/javawebdevtechjobsauthentication/controllers/CartController.java
  org.launchcode.javawebdevtechjobsauthentication.controllers.CartController
+org/launchcode/javawebdevtechjobsauthentication/models/Cart.java
+ org.launchcode.javawebdevtechjobsauthentication.models.Cart
+org/launchcode/javawebdevtechjobsauthentication/models/Product.java
+ org.launchcode.javawebdevtechjobsauthentication.models.Product
+org/launchcode/javawebdevtechjobsauthentication/controllers/ProductController.java
+ org.launchcode.javawebdevtechjobsauthentication.controllers.ProductController

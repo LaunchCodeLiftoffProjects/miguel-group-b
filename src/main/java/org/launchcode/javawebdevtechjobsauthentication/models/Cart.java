@@ -6,7 +6,7 @@ import java.util.List;
 @Entity
 public class Cart extends AbstractEntity {
 
-    @OneToMany
+    @OneToMany(mappedBy = "cart")
     private List<Product> cartItems = new ArrayList<>();
 
     public Cart(){}
@@ -27,6 +27,7 @@ public class Cart extends AbstractEntity {
         return sum;
     }
 
+    //TODO: TEST METHODS
     public List<Product> addProduct(Product product){
         this.cartItems.add(product);
         return cartItems;
@@ -37,10 +38,11 @@ public class Cart extends AbstractEntity {
         return cartItems;
     }
 
-//    public List<Product> addToCartById(Product product, int[] productIds){
-//        for(int i : productIds){
-//            cartItems.g
-//        }
-//    }
+    public List<Product> addToCartById(Product[] products){
+        for(Product p : products){
+            cartItems.get(p.getId());
+        }
+        return cartItems;
+    }
 
 }

@@ -9,12 +9,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("cart")
 public class CartController {
 
     @Autowired
     private CartRepository cartRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
 
 
     @GetMapping("view")
@@ -24,18 +29,33 @@ public class CartController {
         return "cart/view";
     }
 
-    @GetMapping("add")
-    public String addItemToCart(@ModelAttribute Cart newCart, @ModelAttribute Product newProduct){
+//    @GetMapping("add")
+//    public String addItemToCart(Model model,@ModelAttribute Cart newCart, @ModelAttribute Product newProduct){
+////        model.addAttribute("products", productRepository.findAll());
+//        model.addAttribute("cart", cartRepository.findAll());
+//        newCart.addProduct(newProduct);
+//        return "cart/add";
+//    }
+//
+//    @PostMapping("add")
+//    public String processAddItemToCart(@ModelAttribute Product newProduct, @ModelAttribute Cart newCart, Model model){
+//        newCart.addProduct(newProduct);
+//        return "cart/add";
+//    }
+////TODO: TEST ADD METHODS
+//    @GetMapping("add/{productId}")
+//    public String addItemToCart(Model model, @ModelAttribute Cart newCart){
 //        model.addAttribute("products", productRepository.findAll());
-        newCart.addProduct(newProduct);
-        return "cart/add";
-    }
-
-    @PostMapping("add")
-    public String processAddItemToCart(@ModelAttribute Product newProduct, @ModelAttribute Cart newCart, Model model){
-        newCart.addProduct(newProduct);
-        return "cart/add";
-    }
+//        return"add/{productId}";
+//    }
+////DOES THIS EVEN MEAN ANYTHING
+//    @PostMapping("add/{productId}")
+//    public String processAddItemToCart(@RequestParam int productId, @ModelAttribute Cart newCart, @ModelAttribute Product newProduct,Model model){
+//        model.addAttribute("productId", productRepository.findById(newProduct.getId()));
+//        newCart.addProduct(newProduct);
+//
+//        return"redirect:";
+//    }
 
     @GetMapping("delete")
     public String renderDeleteProductFromCart(Model model, @ModelAttribute Cart newCart){
