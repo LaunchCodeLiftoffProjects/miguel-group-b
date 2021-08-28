@@ -61,7 +61,7 @@
                         <div class="content-details fadeIn-bottom">
                             <button class="btn btn-md btn-secondary m-4" th:href="@{'/products/view/' + ${productId}}">View</button><br>
                             <a href="@{/cart/add}"><i class="fas fa-heart"></i></a>
-                            <a href="@{/cart/add}"><i class="fas fa-plus"></i></a>
+                            <a href="@{'/cart/add/' + ${productId}}"><i class="fas fa-plus"></i></a>
                         </div>
                     </a>
                 </div>
@@ -88,8 +88,8 @@
                     <td th:text="${product.description}"></td>
                     <td th:text="'$' + ${product.price}"></td>
                     <td><input type="number" min="0" max="10"></td>
-                    <td><button class="btn btn-primary" role="button" th:href="@{'/cart/add'}">Add</button></td>
-                    <td><a th:href="@{'/cart/add'}"></a></td>
+                    <td><a></a><button class="btn btn-primary" role="button" th:href="@{'/cart/add/{productId}'}">Add</button></a></td>
+                    <td><a th:href="@{'/cart/add/{productId}'}"></a></td>
 
 <!--                                    <td><button class="btn btn-primary" role="button" th:href="@{/cart/add/ + ${product.id}}">Add</button></td>-->
                 </tr>
