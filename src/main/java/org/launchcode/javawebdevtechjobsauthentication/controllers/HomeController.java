@@ -29,6 +29,7 @@ public class HomeController {
 
     @GetMapping("add")
     public String displayAddRestaurantForm(Model model) {
+        model.addAttribute("title","Add Restaurant");
         model.addAttribute(new Restaurant());
         return "add";
     }

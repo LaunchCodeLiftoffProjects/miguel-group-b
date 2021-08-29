@@ -8,10 +8,12 @@
 <nav th:replace="fragments :: page-header"></nav>
 
 <div class="restaurant-listing">
-    <p th:text="${'ID: ' + restaurant.id}"></p>
-    <p th:text="${'Name: ' + restaurant.name}"></p>
-    <p th:text="${'Location: ' + restaurant.location}"></p>
-    <p th:text="${'Rating: ' + restaurant.rating}"></p>
+
+    <p th:text="${'ID: ' + restaurant.id}">id</p>
+    <p th:text="${'Name: ' + restaurant.name}">Name</p>
+    <p th:text="${'Location: ' + restaurant.location}">Location</p>
+    <p th:text="${'Rating: ' + restaurant.rating}">Rating</p>
+
 </div>
 
 

@@ -1,12 +1,11 @@
 package org.launchcode.javawebdevtechjobsauthentication.models.data;
 
-import org.launchcode.javawebdevtechjobsauthentication.models.User;
+import org.launchcode.javawebdevtechjobsauthentication.models.Rating;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Integer> {
+public interface RatingRepository extends CrudRepository<Rating, Integer> {
 
-    User findByUsername(String username);
-
+    Rating findByRatingId(Integer Id);
 }
