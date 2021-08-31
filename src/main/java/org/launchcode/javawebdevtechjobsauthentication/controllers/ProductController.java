@@ -72,19 +72,19 @@ public class ProductController {
     }
 
     //TODO: TEST ADD METHODS
-    @GetMapping("add/{productId}")
-    public String addItemToCart(Model model, @ModelAttribute Cart newCart){
-        model.addAttribute("products", productRepository.findAll());
-        return"add/{productId}";
-    }
-    //DOES THIS EVEN MEAN ANYTHING
-    @PostMapping("add/{productId}")
-    public String processAddItemToCart(@RequestParam int productId, @ModelAttribute Cart newCart, @ModelAttribute Product newProduct,Model model){
-        model.addAttribute("productId", productRepository.findById(newProduct.getId()));
-        newCart.addProduct(newProduct);
-
-        return"redirect:";
-    }
+//    @GetMapping("add/{productId}")
+//    public String addItemToCart(Model model, @ModelAttribute Cart newCart){
+//        model.addAttribute("products", productRepository.findAll());
+//        return"add/{productId}";
+//    }
+//    //DOES THIS EVEN MEAN ANYTHING
+//    @PostMapping("add/{productId}")
+//    public String processAddItemToCart(@RequestParam int productId, @ModelAttribute Cart newCart, @ModelAttribute Product newProduct,Model model){
+//        model.addAttribute("productId", productRepository.findById(newProduct.getId()));
+//        newCart.addProduct(newProduct);
+//
+//        return"redirect:";
+//    }
 //    @GetMapping("add")
 //    public String addItemToCart(Model model){
 //        model.addAttribute("products", productRepository.findAll());
