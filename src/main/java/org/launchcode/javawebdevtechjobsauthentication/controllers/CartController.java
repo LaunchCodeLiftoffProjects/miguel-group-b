@@ -12,10 +12,11 @@ import org.launchcode.javawebdevtechjobsauthentication.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/cart")
+@RequestMapping("cart")
 public class CartController {
 
     @Autowired
@@ -33,8 +34,9 @@ public class CartController {
 
     //is User the correct param to use?
     @GetMapping("/view")
-    public ResponseEntity<CartDTO> viewCart(User user){
+    public ResponseEntity<CartDTO> viewCart(User user, Model model){
         CartDTO cartDTO = cartService.listCartItems(user);
+        model.addAttribute("cartDTO", cartDTO);
         return new ResponseEntity<>(cartDTO, HttpStatus.OK);
     }
 
@@ -46,13 +48,12 @@ public class CartController {
 //        return new ResponseEntity<AddProductToCartDTO>(newProduct, HttpStatus.CREATED);
 //    }
 
-    @PostMapping("/add")
-    public ResponseEntity<Cart> addToCart(@RequestBody AddProductToCartDTO addProductToCartDTO){
-        Product product = productService.findProductById(addProductToCartDTO.getProductId());
-        Cart cart = cartService.addToCart(addProductToCartDTO, product, );
-//        cartService.addToCart(addProductToCartDTO, product, user);
-        return new ResponseEntity<>(cart, HttpStatus.CREATED);
-    }
-
+//    @PostMapping("/add")
+//    public ResponseEntity<Cart> addToCart(@RequestBody AddProductToCartDTO addProductToCartDTO){
+//        Product product = productService.findProductById(addProductToCartDTO.getProductId());
+//        Cart cart = cartService.addToCart(addProductToCartDTO, product, );
+////        cartService.addToCart(addProductToCartDTO, product, user);
+//        return new ResponseEntity<>(cart, HttpStatus.CREATED);
+//    }
 
 }

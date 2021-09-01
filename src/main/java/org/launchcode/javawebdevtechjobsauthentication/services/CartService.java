@@ -30,8 +30,14 @@ public class CartService {
 
     public CartService(){}
 
-    public void addToCart(AddProductToCartDTO addToCartDTO, Product product, User user){
-        Cart cart = new Cart(product, addToCartDTO.getQuantity(), user);
+//    REMOVED USER PARAM FROM METHOD FOR NOW
+//    public void addToCart(AddProductToCartDTO addToCartDTO, Product product, User user){
+//        Cart cart = new Cart(product, addToCartDTO.getQuantity(), user);
+//        cartRepository.save(cart);
+//    }
+
+    public void addToCart(Product product, AddProductToCartDTO addToCartDTO){
+        Cart cart = new Cart(product, addToCartDTO.getQuantity());
         cartRepository.save(cart);
     }
 

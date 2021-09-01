@@ -19,7 +19,7 @@ public class Cart extends AbstractEntity{
 
     public Cart(Product product, int quantity, User user){}
 
-    public Cart(User user, Product product, int quantity) {
+    public Cart(Product product, int quantity) {
         this.user = user;
         this.product = product;
         this.quantity = quantity;
