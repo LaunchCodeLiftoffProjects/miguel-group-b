@@ -1,6 +1,7 @@
 package org.launchcode.javawebdevtechjobsauthentication.controllers;
 
-import org.launchcode.javawebdevtechjobsauthentication.models.DTO.CartDTO;
+import org.launchcode.javawebdevtechjobsauthentication.models.Cart;
+import org.launchcode.javawebdevtechjobsauthentication.models.DTO.CartItemDTO;
 import org.launchcode.javawebdevtechjobsauthentication.models.User;
 import org.launchcode.javawebdevtechjobsauthentication.services.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +20,13 @@ public class CartController {
         this.cartService = cartService;
     }
     //is User the correct param to use?
-    @GetMapping("/view")
-    public ResponseEntity<CartDTO> viewCart(User user){
-        CartDTO cartDTO = cartService.listCartItems(user);
-        return new ResponseEntity<>(cartDTO, HttpStatus.OK);
-    }
+
+
+//    @GetMapping("/view")
+//    public ResponseEntity<CartDTO> viewCart(User user){
+//        CartDTO cartDTO = cartService.listCartItems(user);
+//        return new ResponseEntity<>(cartDTO, HttpStatus.OK);
+//    }
 
 
 }
