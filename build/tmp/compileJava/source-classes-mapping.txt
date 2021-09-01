@@ -8,8 +8,8 @@ org/launchcode/javawebdevtechjobsauthentication/models/DTO/CartItemDTO.java
  org.launchcode.javawebdevtechjobsauthentication.models.DTO.CartItemDTO
 org/launchcode/javawebdevtechjobsauthentication/controllers/AuthenticationController.java
  org.launchcode.javawebdevtechjobsauthentication.controllers.AuthenticationController
-org/launchcode/javawebdevtechjobsauthentication/controllers/CartController.java
- org.launchcode.javawebdevtechjobsauthentication.controllers.CartController
+org/launchcode/javawebdevtechjobsauthentication/models/DTO/RegisterFormDTO.java
+ org.launchcode.javawebdevtechjobsauthentication.models.DTO.RegisterFormDTO
 org/launchcode/javawebdevtechjobsauthentication/models/Cart.java
  org.launchcode.javawebdevtechjobsauthentication.models.Cart
 org/launchcode/javawebdevtechjobsauthentication/models/DTO/AddProductToCartDTO.java
@@ -22,14 +22,14 @@ org/launchcode/javawebdevtechjobsauthentication/models/data/VendorRepository.jav
  org.launchcode.javawebdevtechjobsauthentication.models.data.VendorRepository
 org/launchcode/javawebdevtechjobsauthentication/exceptions/NotFoundException.java
  org.launchcode.javawebdevtechjobsauthentication.exceptions.NotFoundException
-org/launchcode/javawebdevtechjobsauthentication/controllers/ProductController.java
- org.launchcode.javawebdevtechjobsauthentication.controllers.ProductController
-org/launchcode/javawebdevtechjobsauthentication/models/data/ProductRepository.java
- org.launchcode.javawebdevtechjobsauthentication.models.data.ProductRepository
+org/launchcode/javawebdevtechjobsauthentication/AuthenticationFilter.java
+ org.launchcode.javawebdevtechjobsauthentication.AuthenticationFilter
+org/launchcode/javawebdevtechjobsauthentication/services/CartService.java
+ org.launchcode.javawebdevtechjobsauthentication.services.CartService
 org/launchcode/javawebdevtechjobsauthentication/models/Vendor.java
  org.launchcode.javawebdevtechjobsauthentication.models.Vendor
-org/launchcode/javawebdevtechjobsauthentication/services/ProductService.java
- org.launchcode.javawebdevtechjobsauthentication.services.ProductService
+org/launchcode/javawebdevtechjobsauthentication/models/data/CartRepository.java
+ org.launchcode.javawebdevtechjobsauthentication.models.data.CartRepository
 org/launchcode/javawebdevtechjobsauthentication/models/User.java
  org.launchcode.javawebdevtechjobsauthentication.models.User
 org/launchcode/javawebdevtechjobsauthentication/models/DTO/LoginFormDTO.java
@@ -38,11 +38,11 @@ org/launchcode/javawebdevtechjobsauthentication/controllers/HomeController.java
  org.launchcode.javawebdevtechjobsauthentication.controllers.HomeController
 org/launchcode/javawebdevtechjobsauthentication/models/Product.java
  org.launchcode.javawebdevtechjobsauthentication.models.Product
-org/launchcode/javawebdevtechjobsauthentication/services/CartService.java
- org.launchcode.javawebdevtechjobsauthentication.services.CartService
-org/launchcode/javawebdevtechjobsauthentication/models/data/CartRepository.java
- org.launchcode.javawebdevtechjobsauthentication.models.data.CartRepository
-org/launchcode/javawebdevtechjobsauthentication/AuthenticationFilter.java
- org.launchcode.javawebdevtechjobsauthentication.AuthenticationFilter
-org/launchcode/javawebdevtechjobsauthentication/models/DTO/RegisterFormDTO.java
- org.launchcode.javawebdevtechjobsauthentication.models.DTO.RegisterFormDTO
+org/launchcode/javawebdevtechjobsauthentication/controllers/CartController.java
+ org.launchcode.javawebdevtechjobsauthentication.controllers.CartController
+org/launchcode/javawebdevtechjobsauthentication/services/ProductService.java
+ org.launchcode.javawebdevtechjobsauthentication.services.ProductService
+org/launchcode/javawebdevtechjobsauthentication/models/data/ProductRepository.java
+ org.launchcode.javawebdevtechjobsauthentication.models.data.ProductRepository
+org/launchcode/javawebdevtechjobsauthentication/controllers/ProductController.java
+ org.launchcode.javawebdevtechjobsauthentication.controllers.ProductController

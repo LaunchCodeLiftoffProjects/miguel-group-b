@@ -6,17 +6,32 @@ import org.launchcode.javawebdevtechjobsauthentication.models.data.ProductReposi
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService {
-    @Autowired
     private ProductRepository productRepository;
 
-    public ProductService(ProductRepository productRepository){
-        this.productRepository = productRepository;
+    @Autowired
+    public ProductService(ProductRepository productRepository){ this.productRepository = productRepository; }
+
+    public Product addProduct(Product product){
+        return productRepository.save(product);
     }
+
+    public List<Product> viewAllProducts(){
+        return productRepository.findAll();
+    }
+
+    public Product editProduct(Product product){ return productRepository.save(product); }
 
     public Product findProductById(int id){
         return productRepository.findProductById(id).orElseThrow(() -> new NotFoundException("Product with id " + id + "was not found."));
     }
+
+    public void deleteProduct(int id){
+        productRepository.deleteProductById(id);
+    }
+
 
 }
