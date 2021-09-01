@@ -47,11 +47,11 @@ public class CartController {
 //    }
 
     @PostMapping("/add")
-    public ResponseEntity<String> addToCart(@RequestBody AddProductToCartDTO addProductToCartDTO){
+    public ResponseEntity<Cart> addToCart(@RequestBody AddProductToCartDTO addProductToCartDTO){
         Product product = productService.findProductById(addProductToCartDTO.getProductId());
-        User user = new User();
-        cartService.addToCart(addProductToCartDTO, product, user);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        Cart cart = cartService.addToCart(addProductToCartDTO, product, );
+//        cartService.addToCart(addProductToCartDTO, product, user);
+        return new ResponseEntity<>(cart, HttpStatus.CREATED);
     }
 
 
