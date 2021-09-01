@@ -3,6 +3,7 @@ package org.launchcode.javawebdevtechjobsauthentication.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 public class Product extends AbstractEntity{
@@ -19,16 +20,17 @@ public class Product extends AbstractEntity{
 
     private String pictureURL;
 
-    @ManyToOne
-    private Cart cart;
+    @OneToMany
+    private List<Cart> carts;
 
     public Product(){}
 
-    public Product(String name, String description, Double price, String pictureURL) {
+    public Product(String name, String description, Double price, String pictureURL, List<Cart> carts) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.pictureURL = pictureURL;
+        this.carts = carts;
     }
 
     public String getName() {
@@ -58,4 +60,12 @@ public class Product extends AbstractEntity{
     public String getPictureURL() { return pictureURL; }
 
     public void setPictureURL(String pictureURL) {this.pictureURL = pictureURL; }
+
+    public List<Cart> getCarts() {
+        return carts;
+    }
+
+    public void setCarts(List<Cart> carts) {
+        this.carts = carts;
+    }
 }

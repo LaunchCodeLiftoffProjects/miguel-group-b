@@ -1,19 +1,25 @@
 package org.launchcode.javawebdevtechjobsauthentication.models;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import java.time.LocalDate;
 
 @Entity
 public class Cart extends AbstractEntity{
 
+    @OneToOne
     private User user;
+
+    @ManyToOne
     private Product product;
+
     private int quantity;
 
     public Cart(Product product, int quantity, User user){}
 
-    public Cart(User user, Product product, LocalDate dateCreated, int quantity) {
+    public Cart(User user, Product product, int quantity) {
         this.user = user;
         this.product = product;
         this.quantity = quantity;
