@@ -3,11 +3,12 @@ package org.launchcode.javawebdevtechjobsauthentication.models.DTO;
 import java.util.List;
 
 public class CartDTO {
-    private List<CartItemDTO> cartItems;
-    private double orderTotal;
 
-    public CartDTO(List<CartItemDTO> cartItems, double orderTotal) {
-        this.cartItems = cartItems;
+    private List<CartItemDTO> cartItems;
+    private Double orderTotal;
+
+    public CartDTO(List<CartItemDTO> cartItemDTOList, Double orderTotal) {
+        this.cartItems = cartItemDTOList;
         this.orderTotal = orderTotal;
     }
 
@@ -15,15 +16,15 @@ public class CartDTO {
         return cartItems;
     }
 
-    public void setCartItems(List<CartItemDTO> cartItems) {
-        this.cartItems = cartItems;
+    public void setCartItems(List<CartItemDTO> cartItemDTOList) {
+        this.cartItems = cartItemDTOList;
     }
 
-    public double getOrderTotal() {
+    public Double getOrderTotal() {
         return orderTotal;
     }
 
-    public void setOrderTotal(double orderTotal) {
+    public void setOrderTotal(Double orderTotal) {
         this.orderTotal = orderTotal;
     }
 }
