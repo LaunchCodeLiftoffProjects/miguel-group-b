@@ -18,4 +18,5 @@ public interface CartRepository extends JpaRepository<Cart, Integer> {
 //    Cart findByCartId(int id);
 
     public List<Cart> findByCustomer(User user);
+
 }
