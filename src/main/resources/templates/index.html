@@ -7,7 +7,18 @@
 
 <div th:replace="fragments :: page-header"></div>
 
+<div align="center">
+
+
+
 <div class="container body-content">
+
+    <div sec:authorize="isAuthenticated()">
+        Welcome <b><span sec:authentication="name">Username</span></b>
+        &nbsp;
+        <span sec:authentication="principal.authorities">Roles</span>
+    </div>
+
     <h2>Vendors</h2>
     <ul>
         <li th:each="vendor : ${vendors}">
@@ -17,5 +28,6 @@
 
 </div>
 
+</div>
 </body>
 </html>
