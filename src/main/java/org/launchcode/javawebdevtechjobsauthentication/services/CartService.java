@@ -1,7 +1,6 @@
 package org.launchcode.javawebdevtechjobsauthentication.services;
 
 import org.launchcode.javawebdevtechjobsauthentication.models.Cart;
-import org.launchcode.javawebdevtechjobsauthentication.models.Customer;
 import org.launchcode.javawebdevtechjobsauthentication.models.Product;
 import org.launchcode.javawebdevtechjobsauthentication.models.data.CartRepository;
 import org.launchcode.javawebdevtechjobsauthentication.models.data.ProductRepository;
@@ -30,10 +29,6 @@ public class CartService {
         this.cartRepository = cartRepository;
     }
 
-////    TEST
-//    public Optional<Cart> listCartItems(Customer customer){
-//        return cartRepository.findById(customer.getId());
-//    }
 
 //    public Cart viewCustomerCart(@PathVariable int cartId, Model model){
 //        Optional optCart = cartRepository.findById(cartId);

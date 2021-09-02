@@ -2,9 +2,7 @@ package org.launchcode.javawebdevtechjobsauthentication.models;
 
 import org.springframework.util.CollectionUtils;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,29 +12,18 @@ import java.util.Objects;
 
 @Entity
 public class Cart extends AbstractEntity{
-
-    @OneToOne
-    private Customer customer;
-
 //    @ManyToOne
+//    @JoinColumn(name = "cart")
+    @OneToMany
     private List<Product> products;
 
     private int quantity;
 
     public Cart(){}
 
-    public Cart(Customer customer, List<Product> products, int quantity) {
-        this.customer = customer;
+    public Cart(List<Product> products, int quantity) {
         this.products = products;
         this.quantity = quantity;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
     }
 
     public List<Product> getProducts() {
@@ -56,27 +43,14 @@ public class Cart extends AbstractEntity{
     }
 
     public void setProduct(Product product){
-        if(CollectionUtils.isEmpty(this.getProducts())){
+        if(products.isEmpty()){
         List<Product> products = new ArrayList<>();
         products.add(product);
         this.setProducts(products);
-        } else {
+        }
+        else {
             this.getProducts().add(product);
         }
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Cart cart = (Cart) o;
-        return Objects.equals(customer, cart.customer) && Objects.equals(products, cart.products);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), customer, products, quantity);
     }
 
     public Double getTotal(Cart cart){

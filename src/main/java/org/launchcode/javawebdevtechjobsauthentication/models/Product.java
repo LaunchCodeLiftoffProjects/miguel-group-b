@@ -21,16 +21,18 @@ public class Product extends AbstractEntity{
     private String pictureURL;
 
 //    @OneToMany
-    private List<Cart> carts;
+//    private List<Cart> carts;
+    @ManyToOne
+    private Cart cart;
 
     public Product(){}
 
-    public Product(String name, String description, Double price, String pictureURL, List<Cart> carts) {
+    public Product(String name, String description, Double price, String pictureURL, Cart cart) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.pictureURL = pictureURL;
-        this.carts = carts;
+        this.cart = cart;
     }
 
     public String getName() {
@@ -61,11 +63,19 @@ public class Product extends AbstractEntity{
 
     public void setPictureURL(String pictureURL) {this.pictureURL = pictureURL; }
 
-    public List<Cart> getCarts() {
-        return carts;
+    public Cart getCart() {
+        return cart;
     }
 
-    public void setCarts(List<Cart> carts) {
-        this.carts = carts;
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
+
+    //    public List<Cart> getCarts() {
+//        return carts;
+//    }
+//
+//    public void setCarts(List<Cart> carts) {
+//        this.carts = carts;
+//    }
 }
