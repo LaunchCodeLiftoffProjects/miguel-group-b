@@ -36,8 +36,6 @@ public class CartTest {
 
     @Test
     public void shouldAddOneProductToCart(){
-
-        Cart newCart = new Cart();
     }
 //    @Test
 //    public void contextLoads() throws Exception {

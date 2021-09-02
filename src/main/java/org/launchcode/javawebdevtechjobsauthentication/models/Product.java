@@ -20,7 +20,7 @@ public class Product extends AbstractEntity{
 
     private String pictureURL;
 
-    @OneToMany
+//    @OneToMany
     private List<Cart> carts;
 
     public Product(){}

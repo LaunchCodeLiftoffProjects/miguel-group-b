@@ -24,10 +24,10 @@ public class ProductService {
     }
 
     public Product editProduct(Product product){ return productRepository.save(product); }
-
-    public Product findProductById(int id){
-        return productRepository.findProductById(id).orElseThrow(() -> new NotFoundException("Product with id " + id + "was not found."));
-    }
+//
+//    public Product findProductById(int id){
+//        return productRepository.findProductById(id).orElseThrow(() -> new NotFoundException("Product with id " + id + "was not found."));
+//    }
 
     public void deleteProduct(int id){
         productRepository.deleteProductById(id);
