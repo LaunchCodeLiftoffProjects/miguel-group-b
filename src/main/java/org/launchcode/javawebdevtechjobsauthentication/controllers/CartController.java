@@ -16,6 +16,7 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping("cart")
+@SessionAttributes("cart")
 public class CartController {
 
     @Autowired
