@@ -3,6 +3,7 @@ package org.launchcode.javawebdevtechjobsauthentication.controllers;
 import org.launchcode.javawebdevtechjobsauthentication.models.Cart;
 import org.launchcode.javawebdevtechjobsauthentication.models.Customer;
 import org.launchcode.javawebdevtechjobsauthentication.models.DTO.CartProductDTO;
+import org.launchcode.javawebdevtechjobsauthentication.models.Product;
 import org.launchcode.javawebdevtechjobsauthentication.models.data.CartRepository;
 import org.launchcode.javawebdevtechjobsauthentication.models.data.ProductRepository;
 import org.launchcode.javawebdevtechjobsauthentication.services.CartService;
@@ -40,6 +41,21 @@ public class CartController {
         return new Cart();
     }
 
+    @PostMapping("addToCart")
+    public String addToCart(Model model, @ModelAttribute Cart cart, @ModelAttribute Product product){
+        if(cart!=null){
+            cart.setProduct(product);
+            model.addAttribute("cart", cart);
+        } else {
+            Cart newCart = new Cart();
+            cart.setCustomer(cart.getCustomer());
+            cart.setProduct(product);
+            model.addAttribute("cart", newCart);
+        }
+        return "redirect:";
+//        + product detail page
+    }
+
     @GetMapping("add-product")
     public String displayAddProductForm(@RequestParam int cartId, Model model){
         Optional<Cart> result = cartRepository.findById(cartId);
@@ -57,6 +73,7 @@ public class CartController {
         if(!optCart.isPresent()){
             Cart cart = (Cart) optCart.get();
             model.addAttribute("cart", cart);
+            model.addAttribute("total", cart.getTotal(cart));
             return "view";
         } else {
             return "redirect:";
