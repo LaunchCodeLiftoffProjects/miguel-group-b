@@ -42,15 +42,18 @@ public class Cart extends AbstractEntity{
         this.quantity = quantity;
     }
 
-    public void setProduct(Product product){
-        if(products.isEmpty()){
-        List<Product> products = new ArrayList<>();
-        products.add(product);
-        this.setProducts(products);
-        }
-        else {
-            this.getProducts().add(product);
-        }
+//    public void setProduct(Product product){
+//        if(products.isEmpty()){
+//        List<Product> products = new ArrayList<>();
+//        products.add(product);
+//        this.setProducts(products);
+//        }
+//        else {
+//            this.getProducts().add(product);
+//        }
+//    }
+    public void addProduct(Product product){
+        this.products.add(product);
     }
 
     public Double getTotal(Cart cart){

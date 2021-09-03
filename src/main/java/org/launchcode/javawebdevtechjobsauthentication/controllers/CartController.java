@@ -9,8 +9,10 @@ import org.launchcode.javawebdevtechjobsauthentication.services.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,32 +31,33 @@ public class CartController {
     private ProductRepository productRepository;
 
 //   when controller is accessed for the first time, spring instantiates an instance and places in the model
-    @ModelAttribute("cart")
-    public Cart cart(){
-        return new Cart();
-    }
+//    @ModelAttribute("cart")
+//    public Cart cart(){
+//        return new Cart();
+//    }
 
     @GetMapping("view")
     public String viewCart(
 //            @SessionAttribute("cart")
                                        Cart cart, Model model){
+        model.addAttribute(new Cart());
         model.addAttribute("cart", cart);
         return "cart/view";
     }
 
-    @PostMapping("addToCart")
-    public String addToCart(Model model, @ModelAttribute Cart cart, @ModelAttribute Product product){
-        if(cart!=null){
-            cart.setProduct(product);
-            model.addAttribute("cart", cart);
-        } else {
-            Cart newCart = new Cart();
-            cart.setProduct(product);
-            model.addAttribute("cart", newCart);
-        }
-        return "redirect:";
-//        + product detail page
-    }
+//    @PostMapping("addToCart")
+//    public String addToCart(Model model, @ModelAttribute Cart cart, @ModelAttribute Product product){
+//        if(cart!=null){
+//            cart.setProduct(product);
+//            model.addAttribute("cart", cart);
+//        } else {
+//            Cart newCart = new Cart();
+//            cart.setProduct(product);
+//            model.addAttribute("cart", newCart);
+//        }
+//        return "redirect:";
+////        + product detail page
+//    }
 
     @GetMapping("add-product")
     public String displayAddProductForm(@RequestParam int cartId, Model model){
@@ -65,6 +68,20 @@ public class CartController {
         cartProduct.setCart(cart);
         model.addAttribute("cartProduct", cartProduct);
         return "cart/add-product";
+    }
+
+    @PostMapping("add-product")
+    public String processAddProductForm(@ModelAttribute @Valid CartProductDTO cartProduct, Errors errors){
+        if (!errors.hasErrors()) {
+            Cart cart = cartProduct.getCart();
+            Product product = cartProduct.getProduct();
+            if (!cart.getProducts().contains(product)){
+                cart.addProduct(product);
+                cartRepository.save(cart);
+            }
+            return "redirect:detail?cartId=" + cart.getId();
+        }
+        return "redirect:add-product";
     }
 
 //    @GetMapping("view/{cartId}")

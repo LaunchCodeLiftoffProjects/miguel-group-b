@@ -9,8 +9,8 @@
     <div class="form-group">
         <input type="hidden" th:field="${cartProduct.cart}">
         <select th:field="${cartProduct.product}">
-            <option th:each="product : ${products}"
-                    th:value="${product.name}"
+            <option th:each="product : ${products}">
+                    <th:value="${product.name}">
 <!--                    th:text="${tag.name}"-->
             ></option>
         </select>

@@ -31,19 +31,19 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr th:each="cartItem : ${cartDTO}">
+                        <tr th:each="products : ${cart}">
                             <th scope="row" class="border-0">
 <!--                                <div class="p-2">-->
                                 <td>
-                                    <img th:src="${cartItem.imageURL}">
+                                    <img th:src="${products.product.imageURL}">
                                     <div class="ml-3 d-inline-block align-middle">
                                         <h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle"></a>Placeholder</h5>
                                     </div>
                                 </td>
 <!--                                </div>-->
                             </th>
-                            <td class="border-0 align-middle" th:text="${cartItem.name}"></td>
-                            <td class="border-0 align-middle" th:text="${cartItem.price}">Placeholder</td>
+                            <td class="border-0 align-middle" th:text="${products.product.name}"></td>
+                            <td class="border-0 align-middle" th:text="${products.product.price}">Placeholder</td>
                             <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
                         </tr>
                         </tbody>
@@ -55,21 +55,21 @@
     </div>
 </div>
 
-<div class="row py-5 p-4 bg-white shadow-sm">
-    <div class="col-lg-6">
-        <div class="text-center bg-light px-4 py-3 text-uppercase">Order Summary</div>
-        <div class="p-4">
-            <p class="text-center mb-4">Additional Costs are calculated based on values you have entered.</p>
-            <ul class="list-unstyled list-group mb-4">
-                <li class="list-group-item d-flex py-3"><strong class="text-muted">Subtotal</strong><strong></strong></li>
-                <li class="list-group-item d-flex py-3"><strong class="text-muted">Tax</strong><strong></strong></li>
-                <li class="list-group-item d-flex py-3"><strong class="text-muted">Total</strong>
-                    <h5></h5>
-                </li>
-            </ul><button class="btn btn-primary btn-block">Checkout</button>
-        </div>
-    </div>
-</div>
+<!--<div class="row py-5 p-4 bg-white shadow-sm">-->
+<!--    <div class="col-lg-6">-->
+<!--        <div class="text-center bg-light px-4 py-3 text-uppercase">Order Summary</div>-->
+<!--        <div class="p-4">-->
+<!--            <p class="text-center mb-4">Additional Costs are calculated based on values you have entered.</p>-->
+<!--            <ul class="list-unstyled list-group mb-4">-->
+<!--                <li class="list-group-item d-flex py-3"><strong class="text-muted">Subtotal</strong><strong></strong></li>-->
+<!--                <li class="list-group-item d-flex py-3"><strong class="text-muted">Tax</strong><strong></strong></li>-->
+<!--                <li class="list-group-item d-flex py-3"><strong class="text-muted">Total</strong>-->
+<!--                    <h5></h5>-->
+<!--                </li>-->
+<!--            </ul><button class="btn btn-primary btn-block">Checkout</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <!--<div class="job-listing">-->
 <!--    <p th:text="${'ID: ' + product.id}"></p>-->
