@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div th:fragment="navigation" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a th:href="@{/}" class="navbar-brand">SnapSnap</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a th:href="@{/products}">Products</a></li>
+                <li><a th:href="@{/products/add}">Add Products</a></li>
+                <li><a th:href="@{/products/delete}">Delete Products</a></li>
+                <li><a th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="col">
+        <th:block th:each=" product : ${cart}">
+            <div class="row">
+                <div class="col">
+                    <p th:text="{product.name}"></p>
+                </div>
+            </div>
+
+        </th:block>
+    </div>
+</div>
+
+</body>
+</html>

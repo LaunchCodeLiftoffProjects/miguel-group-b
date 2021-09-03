@@ -29,7 +29,6 @@ public class CartService {
         this.cartRepository = cartRepository;
     }
 
-
 //    public Cart viewCustomerCart(@PathVariable int cartId, Model model){
 //        Optional optCart = cartRepository.findById(cartId);
 //        if(!optCart.isPresent()){

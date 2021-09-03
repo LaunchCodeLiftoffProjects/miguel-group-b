@@ -36,28 +36,28 @@ public class CartController {
 //        return new Cart();
 //    }
 
-    @GetMapping("view")
+    @GetMapping
     public String viewCart(
 //            @SessionAttribute("cart")
                                        Cart cart, Model model){
         model.addAttribute(new Cart());
         model.addAttribute("cart", cart);
-        return "cart/view";
+        return "cart/index";
     }
 
-//    @PostMapping("addToCart")
-//    public String addToCart(Model model, @ModelAttribute Cart cart, @ModelAttribute Product product){
-//        if(cart!=null){
-//            cart.setProduct(product);
-//            model.addAttribute("cart", cart);
-//        } else {
-//            Cart newCart = new Cart();
-//            cart.setProduct(product);
-//            model.addAttribute("cart", newCart);
-//        }
-//        return "redirect:";
-////        + product detail page
-//    }
+    @PostMapping("addToCart")
+    public String addToCart(Model model, @ModelAttribute Cart cart, @ModelAttribute Product product){
+        if(cart!=null){
+            cart.addProduct(product);
+            model.addAttribute("cart", cart);
+        } else {
+            Cart newCart = new Cart();
+            cart.addProduct(product);
+            model.addAttribute("cart", newCart);
+        }
+        return "redirect:";
+//        + product detail page
+    }
 
     @GetMapping("add-product")
     public String displayAddProductForm(@RequestParam int cartId, Model model){
