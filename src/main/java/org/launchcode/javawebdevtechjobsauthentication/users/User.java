@@ -22,7 +22,7 @@ public class User {
     @Column
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean enabled;
-
+    
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 

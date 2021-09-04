@@ -4,6 +4,7 @@ package org.launchcode.javawebdevtechjobsauthentication.controllers;
 import org.launchcode.javawebdevtechjobsauthentication.models.DTO.LoginFormDTO;
 import org.launchcode.javawebdevtechjobsauthentication.models.DTO.RegisterFormDTO;
 import org.launchcode.javawebdevtechjobsauthentication.users.MyUserDetails;
+import org.launchcode.javawebdevtechjobsauthentication.users.Role;
 import org.launchcode.javawebdevtechjobsauthentication.users.User;
 import org.launchcode.javawebdevtechjobsauthentication.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,6 +82,7 @@ public class AuthenticationController {
         }
 
         User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword(), User.isEnabled());
+        Role newRole = new Role();
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
 
