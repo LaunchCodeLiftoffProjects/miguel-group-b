@@ -15,7 +15,7 @@ public abstract class AbstractEntity {
     public int getId() {
         return id;
     }
-
+    public int setId(int id){return id;}
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
