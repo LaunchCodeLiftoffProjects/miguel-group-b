@@ -13,9 +13,6 @@ import java.util.Optional;
 
 
 
-/**
- * Created by LaunchCode
- */
 @Controller
 public class HomeController {
 
@@ -29,10 +26,12 @@ public class HomeController {
     }
 
     @GetMapping("add")
-    public String displayAddvendorForm(Model model) {
+    public String displayAddvendorForm( Model model) {
         model.addAttribute(new Vendor());
         return "add";
     }
+
+
 
     @PostMapping("add")
     public String processAddvendorForm(@ModelAttribute @Valid Vendor newvendor,
@@ -57,6 +56,10 @@ public class HomeController {
         } else {
             return "redirect:/";
         }
+    }
+    @GetMapping("403")
+    public String error403() {
+        return "403";
     }
 
 

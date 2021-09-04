@@ -3,6 +3,7 @@ package org.launchcode.javawebdevtechjobsauthentication.users;
 
 
 import org.springframework.context.annotation.*;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.*;
 import org.springframework.security.config.annotation.authentication.builders.*;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -40,13 +41,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers()
+        http
+                .csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/delete/**").hasAuthority("ADMIN")
+                .antMatchers("/add/**").hasAnyAuthority("ADMIN", "VENDOR")
+                .antMatchers("/view/**").hasAnyAuthority("USER", "ADMIN", "VENDOR")
+                .antMatchers("/index/**").hasAnyAuthority("USER", "ADMIN", "VENDOR")
+                .antMatchers("/register/**").hasAnyAuthority("USER", "ADMIN", "VENDOR")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().permitAll()
                 .and()
                 .logout().permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage("/403")
                 ;
 
     }

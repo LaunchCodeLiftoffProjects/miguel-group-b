@@ -1,5 +1,8 @@
 package org.launchcode.javawebdevtechjobsauthentication.users;
 
+import org.hibernate.annotations.Type;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,7 +18,23 @@ public class User {
 
     private String username;
     private String password;
+
+    @Column
+    @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean enabled;
+
+
+    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+    public User() {};
+
+    public User(String username, String password, Boolean enabled) {
+        this.username = username;
+        this.password = encoder.encode(password);
+        this.enabled = enabled;
+    }
+
+
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
@@ -49,8 +68,8 @@ public class User {
         this.password = password;
     }
 
-    public boolean isEnabled() {
-        return enabled;
+    public static boolean isEnabled() {
+        return true;
     }
 
     public void setEnabled(boolean enabled) {
@@ -63,5 +82,9 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public boolean isMatchingPassword(String password) {
+        return encoder.matches(password, this.password);
     }
 }
