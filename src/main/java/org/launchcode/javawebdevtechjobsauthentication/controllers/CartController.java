@@ -1,20 +1,27 @@
 package org.launchcode.javawebdevtechjobsauthentication.controllers;
 
+import org.launchcode.javawebdevtechjobsauthentication.AuthenticationFilter;
 import org.launchcode.javawebdevtechjobsauthentication.models.Cart;
 import org.launchcode.javawebdevtechjobsauthentication.models.DTO.CartProductDTO;
+import org.launchcode.javawebdevtechjobsauthentication.models.User;
 import org.launchcode.javawebdevtechjobsauthentication.models.data.CartRepository;
 import org.launchcode.javawebdevtechjobsauthentication.models.data.ProductRepository;
+import org.launchcode.javawebdevtechjobsauthentication.models.data.UserRepository;
+import org.launchcode.javawebdevtechjobsauthentication.services.CartServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
 @RequestMapping("cart")
-//@SessionAttributes("cart")
 public class CartController {
+
+    @Autowired
+    private CartServices cartServices;
 
     @Autowired
     private CartRepository cartRepository;
@@ -22,20 +29,28 @@ public class CartController {
     @Autowired
     private ProductRepository productRepository;
 
+    @GetMapping
+    public String showCart(Model model){
+//        get currently logged in user
+//        List<Cart> cartList = cartServices.listItemsInCart(userId);
+        model.addAttribute("cart", cartRepository.findById(1));
+        return"cart/index";
+    }
+
 //   when controller is accessed for the first time, spring instantiates an instance and places in the model
 //    @ModelAttribute("cart")
 //    public Cart cart(){
 //        return new Cart();
 //    }
 
-    @GetMapping
+/*    @GetMapping
     public String viewCart(
 //            @SessionAttribute("cart")
                                        Cart cart, Model model){
         model.addAttribute(new Cart());
         model.addAttribute("cart", cart);
         return "cart/index";
-    }
+    }*/
 
 //    @PostMapping("addToCart")
 //    public String addToCart(Model model, @ModelAttribute Cart cart, @ModelAttribute Product product){
