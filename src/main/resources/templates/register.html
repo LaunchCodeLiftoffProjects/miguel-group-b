@@ -24,13 +24,15 @@
             <input class="form-control" th:field="${registerFormDTO.verifyPassword}" type="password" />
         </label>
     </div>
-    <div>
-        <select id="registeredRoles" name="registeredRoles">
-            <option value="1">User</option>
-            <option value="2">Vendor</option>
-        </select>
-    </div>
-
+<!--    <div class="col-sm-8 text-left">-->
+<!--        <th block th:each="role : ${listRoles}" >-->
+<!--            <div>-->
+<!--                <input type="checkbox" th:field="*{roles}"-->
+<!--                       th:text="${role.name}"-->
+<!--                       th:value="${role.role}" />-->
+<!--            </div>-->
+<!--        </th>-->
+<!--    </div>-->
     <input type="submit" class="btn btn-primary" value="Register" />
 </form>
 

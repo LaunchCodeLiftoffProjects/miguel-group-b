@@ -3,6 +3,7 @@ package org.launchcode.javawebdevtechjobsauthentication.controllers;
 
 import org.launchcode.javawebdevtechjobsauthentication.models.DTO.LoginFormDTO;
 import org.launchcode.javawebdevtechjobsauthentication.models.DTO.RegisterFormDTO;
+import org.launchcode.javawebdevtechjobsauthentication.models.data.RoleRepository;
 import org.launchcode.javawebdevtechjobsauthentication.users.MyUserDetails;
 import org.launchcode.javawebdevtechjobsauthentication.users.Role;
 import org.launchcode.javawebdevtechjobsauthentication.users.User;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -26,7 +28,13 @@ public class AuthenticationController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    RoleRepository roleRepository;
+
     private static final String userSessionKey = "user";
+
+//    List <Role> listRoles = roleRepository.findAll();
+
 
     public User getUserFromSession(HttpSession session) {
         Integer userId = (Integer) session.getAttribute(userSessionKey);
@@ -48,9 +56,10 @@ public class AuthenticationController {
     }
 
     @GetMapping("/register")
-    public String displayRegistrationForm(Model model) {
+    public String displayRegistrationForm(Model model, Role listRoles)  {
         model.addAttribute(new RegisterFormDTO());
         model.addAttribute("title", "Register");
+//        model.addAttribute("listRoles", "listRoles");
         return "register";
     }
 
@@ -82,7 +91,6 @@ public class AuthenticationController {
         }
 
         User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword(), User.isEnabled());
-        Role newRole = new Role();
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
 

@@ -14,6 +14,8 @@ public class MyUserDetails implements UserDetails {
 
     public User user;
 
+    public MyUserDetails(){};
+
     public MyUserDetails(User user) {
         this.user = user;
     }
