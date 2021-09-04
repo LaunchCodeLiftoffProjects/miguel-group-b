@@ -7,16 +7,17 @@
 
 <div th:replace="fragments :: page-header"></div>
 
-<div align="center">
+<div>
 
 
 
 <div class="container body-content">
 
-    <div sec:authorize="hasAnyAuthority('ADMIN')">
+    <div >
         Welcome <b><span sec:authentication="name">Username</span></b>
         &nbsp;
-        <span sec:authentication="principal.authorities">Roles</span>
+        <span sec:authorize="hasAnyAuthority('ADMIN')"
+                sec:authentication="principal.authorities">Roles</span>
     </div>
 
     <h2>Vendors</h2>
