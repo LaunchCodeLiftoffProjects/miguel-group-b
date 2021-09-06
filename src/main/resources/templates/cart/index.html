@@ -25,13 +25,7 @@
     <div class="row">
         <div class="col">
             <th:block th:each="item : ${cart}">
-                <div class="row border rounded">
-                    <div class="col">
-                        <div>Remove</div>
-                    </div>
-                    <div class="col">
-                    </div>
-                </div>
+                <div th:value="${item}"></div>
             </th:block>
         </div>
     </div>

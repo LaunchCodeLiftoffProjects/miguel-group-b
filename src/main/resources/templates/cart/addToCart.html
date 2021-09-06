@@ -23,6 +23,23 @@
 
 <h1>Add Items To Cart</h1>
 
+<div class="container">
+    <div class="row" >
+        <div class="col-md-4" th:each="product : ${products}">
+            <div class="content" >
+                <a href="@{'/products/view/' + ${product.id}}">
+                    <div class="content-overlay"></div>
+                    <img class="content-image" th:src="${product.pictureURL}" alt="placeholder">
+                    <div class="content-details fadeIn-bottom">
+                        <button class="btn btn-md btn-secondary m-4" th:href="@{'/products/view/' + ${productId}}">View</button><br>
+                        <a href="@{/cart/add}"><i class="fas fa-heart"></i></a>
+                        <a href="@{'/cart/add/' + ${productId}}"><i class="fas fa-plus"></i></a>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 <!--<div class="container body-content">-->
 <!--    <ul>-->
 <!--        <li th:each="product : ${products}">-->
@@ -31,11 +48,11 @@
 <!--    </ul>-->
 <!--</div>-->
 
-<div class="container">
-    <p th:text="${'ID: ' + product.id}"></p>
-    <p th:text="${'Name: ' + product.name}"></p>
-    <p th:text="${'Price: ' + product.price}"></p>
-</div>
+<!--<div class="container">-->
+<!--    <p th:text="${'ID: ' + product.id}"></p>-->
+<!--    <p th:text="${'Name: ' + product.name}"></p>-->
+<!--    <p th:text="${'Price: ' + product.price}"></p>-->
+<!--</div>-->
 
 
 </body>

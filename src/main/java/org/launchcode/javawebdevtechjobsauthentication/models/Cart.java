@@ -14,8 +14,8 @@ import java.util.Objects;
 public class Cart extends AbstractEntity{
 //    @ManyToOne
 //    @JoinColumn(name = "cart")
-//    @OneToMany
-//    private List<Product> products;
+    @OneToMany
+    private List<Product> products;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
@@ -27,21 +27,29 @@ public class Cart extends AbstractEntity{
 
     private int quantity;
 
-//    public Cart(){}
-//
-//    public Cart(Product product, User user, int quantity) {
-//        this.product = product;
-//        this.user = user;
-//        this.quantity = quantity;
-//    }
+    public Cart(){}
+
+    public Cart(Product product, User user, int quantity) {
+        this.product = product;
+        this.user = user;
+        this.quantity = quantity;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
 
     public Product getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
+//    public void setProduct(Product product) {
+//        this.product = product;
+//    }
 
     public User getUser() {
         return user;
@@ -59,25 +67,25 @@ public class Cart extends AbstractEntity{
         this.quantity = quantity;
     }
 
-//    public void setProduct(Product product){
-//        if(products.isEmpty()){
-//        List<Product> products = new ArrayList<>();
-//        products.add(product);
-//        this.setProducts(products);
-//        }
-//        else {
-//            this.getProducts().add(product);
-//        }
-//    }
-//    public void addProduct(Product product){
-//        this.products.add(product);
-//    }
-//
-//    public Double getTotal(Cart cart){
-//        double total = 0;
-//        for(Product product : products){
-//            total = (product.getPrice() * cart.quantity);
-//        }
-//        return total;
-//    }
+    public void setProduct(Product product){
+        if(products.isEmpty()){
+        List<Product> products = new ArrayList<>();
+        products.add(product);
+        this.setProducts(products);
+        }
+        else {
+            this.getProducts().add(product);
+        }
+    }
+    public void addProduct(Product product){
+        this.products.add(product);
+    }
+
+    public Double getTotal(Cart cart){
+        double total = 0;
+        for(Product product : products){
+            total = (product.getPrice() * cart.quantity);
+        }
+        return total;
+    }
 }
