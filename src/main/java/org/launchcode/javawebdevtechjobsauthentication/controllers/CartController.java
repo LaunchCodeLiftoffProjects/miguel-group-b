@@ -36,10 +36,10 @@ public class CartController {
     private UserRepository userRepository;
 
     //   when controller is accessed for the first time, spring instantiates an instance and places in the model
-//    @ModelAttribute("cart")
-//    public Cart cart(){
-//        return new Cart();
-//    }
+    @ModelAttribute("cart")
+    public Cart cart(){
+        return new Cart();
+    }
 
 //    @GetMapping
 //    public String showCart(Model model){
@@ -49,12 +49,12 @@ public class CartController {
 //        return"cart/index";
 //    }
 //
-//  @GetMapping
-//    public String viewCart(Cart cart, Model model){
-//        model.addAttribute(new Cart());
-//        model.addAttribute("cart", cart);
-//        return "cart/index";
-//    }
+  @GetMapping
+    public String viewCart(Cart cart, Model model){
+        model.addAttribute(new Cart());
+        model.addAttribute("cart", cart);
+        return "cart/index";
+    }
 
     @GetMapping("view/{cartId}")
     public String viewCustomerCart(@PathVariable int cartId, Model model){
@@ -69,7 +69,7 @@ public class CartController {
         }
     }
 
-    @PostMapping("addToCart")
+    @PostMapping("add")
     public String addToCart(Model model, @ModelAttribute Cart cart, @ModelAttribute Product product){
         if(cart!=null){
             cart.addProduct(product);
@@ -82,31 +82,31 @@ public class CartController {
         return "redirect:";
 //        + product detail page
     }
-//userID or cartId
-    @GetMapping("addProduct/{userId}")
-    public String displayAddProductForm(@RequestParam int userId, Model model){
-//        Optional<Cart> result = cartRepository.findById(cartId);
-        Optional<Cart> result = cartRepository.findById(userId);
-        Cart cart = result.get();
-        model.addAttribute("products", productRepository.findAll());
-        CartProductDTO cartProduct = new CartProductDTO();
-        cartProduct.setCart(cart);
-        model.addAttribute("cartProduct", cartProduct);
-        return "cart/addProduct/{userId}";
-    }
+////userID or cartId
+//    @GetMapping("add/{userId}")
+//    public String displayAddProductForm(@RequestParam int userId, Model model){
+////        Optional<Cart> result = cartRepository.findById(cartId);
+//        Optional<Cart> result = cartRepository.findById(userId);
+//        Cart cart = result.get();
+//        model.addAttribute("products", productRepository.findAll());
+//        CartProductDTO cartProduct = new CartProductDTO();
+//        cartProduct.setCart(cart);
+//        model.addAttribute("cartProduct", cartProduct);
+//        return "cart/add/{userId}";
+//    }
 
-    @PostMapping("addProduct")
-    public String processAddProductForm(@ModelAttribute CartProductDTO cartProduct, Errors errors){
-        if (!errors.hasErrors()) {
-            Cart cart = cartProduct.getCart();
-            Product product = cartProduct.getProduct();
-            if (!cart.getProducts().contains(product)){
-                cart.addProduct(product);
-                cartRepository.save(cart);
-            }
-            return "redirect:detail?cartId=" + cart.getId();
-        }
-        return "redirect:addProduct";
-    }
+//    @PostMapping("add")
+//    public String processAddProductForm(@ModelAttribute CartProductDTO cartProduct, Errors errors){
+//        if (!errors.hasErrors()) {
+//            Cart cart = cartProduct.getCart();
+//            Product product = cartProduct.getProduct();
+//            if (!cart.getProducts().contains(product)){
+//                cart.addProduct(product);
+//                cartRepository.save(cart);
+//            }
+//            return "redirect:detail?cartId=" + cart.getId();
+//        }
+//        return "redirect:add";
+//    }
 
 }

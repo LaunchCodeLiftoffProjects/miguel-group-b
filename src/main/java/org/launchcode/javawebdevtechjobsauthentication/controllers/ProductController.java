@@ -3,6 +3,7 @@ package org.launchcode.javawebdevtechjobsauthentication.controllers;
 import org.launchcode.javawebdevtechjobsauthentication.models.Cart;
 import org.launchcode.javawebdevtechjobsauthentication.models.Product;
 import org.launchcode.javawebdevtechjobsauthentication.models.data.ProductRepository;
+import org.launchcode.javawebdevtechjobsauthentication.services.CartServices;
 import org.launchcode.javawebdevtechjobsauthentication.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -63,6 +64,9 @@ public class ProductController {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private CartServices cartServices;
 
     @GetMapping
     public String index(Model model){

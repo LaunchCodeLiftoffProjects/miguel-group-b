@@ -22,28 +22,25 @@
 </div>
 
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <th:block th:each="item : ${cart}">
-                <div th:value="${item}"></div>
-            </th:block>
-        </div>
-    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Product</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item:${cart}">
+            <td th:value="${item.product}"></td>
+<!--            <td th:value="${item.quantity}"></td>-->
+<!--            <td th:value="${item.price}"></td>-->
+        </tr>
+        </tbody>
+    </table>
 </div>
-
-
-<!--<div class="container">-->
-<!--    <div class="col">-->
-<!--        <th:block th:each=" item : ${cart}">-->
-<!--            <div class="row">-->
-<!--                <div class="col">-->
-<!--                    <p th:text="{item.product_id}"></p>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--        </th:block>-->
-<!--    </div>-->
-<!--</div>-->
 
 </body>
 </html>
