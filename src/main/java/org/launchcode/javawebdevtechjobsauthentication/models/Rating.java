@@ -1,18 +1,30 @@
 package org.launchcode.javawebdevtechjobsauthentication.models;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Rating extends AbstractEntity{
 
-    private final List<Restaurant>restaurant = new ArrayList<>();
+//    @ManyToMany
+//    (mappedBy="restaurants")
+    private final ArrayList<Restaurant>restaurants = new ArrayList<>();
 
     private String description;
 
-    public Rating() {}
+    public Rating() {
 
-    public List<Restaurant> getRestaurant() {
-        return restaurant;
+    }
+
+    public ArrayList<Restaurant> getRestaurant() {
+        return(ArrayList<Restaurant>) restaurants;
+    }
+
+    public void setRestaurants(List<Restaurant>restaurants){
+        this.restaurants.addAll(restaurants);
     }
 
     public String getDescription() {
@@ -22,4 +34,5 @@ public class Rating extends AbstractEntity{
     public void setDescription(String description) {
         this.description = description;
     }
+
 }

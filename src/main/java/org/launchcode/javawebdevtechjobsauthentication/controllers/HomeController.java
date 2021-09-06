@@ -1,5 +1,6 @@
 package org.launchcode.javawebdevtechjobsauthentication.controllers;
 
+
 import org.launchcode.javawebdevtechjobsauthentication.models.Restaurant;
 import org.launchcode.javawebdevtechjobsauthentication.models.data.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,14 +36,14 @@ public class HomeController {
     }
 
     @PostMapping("add")
-    public String processAddRestaurantForm(@ModelAttribute @Valid Restaurant newrestaurant,
+    public String processAddRestaurantForm(@ModelAttribute @Valid Restaurant newRestaurant,
                                        Errors errors) {
 
         if (errors.hasErrors()) {
             return "add";
         }
 
-        restaurantRepository.save(newrestaurant);
+        restaurantRepository.save(newRestaurant);
         return "redirect:";
     }
 

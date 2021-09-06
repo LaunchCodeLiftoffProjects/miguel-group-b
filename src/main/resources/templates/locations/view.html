@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body>
+<body class="container  body-content">
+<h1 th:text="${'Location: ' + location.name}">Title</h1>
+<nav th:replace="fragments :: page-header"></nav>
+
+<div class="rest-listing">
+    <p th:text="${'Name: ' + location.name}"></p>
+    <p th:text="${'Location: ' + location.location}"></p>
+
+</div>
 
 </body>
 </html>
