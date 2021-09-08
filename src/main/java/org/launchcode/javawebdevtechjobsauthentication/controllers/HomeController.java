@@ -1,7 +1,11 @@
 package org.launchcode.javawebdevtechjobsauthentication.controllers;
 
 
+import org.launchcode.javawebdevtechjobsauthentication.models.Location;
+import org.launchcode.javawebdevtechjobsauthentication.models.Rating;
 import org.launchcode.javawebdevtechjobsauthentication.models.Restaurant;
+import org.launchcode.javawebdevtechjobsauthentication.models.data.LocationRepository;
+import org.launchcode.javawebdevtechjobsauthentication.models.data.RatingRepository;
 import org.launchcode.javawebdevtechjobsauthentication.models.data.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,17 +25,27 @@ public class HomeController {
 
     @Autowired
     private RestaurantRepository restaurantRepository;
+//    @Autowired
+//    private LocationRepository locationRepository;
+//    @Autowired
+//    private RatingRepository ratingRepository;
 
     @RequestMapping("")
     public String index(Model model) {
         model.addAttribute("restaurants", restaurantRepository.findAll());
+//        model.addAttribute("locations",locationRepository.findAll());
+//        model.addAttribute("ratings",ratingRepository.findAll());
         return "index";
     }
 
     @GetMapping("add")
     public String displayAddRestaurantForm(Model model) {
         model.addAttribute("title","Add Restaurant");
+        model.addAttribute("title", "Add Location");
+        model.addAttribute("title","Add Rating");
         model.addAttribute(new Restaurant());
+        model.addAttribute(new Location());
+        model.addAttribute(new Rating());
         return "add";
     }
 
@@ -44,6 +58,9 @@ public class HomeController {
         }
 
         restaurantRepository.save(newRestaurant);
+//        locationRepository.save(newLocation);
+//        ratingRepository.save(newRating);
+
         return "redirect:";
     }
 

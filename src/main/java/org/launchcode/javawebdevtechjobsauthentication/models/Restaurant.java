@@ -3,6 +3,7 @@ package org.launchcode.javawebdevtechjobsauthentication.models;
 
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,22 +12,20 @@ import java.util.List;
 public class Restaurant extends AbstractEntity {
 
 
-//    @NotBlank(message = "Location is required.")
-//    private String location;
-//
-
-    private Integer rating;
+    @NotBlank(message = "Location is required.")
+    private String location;
+    private String  rating;
 
 
 //    @JoinColumn
-    private final ArrayList<Location> locations = new ArrayList<>();
+//    private final ArrayList<Location> locations = new ArrayList<>();
 
    public Restaurant(){
 
    }
 
     // Initialize the id and value fields.
-    public Restaurant( Integer rating) {
+    public Restaurant( String location, String  rating) {
         super();
         this.rating = rating;
     }
@@ -34,19 +33,21 @@ public class Restaurant extends AbstractEntity {
     // Getters and setters.
 
 
-    public Integer getRating() {
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String  getRating() {
         return rating;
     }
 
-    public void setRating(Integer rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 
-    public  ArrayList<Location> getLocations() {
-        return (ArrayList<Location>) locations;
-    }
 
-    public void setLocations(List<Location> locations) {
-        this.locations.addAll(locations);
-    }
 }

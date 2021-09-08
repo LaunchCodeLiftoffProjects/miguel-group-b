@@ -11,10 +11,7 @@
 
     <p th:text="${'ID: ' + restaurant.id}">id</p>
     <p th:text="${'Name: ' + restaurant.name}">Name</p>
-<!--    <p>-->
-<!--        Location: <a th:href="@{'/locations/view/' + ${restaurant.location.id}}" th:text="${restaurant.location.name}"></a>-->
-<!--    </p>-->
-<!--    <p th:text="${'Location: ' + restaurant.location}">Location</p>-->
+    <p th:text="${'Location: ' + restaurant.location}">Location</p>
     <p th:text="${'Rating: ' + restaurant.rating}">Rating</p>
 
 </div>
@@ -22,8 +19,7 @@
 <div class = "links">
     <ul th:each="restaurant : ${restaurant.id}">
         <li>
-            <p>show this text</p>
-            <a href="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.thecoolist.com%2Fwp-content%2Fuploads%2F2015%2F10%2FToranomon-HOP-Japan-AND-Image-Courtesy-of-The-Restaurant-and-Bar-Design-Awards.jpg&imgrefurl=https%3A%2F%2Fwww.thecoolist.com%2Fthe-restaurant-and-bar-design-awards-2015%2F&tbnid=UzHGDo2tKJ4xDM&vet=12ahUKEwjhuvvct-ryAhUGc60KHcnFCgwQMygAegUIARCsAQ..i&docid=PWEnJD4ttXqQEM&w=960&h=640&q=best%20image%20of%20restaurant&ved=2ahUKEwjhuvvct-ryAhUGc60KHcnFCgwQMygAegUIARCsAQ" target="_blank">Visit google.com</a>
+            <a href="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.thecoolist.com%2Fwp-content%2Fuploads%2F2015%2F10%2FToranomon-HOP-Japan-AND-Image-Courtesy-of-The-Restaurant-and-Bar-Design-Awards.jpg&imgrefurl=https%3A%2F%2Fwww.thecoolist.com%2Fthe-restaurant-and-bar-design-awards-2015%2F&tbnid=UzHGDo2tKJ4xDM&vet=12ahUKEwjhuvvct-ryAhUGc60KHcnFCgwQMygAegUIARCsAQ..i&docid=PWEnJD4ttXqQEM&w=960&h=640&q=best%20image%20of%20restaurant&ved=2ahUKEwjhuvvct-ryAhUGc60KHcnFCgwQMygAegUIARCsAQ" target="_blank">Visit restaurant.com</a>
         </li>
     </ul>
 

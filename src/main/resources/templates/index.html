@@ -12,6 +12,13 @@
         <li th:each="restaurant : ${restaurants}">
             <a th:href="@{'/view/' + ${restaurant.id}}" th:text="${restaurant.name}"></a>
         </li>
+
+        <li th:each="location : ${locations}">
+            <a th:href="@{'/view/' + ${location.id}}" th:text="${location.name}"></a>
+        </li>
+        <li th:each="rating : ${ratings}">
+            <a th:href="@{'/view/' + ${rating.id}}" th:text="${rating.name}"></a>
+        </li>
     </ul>
 
 </div>
