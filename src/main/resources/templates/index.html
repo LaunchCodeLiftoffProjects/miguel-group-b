@@ -1,12 +1,25 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org/"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5:3.0.4.RELEASE">
 <head th:replace="fragments :: head">
 </head>
 <body>
 
 <div th:replace="fragments :: page-header"></div>
 
+<div>
+
+
+
 <div class="container body-content">
+
+    <div>
+        Welcome <b><span sec:authentication="name">Username</span></b>
+        &nbsp;
+        <span sec:authorize="hasAnyAuthority('ADMIN')"
+                sec:authentication="principal.authorities">Roles</span>
+    </div>
+
     <h2>Vendors</h2>
     <ul>
         <li th:each="vendor : ${vendors}">
@@ -16,5 +29,6 @@
 
 </div>
 
+</div>
 </body>
 </html>

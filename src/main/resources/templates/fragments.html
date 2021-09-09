@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org/"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5:3.0.4.RELEASE">
 
 <head th:fragment="head">
 
@@ -13,14 +14,14 @@
 
 <body>
 
-<div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
+<div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top" >
+    <div class="container" >
+        <div class="navbar-header" >
             <a th:href="@{/}" class="navbar-brand">SnapSnap</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a th:href="@{/add}">Add vendors</a></li>
+                <li sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')"><a th:href="@{/add}">Add vendors</a></li>
                 <li><a th:href="@{/logout}">Logout</a></li>
             </ul>
         </div>

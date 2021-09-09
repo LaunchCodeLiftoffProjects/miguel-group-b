@@ -1,10 +1,13 @@
 package org.launchcode.javawebdevtechjobsauthentication.models.data;
 
-import org.launchcode.javawebdevtechjobsauthentication.models.User;
+import org.launchcode.javawebdevtechjobsauthentication.users.User;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 public interface UserRepository extends CrudRepository<User, Integer> {
 
-    User findByUsername(String username);
+    @Query("SELECT u FROM User u WHERE u.username = :username")
+    public User getUserByUsername(@Param("username") String username);
 
 }
