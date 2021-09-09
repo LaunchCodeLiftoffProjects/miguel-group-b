@@ -1,12 +1,7 @@
 package org.launchcode.javawebdevtechjobsauthentication.controllers;
 
-
-import org.launchcode.javawebdevtechjobsauthentication.models.Location;
-import org.launchcode.javawebdevtechjobsauthentication.models.Rating;
-import org.launchcode.javawebdevtechjobsauthentication.models.Restaurant;
-import org.launchcode.javawebdevtechjobsauthentication.models.data.LocationRepository;
-import org.launchcode.javawebdevtechjobsauthentication.models.data.RatingRepository;
-import org.launchcode.javawebdevtechjobsauthentication.models.data.RestaurantRepository;
+import org.launchcode.javawebdevtechjobsauthentication.models.data.VendorRepository;
+import org.launchcode.javawebdevtechjobsauthentication.models.Vendor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,64 +12,54 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 
-/**
- * Created by LaunchCode
- */
+
 @Controller
 public class HomeController {
 
     @Autowired
-    private RestaurantRepository restaurantRepository;
-//    @Autowired
-//    private LocationRepository locationRepository;
-//    @Autowired
-//    private RatingRepository ratingRepository;
+    private VendorRepository vendorRepository;
 
     @RequestMapping("")
     public String index(Model model) {
-        model.addAttribute("restaurants", restaurantRepository.findAll());
-//        model.addAttribute("locations",locationRepository.findAll());
-//        model.addAttribute("ratings",ratingRepository.findAll());
+        model.addAttribute("vendors", vendorRepository.findAll());
         return "index";
     }
 
     @GetMapping("add")
-    public String displayAddRestaurantForm(Model model) {
-        model.addAttribute("title","Add Restaurant");
-        model.addAttribute("title", "Add Location");
-        model.addAttribute("title","Add Rating");
-        model.addAttribute(new Restaurant());
-        model.addAttribute(new Location());
-        model.addAttribute(new Rating());
+    public String displayAddvendorForm( Model model) {
+        model.addAttribute(new Vendor());
         return "add";
     }
 
+
+
     @PostMapping("add")
-    public String processAddRestaurantForm(@ModelAttribute @Valid Restaurant newRestaurant,
+    public String processAddvendorForm(@ModelAttribute @Valid Vendor newvendor,
                                        Errors errors) {
 
         if (errors.hasErrors()) {
             return "add";
         }
 
-        restaurantRepository.save(newRestaurant);
-//        locationRepository.save(newLocation);
-//        ratingRepository.save(newRating);
-
+        vendorRepository.save(newvendor);
         return "redirect:";
     }
 
-    @GetMapping("view/{restaurantId}")
-    public String displayViewRestaurant(Model model, @PathVariable int restaurantId) {
+    @GetMapping("view/{vendorId}")
+    public String displayViewvendor(Model model, @PathVariable int vendorId) {
 
-        Optional optRestaurant = restaurantRepository.findById(restaurantId);
-        if (!optRestaurant.isEmpty()) {
-            Restaurant restaurant = (Restaurant) optRestaurant.get();
-            model.addAttribute("restaurant", restaurant);
+        Optional optvendor = vendorRepository.findById(vendorId);
+        if (!optvendor.isEmpty()) {
+            Vendor vendor = (Vendor) optvendor.get();
+            model.addAttribute("vendor", vendor);
             return "view";
         } else {
             return "redirect:/";
         }
+    }
+    @GetMapping("403")
+    public String error403() {
+        return "403";
     }
 
 

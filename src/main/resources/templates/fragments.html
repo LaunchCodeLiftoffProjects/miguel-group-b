@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org/"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5:3.0.4.RELEASE">
 
 <head th:fragment="head">
 
@@ -8,19 +9,19 @@
     <link th:href="@{/css/techjobs.css}" rel="stylesheet" />
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 
-    <title th:text="'Restaurants' + ${title == null ? '' : ' :: ' + title}">Restaurants</title>
+    <title th:text="'SnapSnap' + ${title == null ? '' : ' :: ' + title}">SnapSnap</title>
 </head>
 
 <body>
 
-<div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <a th:href="@{/}" class="navbar-brand">RestaurantList</a>
+<div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top" >
+    <div class="container" >
+        <div class="navbar-header" >
+            <a th:href="@{/}" class="navbar-brand">SnapSnap</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a th:href="@{/add}">Add restaurant</a></li>
+                <li sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')"><a th:href="@{/add}">Add vendors</a></li>
                 <li><a th:href="@{/logout}">Logout</a></li>
             </ul>
         </div>

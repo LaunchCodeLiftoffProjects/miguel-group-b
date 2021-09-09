@@ -3,7 +3,10 @@ package org.launchcode.javawebdevtechjobsauthentication.controllers;
 
 import org.launchcode.javawebdevtechjobsauthentication.models.DTO.LoginFormDTO;
 import org.launchcode.javawebdevtechjobsauthentication.models.DTO.RegisterFormDTO;
-import org.launchcode.javawebdevtechjobsauthentication.models.User;
+import org.launchcode.javawebdevtechjobsauthentication.models.data.RoleRepository;
+import org.launchcode.javawebdevtechjobsauthentication.users.MyUserDetails;
+import org.launchcode.javawebdevtechjobsauthentication.users.Role;
+import org.launchcode.javawebdevtechjobsauthentication.users.User;
 import org.launchcode.javawebdevtechjobsauthentication.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -24,7 +28,13 @@ public class AuthenticationController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    RoleRepository roleRepository;
+
     private static final String userSessionKey = "user";
+
+//    List <Role> listRoles = roleRepository.findAll();
+
 
     public User getUserFromSession(HttpSession session) {
         Integer userId = (Integer) session.getAttribute(userSessionKey);
@@ -41,16 +51,18 @@ public class AuthenticationController {
         return user.get();
     }
 
-    @GetMapping("/register")
-    public String displayRegistrationForm(Model model) {
-        model.addAttribute(new RegisterFormDTO());
-        model.addAttribute("title", "Register");
-        return "register";
-    }
-
     private static void setUserInSession(HttpSession session, User user) {
         session.setAttribute(userSessionKey, user.getId());
     }
+
+    @GetMapping("/register")
+    public String displayRegistrationForm(Model model, Role listRoles)  {
+        model.addAttribute(new RegisterFormDTO());
+        model.addAttribute("title", "Register");
+//        model.addAttribute("listRoles", "listRoles");
+        return "register";
+    }
+
 
     @PostMapping("/register")
     public String processRegistrationForm(@ModelAttribute @Valid RegisterFormDTO registerFormDTO,
@@ -62,7 +74,7 @@ public class AuthenticationController {
             return "register";
         }
 
-        User existingUser = userRepository.findByUsername(registerFormDTO.getUsername());
+        User existingUser = userRepository.getUserByUsername(registerFormDTO.getUsername());
 
         if (existingUser != null) {
             errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
@@ -78,7 +90,7 @@ public class AuthenticationController {
             return "register";
         }
 
-        User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword());
+        User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword(), User.isEnabled());
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
 
@@ -102,7 +114,7 @@ public class AuthenticationController {
             return "login";
         }
 
-        User theUser = userRepository.findByUsername(loginFormDTO.getUsername());
+        User theUser = userRepository.getUserByUsername(loginFormDTO.getUsername());
 
         if (theUser == null) {
             errors.rejectValue("username", "user.invalid", "The given username does not exist");

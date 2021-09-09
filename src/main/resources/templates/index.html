@@ -1,27 +1,34 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org/"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5:3.0.4.RELEASE">
 <head th:replace="fragments :: head">
 </head>
 <body>
 
 <div th:replace="fragments :: page-header"></div>
 
-<div class="container body-content">
-    <h2>Restaurant List</h2>
-    <ul>
-        <li th:each="restaurant : ${restaurants}">
-            <a th:href="@{'/view/' + ${restaurant.id}}" th:text="${restaurant.name}"></a>
-        </li>
+<div>
 
-        <li th:each="location : ${locations}">
-            <a th:href="@{'/view/' + ${location.id}}" th:text="${location.name}"></a>
-        </li>
-        <li th:each="rating : ${ratings}">
-            <a th:href="@{'/view/' + ${rating.id}}" th:text="${rating.name}"></a>
+
+
+<div class="container body-content">
+
+    <div>
+        Welcome <b><span sec:authentication="name">Username</span></b>
+        &nbsp;
+        <span sec:authorize="hasAnyAuthority('ADMIN')"
+                sec:authentication="principal.authorities">Roles</span>
+    </div>
+
+    <h2>Vendors</h2>
+    <ul>
+        <li th:each="vendor : ${vendors}">
+            <a th:href="@{'/view/' + ${vendor.id}}" th:text="${vendor.name}"></a>
         </li>
     </ul>
 
 </div>
 
+</div>
 </body>
 </html>
