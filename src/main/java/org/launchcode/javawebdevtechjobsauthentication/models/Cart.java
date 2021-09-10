@@ -19,8 +19,7 @@ public class Cart extends AbstractEntity{
 
     public Cart(){}
 
-    public Cart(Double totalCost, int numberOfItems, Set<CartItem> cartItems, String sessionToken) {
-        this.totalCost = totalCost;
+    public Cart(int numberOfItems, Set<CartItem> cartItems, String sessionToken) {
         this.numberOfItems = numberOfItems;
         this.cartItems = new HashSet<CartItem>();
         this.sessionToken = sessionToken;
