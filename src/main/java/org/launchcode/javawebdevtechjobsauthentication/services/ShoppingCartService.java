@@ -16,6 +16,8 @@ public class ShoppingCartService {
     @Autowired
     private ShoppingCartRepository shoppingCartRepository;
 
+
+
     public ShoppingCart addFirstShoppingCart(int id, String sessionToken, int quantity) {
         ShoppingCart shoppingCart = new ShoppingCart();
         CartItem cartItem = new CartItem();

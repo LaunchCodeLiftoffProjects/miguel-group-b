@@ -12,25 +12,28 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Random;
 import java.util.UUID;
 
 @Controller
 public class CartController {
+
     @Autowired
     private ShoppingCartService shoppingCartService;
+
     @Autowired
     private ProductService productService;
 
     @PostMapping("/addToCart")
-    public String addToCart(HttpSession session, Model model, @RequestParam("id")int id, @RequestParam("quantity") int quantity){
+    public String addToCart(HttpServletRequest request, Model model, @RequestParam("id")int id, @RequestParam("quantity") int quantity){
 //        check for sessiontoken
-        String sessionToken = (String) session.getAttribute("sessionToken");
+        String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
         shoppingCartService.addFirstShoppingCart(id, sessionToken, quantity);
         if(sessionToken == null){
             sessionToken = UUID.randomUUID().toString();
-            session.setAttribute("sessionToken", sessionToken);
+            request.getSession().setAttribute("sessionToken", sessionToken);
 //            ShoppingCart shoppingCart = new ShoppingCart();
 //            CartItem cartItem = new CartItem();
 //            cartItem.setQuantity(quantity);
