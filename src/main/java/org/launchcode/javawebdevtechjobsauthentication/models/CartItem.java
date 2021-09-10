@@ -3,7 +3,6 @@ package org.launchcode.javawebdevtechjobsauthentication.models;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
-import java.util.Date;
 
 @Entity
 public class CartItem extends AbstractEntity{
@@ -14,10 +13,10 @@ public class CartItem extends AbstractEntity{
 
     public CartItem(){}
 
-    public CartItem(int quantity, Product product) {
-        this.quantity = quantity;
-        this.product = product;
-    }
+//    public CartItem(int quantity, Product product) {
+//        this.quantity = quantity;
+//        this.product = product;
+//    }
 
     public int getQuantity() {
         return quantity;
