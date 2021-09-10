@@ -1,7 +1,8 @@
 package org.launchcode.javawebdevtechjobsauthentication.controllers;
 
+import org.launchcode.javawebdevtechjobsauthentication.models.Cart;
+import org.launchcode.javawebdevtechjobsauthentication.services.CartService;
 import org.launchcode.javawebdevtechjobsauthentication.services.ProductService;
-import org.launchcode.javawebdevtechjobsauthentication.services.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +16,7 @@ import java.util.UUID;
 public class CartController {
 
     @Autowired
-    private ShoppingCartService shoppingCartService;
+    private CartService cartService;
 
     @Autowired
     private ProductService productService;
@@ -24,28 +25,29 @@ public class CartController {
     public String addToCart(HttpServletRequest request, Model model, @RequestParam("id")int id, @RequestParam("quantity") int quantity){
 //        The servlet container creates an HttpServletRequest object and passes it as an argument to
 //        the servlet's service methods (doGet, doPost, etc).
-
 //        Check for an existing session token
         String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
-        shoppingCartService.addFirstShoppingCart(id, sessionToken, quantity);
+        cartService.addFirstCart(id, sessionToken, quantity);
         if(sessionToken == null){
             sessionToken = UUID.randomUUID().toString();
             request.getSession().setAttribute("sessionToken", sessionToken);
-            shoppingCartService.addFirstShoppingCart(id, sessionToken, quantity);
-//            ShoppingCart shoppingCart = new ShoppingCart();
-//            CartItem cartItem = new CartItem();
-//            cartItem.setQuantity(quantity);
-//            cartItem.setProduct(productService.getProductById(id));
-//            shoppingCart.getCartItems().add(cartItem);
+            cartService.addFirstCart(id, sessionToken, quantity);
         } else {
-            shoppingCartService.addToExistingShoppingCart(id, sessionToken, quantity);
+            cartService.addToExistingCart(id, sessionToken, quantity);
         }
         return "redirect:/";
     }
 
-    @GetMapping("shoppingCart")
-    public String showCart(HttpServletRequest request,  Model model){
-//        method body
-        return "shoppingCart";
+    @GetMapping("/cart")
+    public String displayCart(HttpServletRequest request,  Model model){
+        String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
+        if(sessionToken == null){
+            return "redirect:";
+//            TODO: Add error page
+        } else {
+            Cart cart = cartService.findCartBySessionToken(sessionToken);
+            model.addAttribute("cart", cart);
+        }
+        return "cart";
     }
 }

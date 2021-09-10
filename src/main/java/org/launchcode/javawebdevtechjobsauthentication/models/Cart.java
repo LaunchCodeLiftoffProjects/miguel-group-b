@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-public class ShoppingCart extends AbstractEntity{
+public class Cart extends AbstractEntity{
 
     @Transient
     private Double totalCost;
@@ -17,18 +17,11 @@ public class ShoppingCart extends AbstractEntity{
 
     private String sessionToken;
 
-    public ShoppingCart(){}
+    public Cart(){}
 
-    public ShoppingCart(Set<CartItem> cartItems) {
+    public Cart(Set<CartItem> cartItems) {
         this.cartItems = new HashSet<CartItem>();
     }
-
-//    public ShoppingCart(Double totalCost, int numberOfItems, Collection<CartItem> cartItems, String tokenSession) {
-//        this.totalCost = totalCost;
-//        this.numberOfItems = numberOfItems;
-//        this.cartItems = cartItems;
-//        this.tokenSession = tokenSession;
-//    }
 
     public Double getTotalCost() {
         Double sum = 0.0;
