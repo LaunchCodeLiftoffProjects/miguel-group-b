@@ -48,6 +48,8 @@ public class CartController {
             Cart cart = cartService.findCartBySessionToken(sessionToken);
             model.addAttribute("cart", cart);
         }
-        return "cart";
+        return "/cart";
     }
+
+
 }

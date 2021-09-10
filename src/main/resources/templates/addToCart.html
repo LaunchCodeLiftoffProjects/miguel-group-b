@@ -5,6 +5,8 @@
 </head>
 <body>
 <div th:replace="fragments :: page-header"></div>
+<form th:action="@{/addToCart}" th:object="${cart}" method="post">
 
+</form>
 </body>
 </html>

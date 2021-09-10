@@ -3,7 +3,6 @@
 <head th:replace="fragments :: head"></head>
 
 <body class="container  body-content">
-<h1 th:text="${'vendor: ' + vendor.name}">Default Title</h1>
 
 <nav th:replace="fragments :: page-header"></nav>
 
@@ -13,6 +12,7 @@
     <p th:text="${'Name: ' + product.name}"></p>
     <p th:text="${'Description: ' + product.description}"></p>
     <p th:text="${'Price: ' + product.price}"></p>
+    <button>Add To Cart</button>
 </div>
 
 

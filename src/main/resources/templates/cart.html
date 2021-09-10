@@ -11,7 +11,7 @@
     <a th:href="@{'/products/index'}">View Products</a>
 </th:block>
 
-<form method="post" th:object="${cart}" th:action="@{'/cart'}">
+<form method="post" th:object="${cart}" th:action="@{'/addToCart'}">
     <div class="container" th:each="item : ${cart.cartItems}">
         <ul>
             <li><img th:src="${item.product.pictureURL}" /></li>
@@ -19,7 +19,7 @@
             <li th:text="${item.product.description}"></li>
             <li th:text="${item.product.price}"></li>
             <li th:text="${item.quantity}">
-                <input th:name="quantity" th:value="${cartItem.quantity}" />
+<!--                <input th:name="quantity" th:value="${cartItem.quantity}" />-->
             </li>
         </ul>
     </div>
