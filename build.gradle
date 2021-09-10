@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.4.4'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
+	id 'maven-publish'
 }
 
 group = 'org.launchcode'
@@ -17,15 +18,19 @@ configurations {
 
 repositories {
 	mavenCentral()
+
 }
 
 dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.4.RELEASE'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.security:spring-security-crypto'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'mysql:mysql-connector-java'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
@@ -36,4 +41,14 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}
+publishing {
+	publications {
+		maven(MavenPublication) {
+			from(components.java)
+		}
+	}
+}
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
 }
