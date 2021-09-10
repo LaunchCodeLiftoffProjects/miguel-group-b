@@ -15,7 +15,7 @@ public class ShoppingCart extends AbstractEntity{
     @OneToMany(cascade = CascadeType.ALL)
     private Set<CartItem> cartItems = new HashSet<CartItem>();
 
-    private String tokenSession;
+    private String sessionToken;
 
     public ShoppingCart(){}
 
@@ -50,14 +50,14 @@ public class ShoppingCart extends AbstractEntity{
         this.cartItems = cartItems;
     }
 
-    public String getTokenSession() {
-        return tokenSession;
+    public String getSessionToken() {
+        return sessionToken;
     }
     //    public String getTokenSession() {
 //        return this.tokenSession = UUID.randomUUID().toString();
 //    }
 
-    public void setTokenSession(String tokenSession) {
-        this.tokenSession = tokenSession;
+    public void setSessionToken(String sessionToken) {
+        this.sessionToken = sessionToken;
     }
 }

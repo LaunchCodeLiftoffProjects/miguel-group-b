@@ -24,7 +24,7 @@ public class ShoppingCartService {
         cartItem.setQuantity(quantity);
         cartItem.setProduct(productService.getProductById(id));
         shoppingCart.getCartItems().add(cartItem);
-        shoppingCart.setTokenSession(sessionToken);
+        shoppingCart.setSessionToken(sessionToken);
         return shoppingCartRepository.save(shoppingCart);
     }
 
