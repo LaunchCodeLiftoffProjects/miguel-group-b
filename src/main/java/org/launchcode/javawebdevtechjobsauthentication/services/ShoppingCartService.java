@@ -34,7 +34,8 @@ public class ShoppingCartService {
         for(CartItem item : shoppingCart.getCartItems()){
             if(prod.getId() == (item.getProduct().getId())){
               item.setQuantity(item.getQuantity() + quantity);
-              return shoppingCartRepository.save(shoppingCart);
+//              saveAndFlush used to read saved changes at a later point during the same transaction but before the commit
+              return shoppingCartRepository.saveAndFlush(shoppingCart);
             }
         }
         CartItem cartItem = new CartItem();
