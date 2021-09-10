@@ -25,7 +25,7 @@ public class CartService {
         cartItem.setProduct(productService.getProductById(id));
         cart.getCartItems().add(cartItem);
         cart.setSessionToken(sessionToken);
-        return cartRepository.save(cart);
+        return cartRepository.saveAndFlush(cart);
     }
 
     public Cart addToExistingCart(int id, String sessionToken, int quantity) {
@@ -37,7 +37,7 @@ public class CartService {
                 if (item.getProduct().equals(prod)) {
                     item.setQuantity(item.getQuantity() + quantity);
                     cart.setCartItems(cartItems);
-                    cartRepository.saveAndFlush(cart);
+                    return cartRepository.saveAndFlush(cart);
 //                  saveAndFlush used to read saved changes at a later point during the same transaction but before the commit
                 }
             }
@@ -46,7 +46,7 @@ public class CartService {
         cartItem.setQuantity(quantity);
         cartItem.setProduct(prod);
         cart.getCartItems().add(cartItem);
-        cartRepository.saveAndFlush(cart);
+        return cartRepository.saveAndFlush(cart);
         }
         return this.addToExistingCart(id, sessionToken ,quantity);
     }

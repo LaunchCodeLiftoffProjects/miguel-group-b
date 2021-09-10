@@ -19,8 +19,11 @@ public class Cart extends AbstractEntity{
 
     public Cart(){}
 
-    public Cart(Set<CartItem> cartItems) {
+    public Cart(Double totalCost, int numberOfItems, Set<CartItem> cartItems, String sessionToken) {
+        this.totalCost = totalCost;
+        this.numberOfItems = numberOfItems;
         this.cartItems = new HashSet<CartItem>();
+        this.sessionToken = sessionToken;
     }
 
     public Double getTotalCost() {
@@ -33,6 +36,14 @@ public class Cart extends AbstractEntity{
 
     public int getNumberOfItems() {
         return this.cartItems.size();
+    }
+
+    public void setTotalCost(Double totalCost) {
+        this.totalCost = totalCost;
+    }
+
+    public void setNumberOfItems(int numberOfItems) {
+        this.numberOfItems = numberOfItems;
     }
 
     public Set<CartItem> getCartItems() {

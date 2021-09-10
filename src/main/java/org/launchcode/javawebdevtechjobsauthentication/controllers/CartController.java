@@ -35,7 +35,7 @@ public class CartController {
         } else {
             cartService.addToExistingCart(id, sessionToken, quantity);
         }
-        return "redirect:/";
+        return "products/index";
     }
 
     @GetMapping("/cart")
