@@ -2,6 +2,7 @@ package org.launchcode.javawebdevtechjobsauthentication.controllers;
 
 import org.launchcode.javawebdevtechjobsauthentication.models.data.LocationRepository;
 import org.launchcode.javawebdevtechjobsauthentication.vendors.Location;
+import org.launchcode.javawebdevtechjobsauthentication.vendors.Menu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,11 +22,11 @@ public class LocationController {
 
     @RequestMapping("")
     public String index(Model model) {
-        model.addAttribute("locations", locationRepository.findAll());
+        model.addAttribute("location", locationRepository.findAll());
         return "index";
     }
 
-    @GetMapping("addLocation")
+    @GetMapping("/addLocation")
     public String displayAddLocationForm( Model model) {
         model.addAttribute(new Location());
         return "addLocation";
@@ -33,19 +34,20 @@ public class LocationController {
 
 
 
-    @PostMapping("addLocation")
+    @PostMapping("/addLocation")
     public String processAddLocationForm(@ModelAttribute @Valid Location newLocation,
-                                       Errors errors) {
+                                       Errors errors, Model model) {
 
         if (errors.hasErrors()) {
             return "addLocation";
         }
 
         locationRepository.save(newLocation);
-        return "redirect:";
+        model.addAttribute(new Menu() );
+        return "addMenu";
     }
 
-    @GetMapping("view/{locationId}")
+    @GetMapping("/view/{locationId}")
     public String displayViewLocation(Model model, @PathVariable int locationId) {
 
         Optional optLocation = locationRepository.findById(locationId);

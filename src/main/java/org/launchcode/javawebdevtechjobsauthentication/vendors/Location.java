@@ -26,6 +26,8 @@ public class Location extends AbstractEntity {
         this.service = someService;
     }
 
+
+
     // Getters and setters.
 
     public String getName() {

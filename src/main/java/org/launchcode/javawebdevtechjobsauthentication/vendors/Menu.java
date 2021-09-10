@@ -19,12 +19,14 @@ public class Menu extends AbstractEntity {
     }
 
     // Initialize the id and value fields.
-    public Menu(String aName, String anAddress, Integer somePrice) {
+
+    public Menu(String aName, String aDescription, Integer aPrice) {
         super();
         this.name = aName;
-        this.description = anAddress;
-        this.price = somePrice;
+        this.description = aDescription;
+        this.price = aPrice;
     }
+
 
     // Getters and setters.
 
