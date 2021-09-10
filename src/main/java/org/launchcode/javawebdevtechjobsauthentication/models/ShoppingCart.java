@@ -19,7 +19,7 @@ public class ShoppingCart extends AbstractEntity{
 
     public ShoppingCart(){}
 
-    public ShoppingCart(Collection<CartItem> cartItems) {
+    public ShoppingCart(Set<CartItem> cartItems) {
         this.cartItems = new HashSet<CartItem>();
     }
 
@@ -46,7 +46,7 @@ public class ShoppingCart extends AbstractEntity{
         return cartItems;
     }
 
-    public void setCartItems(HashSet<CartItem> cartItems) {
+    public void setCartItems(Set<CartItem> cartItems) {
         this.cartItems = cartItems;
     }
 

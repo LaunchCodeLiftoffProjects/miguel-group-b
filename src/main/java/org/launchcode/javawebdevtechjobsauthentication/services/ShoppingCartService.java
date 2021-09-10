@@ -7,6 +7,8 @@ import org.launchcode.javawebdevtechjobsauthentication.models.data.ShoppingCartR
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Set;
+
 @Service
 public class ShoppingCartService {
 
@@ -15,8 +17,6 @@ public class ShoppingCartService {
 
     @Autowired
     private ShoppingCartRepository shoppingCartRepository;
-
-
 
     public ShoppingCart addFirstShoppingCart(int id, String sessionToken, int quantity) {
         ShoppingCart shoppingCart = new ShoppingCart();
@@ -31,17 +31,23 @@ public class ShoppingCartService {
     public ShoppingCart addToExistingShoppingCart(int id, String sessionToken, int quantity) {
         ShoppingCart shoppingCart = shoppingCartRepository.findBySessionToken(sessionToken);
         Product prod = productService.getProductById(id);
-        for(CartItem item : shoppingCart.getCartItems()){
-            if(prod.getId() == (item.getProduct().getId())){
-              item.setQuantity(item.getQuantity() + quantity);
-//              saveAndFlush used to read saved changes at a later point during the same transaction but before the commit
-              return shoppingCartRepository.saveAndFlush(shoppingCart);
+        if(shoppingCart!=null) {
+            Set<CartItem> cartItems = shoppingCart.getCartItems();
+            for (CartItem item : cartItems) {
+                if (item.getProduct().equals(prod)) {
+                    item.setQuantity(item.getQuantity() + quantity);
+                    shoppingCart.setCartItems(cartItems);
+                    shoppingCartRepository.saveAndFlush(shoppingCart);
+//                  saveAndFlush used to read saved changes at a later point during the same transaction but before the commit
+                }
             }
-        }
+        } else {
         CartItem cartItem = new CartItem();
         cartItem.setQuantity(quantity);
         cartItem.setProduct(prod);
         shoppingCart.getCartItems().add(cartItem);
-        return shoppingCartRepository.save(shoppingCart);
+        shoppingCartRepository.saveAndFlush(shoppingCart);
+        }
+        return this.addToExistingShoppingCart(id, sessionToken ,quantity);
     }
 }
