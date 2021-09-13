@@ -26,7 +26,7 @@ public class HomeController {
     }
 
     @GetMapping("add")
-    public String displayAddvendorForm( Model model) {
+    public String displayAddVendorForm( Model model) {
         model.addAttribute(new Vendor());
         return "add";
     }
@@ -34,7 +34,7 @@ public class HomeController {
 
 
     @PostMapping("add")
-    public String processAddvendorForm(@ModelAttribute @Valid Vendor newvendor,
+    public String processAddVendorForm(@ModelAttribute @Valid Vendor newvendor,
                                        Errors errors) {
 
         if (errors.hasErrors()) {
@@ -46,11 +46,11 @@ public class HomeController {
     }
 
     @GetMapping("view/{vendorId}")
-    public String displayViewvendor(Model model, @PathVariable int vendorId) {
+    public String displayViewVendor(Model model, @PathVariable int vendorId) {
 
-        Optional optvendor = vendorRepository.findById(vendorId);
-        if (!optvendor.isEmpty()) {
-            Vendor vendor = (Vendor) optvendor.get();
+        Optional optVendor = vendorRepository.findById(vendorId);
+        if (!optVendor.isEmpty()) {
+            Vendor vendor = (Vendor) optVendor.get();
             model.addAttribute("vendor", vendor);
             return "view";
         } else {
