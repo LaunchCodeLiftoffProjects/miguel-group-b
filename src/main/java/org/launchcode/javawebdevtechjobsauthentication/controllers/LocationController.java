@@ -25,7 +25,7 @@ public class LocationController {
         @GetMapping("add")
         public String displayAddVendorForm( Model model) {
             model.addAttribute(new Location());
-            return "add";
+            return "locations/add";
         }
 
         @PostMapping("add")
@@ -33,7 +33,7 @@ public class LocationController {
                                            Errors errors) {
 
             if (errors.hasErrors()) {
-                return "add";
+                return "locations/add";
             }
 
             locationRepository.save(newLocation);
@@ -41,13 +41,13 @@ public class LocationController {
         }
 
         @GetMapping("view/{LocationId}")
-        public String displayViewVendor(Model model, @PathVariable int vendorId) {
+        public String displayViewVendor(Model model, @PathVariable int locationId) {
 
-            Optional optVendor = locationRepository.findById(vendorId);
-            if (!optVendor.isEmpty()) {
-                Vendor vendor = (Vendor) optVendor.get();
-                model.addAttribute("vendor", vendor);
-                return "view";
+            Optional optLocation = locationRepository.findById(locationId);
+            if (!optLocation.isEmpty()) {
+                Location location = (Location) optLocation.get();
+                model.addAttribute("location", location);
+                return "locations/view";
             } else {
                 return "redirect:/";
             }
