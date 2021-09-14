@@ -23,7 +23,7 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')"><a th:href="@{/add}">Add vendors</a></li>
+                <li sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')"><a th:href="@{/addLocation}">Add Location</a></li>
                 <li><a th:href="@{/logout}">Logout</a></li>
             </ul>
         </div>
