@@ -8,12 +8,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
+
 public class EmailController {
 
     @Autowired
     EmailService emailService;
 
     @GetMapping("/sendEmail")
+
     public String sendEmail() {
         return emailService.sendEmail();
     }

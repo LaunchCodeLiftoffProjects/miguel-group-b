@@ -38,6 +38,7 @@ public class UserPaymentController {
             return "add";
         }
         paymentRepository.save(newUserPayment);
+//        EmailController.sendEmail();
 
         return "<html>" +
                 "<head>" +
