@@ -11,8 +11,8 @@
 <div class="location-listing">
     <p sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')" th:text="${'ID: ' + location.id}"></p>
     <p th:text="${'Name: ' + location.name}"></p>
-    <p th:text="${'Employer: ' + location.employer}"></p>
-    <p th:text="${'Skill: ' + location.skill}"></p>
+    <p th:text="${'Employer: ' + location.address}"></p>
+    <p th:text="${'Skill: ' + location.service}"></p>
 </div>
 
 
