@@ -44,7 +44,7 @@ public class LocationController {
 
         locationRepository.save(newLocation);
         model.addAttribute(new Menu() );
-        return "addMenu";
+        return "redirect:/";
     }
 
     @GetMapping("/view/{locationId}")
