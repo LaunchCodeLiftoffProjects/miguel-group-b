@@ -16,13 +16,13 @@
     </div>
     <div class="form-group">
         <label th:for="name">Address</label>
-        <input class="form-control" th:field="${location.employer}" />
-        <span th:errors="${location.employer}" class="error"></span>
+        <input class="form-control" th:field="${location.address}" />
+        <span th:errors="${location.address}" class="error"></span>
     </div>
     <div class="form-group">
         <label th:for="name">Service</label>
-        <input class="form-control" th:field="${location.skill}" />
-        <span th:errors="${location.skill}" class="error"></span>
+        <input class="form-control" th:field="${location.service}" />
+        <span th:errors="${location.service}" class="error"></span>
     </div>
 
     <input type="submit" value="Add location" />
