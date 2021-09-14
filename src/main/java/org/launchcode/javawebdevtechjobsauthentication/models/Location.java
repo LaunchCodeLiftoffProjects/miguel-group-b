@@ -10,15 +10,15 @@ public class Location extends AbstractEntity {
 
     private String service;
 
-    private String menu;
+    private String address;
 
     public Location(){};
 
-    public Location(String aName, String aService, String aMenu){
+    public Location(String aName, String aService, String anAddress){
         super();
         this.name = aName;
         this.service = aService;
-        this.menu = aMenu;
+        this.address = anAddress;
     }
 
     public String getName() {
@@ -38,11 +38,11 @@ public class Location extends AbstractEntity {
     }
 
     public String getMenu() {
-        return menu;
+        return address;
     }
 
     public void setMenu(String menu) {
-        this.menu = menu;
+        this.address = address;
     }
 
     @Override
