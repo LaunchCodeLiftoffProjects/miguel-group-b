@@ -7,6 +7,8 @@ import org.launchcode.javawebdevtechjobsauthentication.models.data.CartItemRepos
 import org.launchcode.javawebdevtechjobsauthentication.models.data.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.Set;
 
 @Service
@@ -65,4 +67,17 @@ public class CartService {
         return cartRepository.findBySessionToken(sessionToken);
     }
 //    TODO: EDIT AND DELETE CART ITEMS
+
+    public CartItem updateProductInCart(int id, int quantity){
+        CartItem cartItem = cartItemRepository.findById(id).get();
+        cartItem.setQuantity(quantity);
+        return cartItem;
+    }
+
+    public void removeProductsFromCart(String sessionToken, @RequestParam int[] productIds){
+        Cart cart = cartRepository.findBySessionToken(sessionToken);
+        for(int i : productIds){
+            cart.getCartItems().remove(i);
+        }
+    }
 }
