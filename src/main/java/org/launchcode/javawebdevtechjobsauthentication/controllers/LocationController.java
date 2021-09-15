@@ -19,6 +19,7 @@ public class LocationController {
     @Autowired
     private LocationRepository locationRepository;
 
+
     @RequestMapping("")
     public String index(Model model) {
         model.addAttribute("locations", locationRepository.findAll());

@@ -5,6 +5,8 @@ import org.launchcode.javawebdevtechjobsauthentication.models.AbstractEntity;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Location extends AbstractEntity {
@@ -15,15 +17,21 @@ public class Location extends AbstractEntity {
     private String address;
     private String service;
 
+
+//    @JoinColumn
+//    @OneToOne
+//    private final List<Menu> menus = new ArrayList<>();
+
     public Location() {
     }
 
     // Initialize the id and value fields.
-    public Location(String aName, String anAddress, String someService) {
+    public Location(String aName, String anAddress, String someService, List<Menu> menus) {
         super();
         this.name = aName;
         this.address = anAddress;
         this.service = someService;
+
     }
 
     // Getters and setters.
@@ -51,6 +59,14 @@ public class Location extends AbstractEntity {
     public void setService(String service) {
         this.service = service;
     }
+
+//    public List<Menu> getMenus() {
+//        return menus;
+//    }
+//
+//    public void setMenus(List<Menu> menus){
+//        this.menus.addAll(menus);
+//    }
 
     @Override
     public String toString() {

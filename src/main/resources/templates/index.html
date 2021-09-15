@@ -27,6 +27,16 @@
         </li>
     </ul>
 
+    <di>
+        <h2>Menus</h2>
+        <ul>
+            <li th:each="menu : ${menus}">
+                <a th:href="@{'/view/' + ${menu.id}}" th:text="${menu.name}"></a>
+            </li>
+        </ul>
+
+    </di>
+
 </div>
 
 </div>
