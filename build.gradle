@@ -1,13 +1,13 @@
 plugins {
-	id 'org.springframework.boot' version '2.4.4'
-	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'org.springframework.boot' version '2.5.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 	id 'maven-publish'
 }
 
 group = 'org.launchcode'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '13'
 
 configurations {
 	developmentOnly
@@ -22,17 +22,16 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.4'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.5.4'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.4.RELEASE'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.security:spring-security-crypto'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	implementation 'mysql:mysql-connector-java'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.5.4'
+	implementation 'org.springframework.boot:spring-boot-starter-security:2.5.4'
+	implementation 'org.springframework.security:spring-security-crypto:5.5.1'
+	implementation 'org.springframework.boot:spring-boot-starter-validation:2.5.4'
+	implementation 'mysql:mysql-connector-java:8.0.25'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools:2.5.4'
+	testImplementation('org.springframework.boot:spring-boot-starter-test:2.5.4') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
