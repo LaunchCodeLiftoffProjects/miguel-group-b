@@ -33,9 +33,10 @@ public class CartController {
             request.getSession().setAttribute("sessionToken", sessionToken);
             cartService.addFirstCart(id, sessionToken, quantity);
         } else {
-            cartService.addToExistingCart(id, sessionToken, quantity);
+//            cartService.findBySessionToken(sessionToken);
+            cartService.addToExistingCart(id,sessionToken, quantity);
         }
-        return "products/index";
+        return "redirect:/";
     }
 
     @GetMapping("/cart")
@@ -45,10 +46,10 @@ public class CartController {
             return "redirect:";
 //            TODO: Add error page
         } else {
-            Cart cart = cartService.findCartBySessionToken(sessionToken);
+            Cart cart = cartService.findBySessionToken(sessionToken);
             model.addAttribute("cart", cart);
         }
-        return "/cart";
+        return "cart";
     }
 
 
