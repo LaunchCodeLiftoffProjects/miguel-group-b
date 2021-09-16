@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5:3.0.4.RELEASE">
+<head th:replace="fragments :: head"></head>
+
+<body class="container  body-content">
+
+<nav th:replace="fragments :: page-header"></nav>
+
+<div class="menu-listing">
+    <p sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')" th:text="${'ID: ' + menu.id}"></p>
+    <p th:text="${'Name: ' + menu.name}"></p>
+    <p th:text="${'Address: ' + menu.description}"></p>
+    <p th:text="${'Service: ' + menu.price}"></p>
+</div>
+</body>
+</html>

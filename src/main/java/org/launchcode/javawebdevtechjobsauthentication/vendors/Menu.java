@@ -2,10 +2,7 @@ package org.launchcode.javawebdevtechjobsauthentication.vendors;
 
 import org.launchcode.javawebdevtechjobsauthentication.models.AbstractEntity;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -21,20 +18,23 @@ public class Menu extends AbstractEntity {
     private String description;
     private Double price;
 
-    @JoinColumn
-    @OneToMany
-    private final List<Location> locations = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name ="location")
+
+    private Location location;
+
+    private String userId;
 
 
     public Menu() {
     }
 
     // Initialize the id and value fields.
-    public Menu(String aName, String aDescription, Double somePrice) {
-        super();
+    public Menu(String aName, String aDescription, Double somePrice,Location location) {
         this.name = aName;
         this.description = aDescription;
         this.price = somePrice;
+        this.location = location;
     }
 
     // Getters and setters.
@@ -63,10 +63,18 @@ public class Menu extends AbstractEntity {
         this.price = price;
     }
 
-    public List<Location> getLocations() {
-        return locations;
+    public Location getLocation() {
+        return location;
     }
 
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    //    public List<Location> getLocations() {
+//        return locations;
+//    }
+//
 //    public void setLocations(List<Location> locations){
 //        this.locations.addAll(locations);
 //    }

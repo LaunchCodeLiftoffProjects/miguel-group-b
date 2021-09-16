@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5:3.0.4.RELEASE">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+
+<div  class="container body-content">
+    <h2>Menus</h2>
+    <ul>
+        <li th:each="menu : ${menus}">
+            <a th:href="@{'/viewMenu/' + ${menu.id}}" th:text="${menu.name}"></a>
+        </li>
+    </ul>
+
+</div>
+
+</body>
+</html>

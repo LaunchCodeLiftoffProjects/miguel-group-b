@@ -24,14 +24,17 @@ public class MenuController {
 
 
 
-    @RequestMapping("")
-    public String index(Model model) {
-        model.addAttribute("menus", menuRepository);
-        return "index";
+    @RequestMapping(value="menuIndex")
+    public String menuIndex(Model model) {
+        model.addAttribute("locations",locationRepository.findAll());
+        model.addAttribute("menus", menuRepository.findAll());
+
+        return "menuIndex";
     }
 
     @GetMapping("addMenu")
     public String displayAddMenuForm( Model model) {
+        model.addAttribute(new Location());
         model.addAttribute(new Menu());
         return "addMenu";
     }
@@ -39,7 +42,7 @@ public class MenuController {
 
 
     @PostMapping("addMenu")
-    public String processAddMenuForm(@ModelAttribute @Valid Menu newMenu,
+    public String processAddMenuForm(@ModelAttribute @Valid Location location, Menu newMenu,
                                          Errors errors) {
 
         if (errors.hasErrors()) {
@@ -50,14 +53,14 @@ public class MenuController {
         return "redirect:";
     }
 
-    @GetMapping("view/{locationId}")
+    @GetMapping("view/{menuId}")
     public String displayViewMenu(Model model, @PathVariable int menuId) {
 
-        Optional optMenu = locationRepository.findById(menuId);
+        Optional optMenu = menuRepository.findById(menuId);
         if (!optMenu.isEmpty()) {
             Menu menu = (Menu) optMenu.get();
             model.addAttribute("menu", menu);
-            return "view";
+            return "viewMenu";
         } else {
             return "redirect:/";
         }

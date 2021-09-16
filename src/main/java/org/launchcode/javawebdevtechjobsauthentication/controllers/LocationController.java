@@ -43,7 +43,7 @@ public class LocationController {
         }
 
         locationRepository.save(newLocation);
-        return "redirect:";
+        return "addMenu:";
     }
 
     @GetMapping("view/{locationId}")
