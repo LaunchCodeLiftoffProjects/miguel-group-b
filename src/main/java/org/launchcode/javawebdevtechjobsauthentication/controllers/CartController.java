@@ -32,7 +32,7 @@ public class CartController {
             request.getSession().setAttribute("sessionToken", sessionToken);
             cartService.addFirstCart(id, sessionToken, quantity);
         } else {
-//            cartService.findBySessionToken(sessionToken);
+            cartService.findBySessionToken(sessionToken);
             cartService.addToExistingCart(id,sessionToken, quantity);
         }
         return "redirect:";
