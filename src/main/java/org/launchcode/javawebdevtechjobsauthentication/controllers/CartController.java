@@ -56,7 +56,7 @@ public class CartController {
     public String viewCart(String sessionToken,  Model model){
 //        Cart cart = cartService.findBySessionToken(sessionToken);
         model.addAttribute("cart", cartService.findBySessionToken(sessionToken));
-        return "cart";
+        return "/cart";
     }
 
     @PostMapping("/editCart")
