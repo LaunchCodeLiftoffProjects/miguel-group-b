@@ -7,6 +7,8 @@
     <!-- Bootstrap stylesheets and script -->
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
     <link th:href="@{/css/techjobs.css}" rel="stylesheet" />
+<!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 
     <title th:text="'SnapSnap' + ${title == null ? '' : ' :: ' + title}">SnapSnap</title>
@@ -24,8 +26,8 @@
                 <li sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')"><a th:href="@{/add}">Add Vendors</a></li>
                 <li sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')"><a th:href="@{/products/add}">Add Products</a></li>
                 <li sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR', 'USER')"><a th:href="@{/products}">View Products</a></li>
-                <li sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR', 'USER')"><a th:href="@{/cart}">View Cart</a></li>
                 <li><a th:href="@{/logout}">Logout</a></li>
+<!--                <li sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR', 'USER')"><a th:href="@{/cart}"><i class="fas fa-shopping-cart"></i></a</li>-->
             </ul>
         </div>
     </div>

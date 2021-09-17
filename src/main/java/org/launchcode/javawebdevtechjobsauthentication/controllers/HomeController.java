@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @Controller
 public class HomeController {
-
+//TODO: VENDOR INFO NEEDS TO HAVE SEPARATE CONTROLLER
     @Autowired
     private VendorRepository vendorRepository;
 

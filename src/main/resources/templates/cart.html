@@ -20,22 +20,17 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="cartItem:${cart}">
+    <tr th:each=" cartItem : ${cart}">
         <td>
-            <div>
+
                 <img th:src="${cartItem.product.pictureURL}"/>
                 <h4 th:text="${cartItem.product.name}"></h4>
-            </div>
         </td>
         <td>
-            <div>
-                <p th:text="${cartItem.product.quantity}"></p>
-            </div>
+            <p th:text="${cartItem.product.quantity}"></p>
         </td>
         <td>
-            <div>
-                <p th:text="${cartItem.product.price}"></p>
-            </div>
+            <p th:text="${cartItem.product.price}"></p>
         </td>
     </tr>
     </tbody>
