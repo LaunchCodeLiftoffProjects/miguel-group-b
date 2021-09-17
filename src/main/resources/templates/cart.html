@@ -22,9 +22,8 @@
     <tbody>
     <tr th:each=" cartItem : ${cart}">
         <td>
-
-                <img th:src="${cartItem.product.pictureURL}"/>
-                <h4 th:text="${cartItem.product.name}"></h4>
+            <img th:src="${cartItem.product.pictureURL}"/>
+            <h4 th:text="${cartItem.product.name}"></h4>
         </td>
         <td>
             <p th:text="${cartItem.product.quantity}"></p>
@@ -35,82 +34,6 @@
     </tr>
     </tbody>
 </table>
-<!--    <td>-->
-<!--  FORM -->
-<!--        <form action ="/editCart" method="post">-->
-<!--&lt;!&ndash;            <input type="hidden" th:value="${cartItem.product.id}" name="id"/>&ndash;&gt;-->
-<!--            <div class="input-group">-->
-<!--                <input type="number"-->
-<!--                       name="quantity"-->
-<!--                       th:value="${cartItem.quantity}"-->
-<!--                       th:attr="max=${cartItem.product.quantity}"-->
-<!--                       class="form-control" />-->
-<!--                <button class="btn btn-success" type="submit"></button>-->
-<!--        </div>-->
-<!--    </form>-->
-<!--    </td>-->
-
-<!--    <td th:text="${cartItem.product.price} * ${cartItem.quantity}"></td>-->
-<!--    <td><a th:href="@{/deleteCartItem/{id} (id=${cartItem.id})}">Remove From Cart</a></td>-->
-<!--    </tbody>-->
-<!--</table>-->
-
-<!--<div class="footer">-->
-<!--    <div class="row">-->
-<!--        <div class="col">-->
-<!--            <h4>Total</h4><span th:text="${cart.totalCost}"></span>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="row">-->
-<!--        <div class="col">-->
-<!--            <button class="btn btn-primary">Checkout</button>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-<!--<form method="post" th:object="${cart}" th:action="/cart">-->
-<!--    <div class="container" th:each="item : ${cart.cartItems}">-->
-<!--        <ul>-->
-<!--            <li><img th:src="${item.pictureURL}" /></li>-->
-<!--            <li th:text="${item.product.name}"></li>-->
-<!--            <li th:text="${item.product.description}"></li>-->
-<!--            <li th:text="${item.product.price}"></li>-->
-<!--            <li th:text="${item.quantity}"></li>-->
-<!--        </ul>-->
-<!--    </div>-->
-<!--</form>-->
-
-<!--<div class="container">-->
-<!--    <h1 id="product-table">View Cart</h1>-->
-<!--    <table>-->
-<!--        <thead>-->
-<!--        <tr>-->
-<!--            <th>Name</th>-->
-<!--            <th>Description</th>-->
-<!--            <th>Price</th>-->
-<!--            <th>Quantity</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        <tr th:each="item : ${cart.cartItem}">-->
-<!--            <td th:text="${item.product.name}"></td>-->
-<!--            <td th:text="${item.product.description}"></td>-->
-<!--            <td th:text="${item.product.price}"></td>-->
-<!--&lt;!&ndash;            <td th:text="${item.quantity}"></td>&ndash;&gt;-->
-<!--&lt;!&ndash;<td> <button class="btn btn-primary" role="button" th:href="@{'/cart/add'}">Add</button></td>&ndash;&gt;-->
-<!--            &lt;!&ndash;<td><button class="btn btn-primary" role="button" th:href="@{/cart/add/ + ${product.id}}">Add</button></td>&ndash;&gt;-->
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--    </table>-->
-<!--</div>-->
