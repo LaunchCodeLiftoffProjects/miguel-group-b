@@ -16,14 +16,14 @@
     <title th:text="'SnapSnap' + ${title == null ? '' : ' :: ' + title}">SnapSnap</title>
 </head>
 <body>
-
 <div th:replace="fragments :: page-header"></div>
-
 <div class="container">
     <div th:each="product : ${products}">
 
         <ul>
-            <li><img th:src="${product.pictureURL}" style="height:250px;width:200px;"/></li>
+            <li>
+                <img th:src="${product.pictureURL}" style="height:250px;width:200px;"/>
+            </li>
             <li>Name: <span th:text="${product.name}"></span></li>
             <li>Description: <span th:text="${product.description}"></span></li>
             <li>Price: $  <span th:text="${product.price}"></span></li>
@@ -36,7 +36,7 @@
             <form method="post" th:action="@{/addToCart}" th:object="${cart}">
                     <input type="number" name="quantity" min="1" max="10" class="form-control form-control-sm"/>
                     <input type="hidden" name="id" th:value="${product.id}"/>
-                <button type="submit" class="text-center">Add To Cart</button>
+                    <button type="submit" class="text-center">Add To Cart</button>
             </form>
 
         </ul>

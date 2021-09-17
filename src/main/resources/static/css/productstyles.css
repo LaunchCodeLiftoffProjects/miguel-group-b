@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora&family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Slab&display=swap');
 body {
     background: #f9f9f9;
     font-size: 16px;
-    font-family: 'Poppins', sans-serif
+    font-family: 'Roboto Slab', serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family:'Bebas Neue', cursive;
 }
 
 ul {
@@ -12,6 +14,12 @@ list-style-type:none;
 }
 
 li {
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+button {
 display:flex;
 justify-content:center;
 align-items:center;
