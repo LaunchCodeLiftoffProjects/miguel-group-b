@@ -9,7 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Set;
+import java.util.List;
+
 
 @Service
 public class CartService {
@@ -34,25 +35,27 @@ public class CartService {
     public Cart addToExistingCart(int id, String sessionToken, int quantity) {
         Cart cart = cartRepository.findBySessionToken(sessionToken);
         Product product = productService.getProductById(id);
-        if(cart!=null) {
-            Set<CartItem> cartItems = cart.getCartItems();
+        Boolean productInCart = false;
+        if (cart!=null) {
+            List<CartItem> cartItems = cart.getCartItems();
             for (CartItem item : cartItems) {
                 if (item.getProduct().equals(product)) {
+                    productInCart = true;
                     item.setQuantity(item.getQuantity() + quantity);
                     cart.setCartItems(cartItems);
-                    return cartRepository.save(cart);
+                    return cartRepository.saveAndFlush(cart);
 //                  saveAndFlush used to read saved changes at a later point during the same transaction but before the commit
                 }
             }
         }
-        if(cart.getNumberOfItems() >= 1){
+        if((cart != null) && !productInCart ){
             CartItem newCartItem = new CartItem();
             newCartItem.setQuantity(quantity);
             newCartItem.setProduct(product);
             cart.getCartItems().add(newCartItem);
-            return cartRepository.save(cart);
+            return cartRepository.saveAndFlush(cart);
         }
-       return this.addToExistingCart(id, sessionToken, quantity);
+       return this.addFirstCart(id, sessionToken, quantity);
 //        if ((cart != null) && !productAlreadyInCart) {
 //        CartItem newCartItem = new CartItem();
 //        newCartItem.setQuantity(quantity);
@@ -66,18 +69,15 @@ public class CartService {
     public Cart findBySessionToken(String sessionToken){
         return cartRepository.findBySessionToken(sessionToken);
     }
-//    TODO: EDIT AND DELETE CART ITEMS
 
-    public CartItem updateProductInCart(int id, int quantity){
+    public CartItem editProductInCart(int id, int quantity){
         CartItem cartItem = cartItemRepository.findById(id).get();
         cartItem.setQuantity(quantity);
         return cartItem;
     }
 
-    public void removeProductsFromCart(String sessionToken, @RequestParam int[] productIds){
+    public void deleteProductsFromCart(String sessionToken, @RequestParam int productId){
         Cart cart = cartRepository.findBySessionToken(sessionToken);
-        for(int i : productIds){
-            cart.getCartItems().remove(i);
-        }
+        cart.getCartItems().remove(productId);
     }
 }

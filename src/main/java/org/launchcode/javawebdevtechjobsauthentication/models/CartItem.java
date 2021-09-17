@@ -8,15 +8,16 @@ import javax.persistence.ManyToOne;
 public class CartItem extends AbstractEntity{
 
     private int quantity;
+
     @ManyToOne(fetch = FetchType.EAGER)
     private Product product;
 
     public CartItem(){}
 
-//    public CartItem(int quantity, Product product) {
-//        this.quantity = quantity;
-//        this.product = product;
-//    }
+    public CartItem(int quantity, Product product) {
+        this.quantity = quantity;
+        this.product = product;
+    }
 
     public int getQuantity() {
         return quantity;

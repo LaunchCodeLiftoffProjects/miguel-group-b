@@ -13,15 +13,15 @@ public class Cart extends AbstractEntity{
     private int numberOfItems;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<CartItem> cartItems = new HashSet<CartItem>();
+    private List<CartItem> cartItems = new ArrayList<>();
 
     private String sessionToken;
 
     public Cart(){}
 
-    public Cart(int numberOfItems, Set<CartItem> cartItems, String sessionToken) {
+    public Cart(int numberOfItems, List<CartItem> cartItems, String sessionToken) {
         this.numberOfItems = numberOfItems;
-        this.cartItems = new HashSet<CartItem>();
+        this.cartItems = new ArrayList<>();
         this.sessionToken = sessionToken;
     }
 
@@ -45,11 +45,11 @@ public class Cart extends AbstractEntity{
         this.numberOfItems = numberOfItems;
     }
 
-    public Set<CartItem> getCartItems() {
+    public List<CartItem> getCartItems() {
         return cartItems;
     }
 
-    public void setCartItems(Set<CartItem> cartItems) {
+    public void setCartItems(List<CartItem> cartItems) {
         this.cartItems = cartItems;
     }
 

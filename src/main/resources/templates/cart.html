@@ -8,7 +8,7 @@
 
 <th:block th:if="${cart==null || cart.cartItems == null}">
     <h2>Your cart is empty!</h2>
-    <a th:href="@{'/products/index'}">View Products</a>
+    <a th:href="@{'/products'}">View Products</a>
 </th:block>
 
 <table class="table">
@@ -31,15 +31,37 @@
         </td>
     </tr>
     <td>
-        <div class="input-group">
-        <input type="number" name="quantity" th:value="${cartItem.quantity}" class="form-control" />
-        <button class="btn btn-success" type="submit"></button>
+<!--  FORM -->
+        <form action ="/editCart" method="post">
+            <input type="hidden" th:value="${cartItem.id}" name="id"/>
+            <div class="input-group">
+                <input type="number"
+                       name="quantity"
+                       th:value="${cartItem.quantity}"
+                       th:attr="max=${cartItem.product.quantity}"
+                       class="form-control" />
+                <button class="btn btn-success" type="submit"></button>
         </div>
+    </form>
     </td>
-    <td th:text="${cartItem.product.price}">
-    </td>
+
+    <td th:text="${cartItem.product.price} * ${cartItem.quantity}"></td>
+    <td><a th:href="@{/deleteCartItem/{id} (id=${cartItem.id})}">Remove From Cart</a></td>
     </tbody>
 </table>
+
+<div class="footer">
+    <div class="row">
+        <div class="col">
+            <h4>Total</h4><span th:text="${cart.totalCost}"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-primary">Checkout</button>
+        </div>
+    </div>
+</div>
 
 
 </body>

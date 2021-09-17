@@ -4,8 +4,8 @@
 
     <!-- Bootstrap stylesheets and script -->
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
-<!--    <link th:href="@{/css/techjobs.css}" rel="stylesheet" />-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link th:href="@{/css/techjobs.css}" rel="stylesheet" />
+    <link th:href="@{/css/productstyles.css}" rel="stylesheet" />
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 
 <!--    Bootstrap 4  -->
@@ -21,19 +21,21 @@
 
 <div class="container">
     <div th:each="product : ${products}">
-        <ul>
-            <li><img th:src="${product.pictureURL}" style="height:250px:width:200px;"/></li>
-<!--            <a th:href="@{'/view/' + ${product.id}}">View Details</a>-->
 
+        <ul>
+            <li><img th:src="${product.pictureURL}" style="height:250px;width:200px;"/></li>
             <li>Name: <span th:text="${product.name}"></span></li>
             <li>Description: <span th:text="${product.description}"></span></li>
             <li>Price: <span th:text="${product.price}"></span></li>
+
             <form method="post" action="/addToCart">
                 <input type="number" name="quantity" class="form-control"/>
                 <input type="hidden" name="id" th:value="${product.id}"/>
                 <button type="submit">Add To Cart</button>
             </form>
+
         </ul>
+
     </div>
 </div>
 
