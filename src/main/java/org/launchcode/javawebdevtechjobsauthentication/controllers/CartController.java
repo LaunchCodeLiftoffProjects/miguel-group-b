@@ -22,9 +22,6 @@ public class CartController {
 
     @PostMapping("/addToCart")
     public String addToCart(HttpServletRequest request, Model model, @RequestParam("id")int id, @RequestParam("quantity") int quantity){
-//        The servlet container creates an HttpServletRequest object and passes it as an argument to
-//        the servlet's service methods (doGet, doPost, etc).
-//        Check for an existing session to
         String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
 
         if(sessionToken == null){
@@ -43,7 +40,6 @@ public class CartController {
 //        String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
 //        if(sessionToken == null){
 //            return "redirect:";
-////            TODO: Add error page
 //        } else {
 //            Cart cart = cartService.findBySessionToken(sessionToken);
 //            model.addAttribute("cart", cart);
