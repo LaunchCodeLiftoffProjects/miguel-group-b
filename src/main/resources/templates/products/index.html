@@ -5,7 +5,7 @@
     <!-- Bootstrap stylesheets and script -->
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
     <link th:href="@{/css/techjobs.css}" rel="stylesheet" />
-    <link th:href="@{/css/productstyles.css}" rel="stylesheet" />
+<!--    <link th:href="@{/css/productstyles.css}" rel="stylesheet" />-->
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 
 <!--    Bootstrap 4  -->
@@ -18,10 +18,12 @@
 <body>
 <div th:replace="fragments :: page-header"></div>
 
+
 <div class="container">
+    <div class="pt-5"><h1>View Products</h1></div>
     <div th:each="product : ${products}">
 
-        <ul>
+        <ul class="list-unstyled">
             <li>
                 <img th:src="${product.pictureURL}" style="height:250px;width:200px;"/>
             </li>
