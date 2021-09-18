@@ -3,12 +3,11 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5:3.0.4.RELEASE">
 
 <head th:fragment="head">
-
+<!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
     <!-- Bootstrap stylesheets and script -->
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
     <link th:href="@{/css/techjobs.css}" rel="stylesheet" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 
     <title th:text="'SnapSnap' + ${title == null ? '' : ' :: ' + title}">SnapSnap</title>
@@ -23,11 +22,8 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')"><a th:href="@{/add}">Add Vendors</a></li>
-                <li sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')"><a th:href="@{/products/add}">Add Products</a></li>
-                <li sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR', 'USER')"><a th:href="@{/products}">View Products</a></li>
+                <li sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')"><a th:href="@{/addLocation}">Add Location</a></li>
                 <li><a th:href="@{/logout}">Logout</a></li>
-                <li sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR', 'USER')"><a th:href="@{/cart}"><i class="fas fa-shopping-cart"></i></a></li>
             </ul>
         </div>
     </div>

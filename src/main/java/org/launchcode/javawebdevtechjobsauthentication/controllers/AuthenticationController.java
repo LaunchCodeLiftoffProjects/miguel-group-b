@@ -3,7 +3,6 @@ package org.launchcode.javawebdevtechjobsauthentication.controllers;
 
 import org.launchcode.javawebdevtechjobsauthentication.models.DTO.LoginFormDTO;
 import org.launchcode.javawebdevtechjobsauthentication.models.DTO.RegisterFormDTO;
-import org.launchcode.javawebdevtechjobsauthentication.models.data.RoleRepository;
 import org.launchcode.javawebdevtechjobsauthentication.users.MyUserDetails;
 import org.launchcode.javawebdevtechjobsauthentication.users.Role;
 import org.launchcode.javawebdevtechjobsauthentication.users.User;
@@ -28,8 +27,8 @@ public class AuthenticationController {
     @Autowired
     UserRepository userRepository;
 
-    @Autowired
-    RoleRepository roleRepository;
+//    @Autowired
+//    RoleRepository roleRepository;
 
     private static final String userSessionKey = "user";
 
@@ -140,4 +139,9 @@ public class AuthenticationController {
         request.getSession().invalidate();
         return "redirect:/login";
     }
+    @GetMapping("403")
+    public String error403() {
+        return "403";
+    }
+
 }
