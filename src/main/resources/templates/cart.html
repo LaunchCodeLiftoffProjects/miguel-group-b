@@ -1,46 +1,198 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5:3.0.4.RELEASE">
-<head th:replace="fragments :: head">
+<head th:fragment="head">
+
+    <!-- Bootstrap stylesheets and script -->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <link th:href="@{/css/techjobs.css}" rel="stylesheet" />
+    <link th:href="@{/css/productstyles.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+
+    <!--    Bootstrap 4  -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title th:text="'SnapSnap' + ${title == null ? '' : ' :: ' + title}">SnapSnap</title>
 </head>
-<body>
-<div th:replace="fragments :: page-header"></div>
+<!--<body>-->
+<!--<div th:replace="fragments :: page-header"></div>-->
 
-<th:block th:if="${cart==null || cart.cartItems == null}">
-    <h2>Your cart is empty!</h2>
-    <a th:href="@{'/products'}">View Products</a>
-</th:block>
+<!--<th:block th:if="${cart==null || cart.cartItems == null}">-->
+<!--    <h2>Your cart is empty!</h2>-->
+<!--    <a th:href="@{'/products'}">View Products</a>-->
+<!--</th:block>-->
+<!--<div>-->
+<!--    <div class="cart-body">-->
+<!--        <div class="col-12">-->
+<!--            <table class="table">-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th>Product</th>-->
+<!--                    <th>Quantity</th>-->
+<!--                    <th>Price</th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                    <tr th:each=" cartItem : ${cart.cartItems}">-->
+<!--                        <td>-->
+<!--                            <img th:src="${cartItem.product.pictureURL}" style="height:250px;width:200px;"/>-->
+<!--                            <h4 th:text="${cartItem.product.name}"></h4>-->
+<!--                            <p th:text="${cartItem.product.description}"></p>-->
+<!--                            <p th:text="${cartItem.product.price}"></p>-->
+<!--                        </td>-->
+<!--                        <td>-->
+<!--                            <form action="@{/editCart}" method="post">-->
+<!--                                <input type="hidden" th:value="${cartItem.id}" name="product_id"/>-->
+<!--                                <div class="input-group">-->
+<!--                                    <input type="number" name="quantity" min="1" th:value="${cartItem.quantity}" class="form-control" />-->
+<!--&lt;!&ndash;                                                                               th:attr="max=${cartItem.product.quantity}"&ndash;&gt;-->
+<!--                                    <button class="btn btn-success" type="submit">Update</button>-->
+<!--                                </div>-->
+<!--                            </form>-->
+<!--                        </td>-->
+<!--                        <td class="text-center" th:text="${cartItem.product.price * cartItem.quantity}"></td>-->
+<!--                        <td class="text-center">-->
+<!--                            <a th:href="@{/deleteCartItem/{id}(id=${cartItem.id})}" data-toggle="tooltip">-->
+<!--                                <i class="fa fa-trash"></i>-->
+<!--                            </a>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="column text-lg">-->
+<!--        <b>Subtotal: <span class="text-md" th:text="${cart.totalCost}"></span></b>-->
+<!--    </div>-->
+<!--    <div class="column">-->
+<!--        <button class="btn btn-success">Checkout</button>-->
+<!--    </div>-->
+<!--</div>-->
 
-<div>
-    <div class="cart-body">
-        <div class="col-12">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr th:each=" cartItem : ${cart}">
-                        <td>
-                            <img th:src="${cartItem.product.pictureURL}"/>
-                            <h4 th:text="${cartItem.product.name}"></h4>
-                        </td>
-                        <td>
-                            <p th:text="${cartItem.product.quantity}"></p>
-                        </td>
-                        <td>
-                            <p th:text="${cartItem.product.price}"></p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+<!--<div class="pb-5">-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">-->
+
+<!--                &lt;!&ndash; Shopping cart table &ndash;&gt;-->
+<!--                <div class="table-responsive">-->
+<!--                    <table class="table">-->
+<!--                        <thead>-->
+<!--                        <tr>-->
+<!--                            <th scope="col" class="border-0 bg-light">-->
+<!--                                <div class="p-2 px-3 text-uppercase">Product</div>-->
+<!--                            </th>-->
+<!--                            <th scope="col" class="border-0 bg-light">-->
+<!--                                <div class="py-2 text-uppercase">Quantity</div>-->
+<!--                            </th>-->
+<!--                            <th scope="col" class="border-0 bg-light">-->
+<!--                                <div class="py-2 text-uppercase">Price</div>-->
+<!--                            </th>-->
+<!--                            <th scope="col" class="border-0 bg-light">-->
+<!--                                <div class="py-2 text-uppercase">Remove</div>-->
+<!--                            </th>-->
+<!--                        </tr>-->
+<!--                        </thead>-->
+<!--                        <tbody>-->
+<!--                        <tr th:each=" cartItem : ${cart.cartItems}">-->
+<!--                            <td scope="row" class="border-0">-->
+<!--                                <div class="p-2">-->
+<!--                                    <img th:src="${cartItem.product.pictureURL}" alt="product" width="100" class="img-fluid rounded shadow-sm">-->
+<!--                                    <div class="ml-3 d-inline-block align-middle">-->
+<!--                                        <h4 th:text="${cartItem.product.name}"></h4>-->
+<!--                                        <p th:text="${cartItem.product.description}"></p>-->
+<!--                                        <p th:text="${cartItem.product.price}"></p>-->
+<!--&lt;!&ndash;                                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">Timex Unisex Originals</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: Watches</span>&ndash;&gt;-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                <form action="{/editCart}" method="post">-->
+<!--                                    <input type="hidden" th:value="${cartItem.id}" name="product_id"/>-->
+<!--                                    <div class="input-group">-->
+<!--                                        <input type="number" name="quantity" min="1" th:value="${cartItem.quantity}" class="form-control" />-->
+<!--                                &lt;!&ndash;                                                                               th:attr="max=${cartItem.product.quantity}"&ndash;&gt;-->
+<!--                                        <button class="btn btn-success" type="submit">Update Quantity</button>-->
+<!--                                    </div>-->
+<!--                                </form>-->
+<!--                            </td>-->
+<!--                            <td class="text-center" th:text="${cartItem.product.price * cartItem.quantity}"></td>-->
+<!--                            <td class="text-center">-->
+<!--                                <a th:href="@{/deleteCartItem/{id}(id=${cartItem.id})}" data-toggle="tooltip">-->
+<!--                                    <i class="fa fa-trash"></i>-->
+<!--                                </a>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; End &ndash;&gt;-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="row py-5 p-4 bg-white rounded shadow-sm">-->
+<!--            <div class="col-lg-6">-->
+<!--                <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order Summary </div>-->
+<!--                <div class="p-4">-->
+<!--                    <ul class="list-unstyled mb-4">-->
+<!--                        <li class="d-flex justify-content between py-3 border-bottom">-->
+<!--                            <strong>Subtotal: <span class="text-md" th:text="${cart.totalCost}"></span></strong>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                    <a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Checkout</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--    </div>-->
+<!--</div>-->
+<!--</div>-->
+<div class="mx-auto">
+    <div class="container">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Remove</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each=" cartItem : ${cart.cartItems}">
+                <td>
+                    <img th:src="${cartItem.product.pictureURL}" style="height:250px;width:200px;"/>
+                    <h3 th:text="${cartItem.product.name}"></h3>
+                    <p th:text="${cartItem.product.description}"></p>
+                    <p th:text="${cartItem.product.price}"></p>
+                </td>
+                <td>
+                    <form action="@{/editCart}" method="post">
+                        <input type="hidden" th:value="${cartItem.id}" name="product_id"/>
+                        <div class="input-group">
+                            <input type="number" name="quantity" min="1" th:value="${cartItem.quantity}" class="form-control" />
+                            <!--th:attr="max=${cartItem.product.quantity}"-->
+                            <button class="btn btn-success" type="submit">Update Quantity</button>
+                        </div>
+                    </form>
+                </td>
+                <td class="text-center" th:text="${cartItem.product.price * cartItem.quantity}"></td>
+                <td class="text-center">
+                    <a th:href="@{/deleteCartItem/{id}(id=${cartItem.id})}" data-toggle="tooltip">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="d-flex p-2 text-center justify-content-center shadow-sm">
+            <h2>Subtotal: <span class="text-md" th:text="${cart.totalCost}"></span></h2>
+            <button type="button" class="btn btn-primary btn-lg">Checkout</button>
         </div>
     </div>
 </div>
-
 
 </body>
 </html>

@@ -35,7 +35,7 @@ public class CartController {
             cartService.findBySessionToken(sessionToken);
             cartService.addToExistingCart(id,sessionToken, quantity);
         }
-        return "/products/index";
+        return "redirect:/";
     }
 
 //    @GetMapping("/cart")
@@ -51,25 +51,32 @@ public class CartController {
 //            return "cart";
 //        }
 //    }
-
     @GetMapping("/cart")
-    public String viewCart(String sessionToken,  Model model){
-//        Cart cart = cartService.findBySessionToken(sessionToken);
-        model.addAttribute("cart", cartService.findBySessionToken(sessionToken));
-        return "/cart";
+    public String viewCart(HttpServletRequest request,  Model model){
+        String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
+        Cart cart = cartService.findBySessionToken(sessionToken);
+        model.addAttribute("cart", cart);
+        return "cart";
     }
 
+//    @GetMapping("/cart")
+//    public String viewCart(String sessionToken,  Model model){
+//        Cart cart = cartService.findBySessionToken(sessionToken);
+//        model.addAttribute("cart", cart);
+//        return "cart";
+//    }
+
     @PostMapping("/editCart")
-    public String editCart(@RequestParam("id") int id, @RequestParam("quantity") int quantity){
+    public String editCart(@RequestParam("product_id") int id, @RequestParam("quantity") int quantity){
         cartService.editProductInCart(id, quantity);
         return"redirect:cart";
     }
 
     @GetMapping("/deleteCartItem/{id}")
-    public String deleteCartItem(@PathVariable("id") int id, HttpServletRequest request){
+    public String deleteCartItem(@PathVariable("id") int productId, HttpServletRequest request){
         String sessionToken = (String) request.getSession(false).getAttribute("sessionToken");
-        cartService.deleteProductsFromCart(sessionToken, id);
-        return"redirect:cart";
+        cartService.deleteProductsFromCart(sessionToken, productId);
+        return"redirect:/cart";
     }
 
 }

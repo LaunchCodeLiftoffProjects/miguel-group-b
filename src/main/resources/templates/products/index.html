@@ -17,6 +17,7 @@
 </head>
 <body>
 <div th:replace="fragments :: page-header"></div>
+
 <div class="container">
     <div th:each="product : ${products}">
 
@@ -33,8 +34,8 @@
 <!--                </li>-->
 <!--            </th:block>-->
 
-            <form method="post" th:action="@{/addToCart}" th:object="${cart}">
-                    <input type="number" name="quantity" min="1" max="10" class="form-control form-control-sm"/>
+            <form method="post" th:action="@{/addToCart}" th:name="cart" th:object="${cart}">
+                    <input type="number" name="quantity" min="1" max="10" value="1" class="form-control form-control-sm"/>
                     <input type="hidden" name="id" th:value="${product.id}"/>
                     <button type="submit" class="text-center">Add To Cart</button>
             </form>

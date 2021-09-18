@@ -73,11 +73,21 @@ public class CartService {
     public CartItem editProductInCart(int id, int quantity){
         CartItem cartItem = cartItemRepository.findById(id).get();
         cartItem.setQuantity(quantity);
-        return cartItem;
+        return cartItemRepository.saveAndFlush(cartItem);
     }
 
-    public void deleteProductsFromCart(String sessionToken, @RequestParam int productId){
+    public Cart deleteProductsFromCart(String sessionToken, int productId){
         Cart cart = cartRepository.findBySessionToken(sessionToken);
-        cart.getCartItems().remove(productId);
+        List<CartItem> cartItems = cart.getCartItems();
+        CartItem cartItem = null;
+        for(CartItem item : cartItems){
+            if(item.getId()==productId){
+                cartItem = item;
+            }
+        }
+        cartItems.remove(cartItem);
+        cartItemRepository.delete(cartItem);
+        cart.setCartItems(cartItems);
+        return  cartRepository.save(cart);
     }
 }
