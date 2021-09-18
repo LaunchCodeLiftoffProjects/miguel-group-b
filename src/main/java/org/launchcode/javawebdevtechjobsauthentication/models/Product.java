@@ -19,6 +19,17 @@ public class Product extends AbstractEntity{
         this.pictureURL = pictureURL;
     }
 
+    public Product(String name, String description, Double price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
+
+    public Product(String name, Double price) {
+        this.name = name;
+        this.price = price;
+    }
+
     public String getName() {
         return name;
     }
