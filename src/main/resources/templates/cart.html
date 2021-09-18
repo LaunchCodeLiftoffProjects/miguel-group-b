@@ -46,7 +46,7 @@
                         <div class="input-group">
                             <input type="number" name="quantity" min="1" th:value="${cartItem.quantity}" class="form-control" />
                             <!--th:attr="max=${cartItem.product.quantity}"-->
-                            <button class="btn btn-success" type="submit">Update Quantity</button>
+                            <button class="btn btn-success" type="submit" disabled>Update Quantity</button>
                         </div>
                     </form>
                 </td>
@@ -62,7 +62,8 @@
         </table>
         <div class="d-flex p-2 text-center justify-content-center shadow-sm">
             <h2>Subtotal: <span class="text-md" th:text="${cart.totalCost}"></span></h2>
-            <button type="button" class="btn btn-primary btn-lg">Checkout</button>
+            <button type="button" class="btn btn-primary btn-lg btn-block
+">Checkout</button>
         </div>
     </div>
 </div>
