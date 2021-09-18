@@ -20,8 +20,8 @@
 <body>
 <div th:replace="fragments :: page-header"></div>
 
-<div class="mx-auto">
-    <div class="py-5"><h1>Review Order</h1></div>
+<div class="mt-5">
+    <div class="mt-5"><h1>Review Order</h1></div>
     <div class="container">
         <table class="table">
             <thead>
@@ -37,13 +37,14 @@
                 <td>
                     <img th:src="${cartItem.product.pictureURL}" style="height:250px;width:200px;"/>
                     <h3 th:text="${cartItem.product.name}"></h3>
-                    <p th:text="${cartItem.product.description}"></p>
-                    <p th:text="${cartItem.product.price}"></p>
+                    <h5 th:text="${cartItem.product.description}"></h5>
+                    <h5 th:text=" '$' + ${cartItem.product.price}"> </h5>
                 </td>
-                <td>
+                <td class="justify-content-center
+">
                     <form action="@{/editCart}" method="post">
                         <input type="hidden" th:value="${cartItem.id}" name="product_id"/>
-                        <div class="input-group">
+                        <div class="input-group justify-content-center">
                             <input type="number" name="quantity" min="1" th:value="${cartItem.quantity}" class="form-control" />
                             <!--th:attr="max=${cartItem.product.quantity}"-->
                             <button class="btn btn-success" type="submit" disabled>Update Quantity</button>
