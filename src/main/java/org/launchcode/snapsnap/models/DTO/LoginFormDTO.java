@@ -1,4 +1,4 @@
-package org.launchcode.javawebdevtechjobsauthentication.models.DTO;
+package org.launchcode.snapsnap.models.DTO;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

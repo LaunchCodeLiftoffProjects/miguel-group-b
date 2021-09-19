@@ -1,6 +1,6 @@
-package org.launchcode.javawebdevtechjobsauthentication.models.data;
+package org.launchcode.snapsnap.models.data;
 
-import org.launchcode.javawebdevtechjobsauthentication.users.Role;
+import org.launchcode.snapsnap.users.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RoleRepository extends JpaRepository<Role, Integer> {

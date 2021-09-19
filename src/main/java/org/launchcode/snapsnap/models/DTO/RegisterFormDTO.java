@@ -1,6 +1,4 @@
-package org.launchcode.javawebdevtechjobsauthentication.models.DTO;
-
-import org.launchcode.javawebdevtechjobsauthentication.users.Role;
+package org.launchcode.snapsnap.models.DTO;
 
 public class RegisterFormDTO extends LoginFormDTO{
 

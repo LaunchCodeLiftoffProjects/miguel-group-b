@@ -1,6 +1,6 @@
-package org.launchcode.javawebdevtechjobsauthentication.models.data;
+package org.launchcode.snapsnap.models.data;
 
-import org.launchcode.javawebdevtechjobsauthentication.vendors.Menu;
+import org.launchcode.snapsnap.models.Menu;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

@@ -1,10 +1,4 @@
-package org.launchcode.javawebdevtechjobsauthentication.vendors;
-
-import org.launchcode.javawebdevtechjobsauthentication.models.AbstractEntity;
-import org.launchcode.javawebdevtechjobsauthentication.models.Product;
-import org.launchcode.javawebdevtechjobsauthentication.users.User;
-import org.springframework.beans.factory.parsing.Location;
-import org.springframework.core.io.Resource;
+package org.launchcode.snapsnap.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -26,7 +20,6 @@ public class Menu {
 
     @NotNull
     @Size(min=3, max=50)
-
     private String facility;
     private String city;
     private String State;

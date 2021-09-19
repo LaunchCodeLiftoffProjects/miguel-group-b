@@ -1,13 +1,11 @@
-package org.launchcode.javawebdevtechjobsauthentication.users;
+package org.launchcode.snapsnap.users;
 
 import org.hibernate.annotations.Type;
-import org.launchcode.javawebdevtechjobsauthentication.vendors.Menu;
+import org.launchcode.snapsnap.models.Menu;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity

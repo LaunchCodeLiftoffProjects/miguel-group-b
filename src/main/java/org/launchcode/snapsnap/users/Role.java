@@ -1,4 +1,4 @@
-package org.launchcode.javawebdevtechjobsauthentication.users;
+package org.launchcode.snapsnap.users;
 
 import javax.persistence.*;
 

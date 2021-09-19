@@ -1,7 +1,7 @@
-package org.launchcode.javawebdevtechjobsauthentication.controllers;
+package org.launchcode.snapsnap.controllers;
 
-import org.launchcode.javawebdevtechjobsauthentication.models.Product;
-import org.launchcode.javawebdevtechjobsauthentication.models.data.ProductRepository;
+import org.launchcode.snapsnap.models.Product;
+import org.launchcode.snapsnap.models.data.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

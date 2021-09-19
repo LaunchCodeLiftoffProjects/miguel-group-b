@@ -1,7 +1,7 @@
-package org.launchcode.javawebdevtechjobsauthentication.controllers;
+package org.launchcode.snapsnap.controllers;
 
-import org.launchcode.javawebdevtechjobsauthentication.models.data.MenuRepository;
-import org.launchcode.javawebdevtechjobsauthentication.vendors.Menu;
+import org.launchcode.snapsnap.models.data.MenuRepository;
+import org.launchcode.snapsnap.models.Menu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,7 +41,7 @@ public class MenuController {
         }
 
         menuRepository.save(newMenu);
-        return "redirect:";
+        return "redirect:/";
     }
 
     @GetMapping("view/{menuId}")

@@ -1,6 +1,4 @@
-package org.launchcode.javawebdevtechjobsauthentication.models;
-
-import org.launchcode.javawebdevtechjobsauthentication.vendors.Menu;
+package org.launchcode.snapsnap.models;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;

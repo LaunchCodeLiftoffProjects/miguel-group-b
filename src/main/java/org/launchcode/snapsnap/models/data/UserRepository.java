@@ -1,6 +1,6 @@
-package org.launchcode.javawebdevtechjobsauthentication.models.data;
+package org.launchcode.snapsnap.models.data;
 
-import org.launchcode.javawebdevtechjobsauthentication.users.User;
+import org.launchcode.snapsnap.users.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

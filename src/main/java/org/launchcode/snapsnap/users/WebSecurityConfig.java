@@ -1,9 +1,8 @@
-package org.launchcode.javawebdevtechjobsauthentication.users;
+package org.launchcode.snapsnap.users;
 
 
 
 import org.springframework.context.annotation.*;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.*;
 import org.springframework.security.config.annotation.authentication.builders.*;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

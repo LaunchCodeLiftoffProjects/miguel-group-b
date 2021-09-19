@@ -1,6 +1,6 @@
-package org.launchcode.javawebdevtechjobsauthentication.users;
+package org.launchcode.snapsnap.users;
 
-import org.launchcode.javawebdevtechjobsauthentication.models.data.UserRepository;
+import org.launchcode.snapsnap.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

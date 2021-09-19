@@ -1,12 +1,11 @@
-package org.launchcode.javawebdevtechjobsauthentication.controllers;
+package org.launchcode.snapsnap.controllers;
 
 
-import org.launchcode.javawebdevtechjobsauthentication.models.DTO.LoginFormDTO;
-import org.launchcode.javawebdevtechjobsauthentication.models.DTO.RegisterFormDTO;
-import org.launchcode.javawebdevtechjobsauthentication.users.MyUserDetails;
-import org.launchcode.javawebdevtechjobsauthentication.users.Role;
-import org.launchcode.javawebdevtechjobsauthentication.users.User;
-import org.launchcode.javawebdevtechjobsauthentication.models.data.UserRepository;
+import org.launchcode.snapsnap.models.DTO.LoginFormDTO;
+import org.launchcode.snapsnap.models.DTO.RegisterFormDTO;
+import org.launchcode.snapsnap.users.Role;
+import org.launchcode.snapsnap.users.User;
+import org.launchcode.snapsnap.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.util.List;
 import java.util.Optional;
 
 @Controller
