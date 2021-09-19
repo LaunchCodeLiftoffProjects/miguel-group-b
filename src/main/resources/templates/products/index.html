@@ -5,7 +5,7 @@
     <!-- Bootstrap stylesheets and script -->
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
     <link th:href="@{/css/techjobs.css}" rel="stylesheet" />
-    <link th:href="@{/css/productstyles.css}" rel="stylesheet" />
+    <link th:href="@{/css/product.css}" rel="stylesheet" />
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 
 <!--    Bootstrap 4  -->
@@ -100,34 +100,54 @@
 <!--    </div>-->
 <!--</div>-->
 <!--</div>-->
+<!--<div class="container">-->
+<!--    <div class="pt-5"><h1>View Products</h1></div>-->
+<!--    <div th:each="product : ${products}">-->
+<!--        <ul class="list-unstyled">-->
+<!--            <li>-->
+<!--                <img th:src="${product.pictureURL}" style="height:250px;width:200px;"/>-->
+<!--            </li>-->
+<!--            <li>Name: <span th:text="${product.name}"></span></li>-->
+<!--            <li>Description: <span th:text="${product.description}"></span></li>-->
+<!--            <li>Price: $  <span th:text="${product.price}"></span></li>-->
+<!--&lt;!&ndash;            <th:block sec:authorize="hasAuthority('ADMIN','VENDOR')">&ndash;&gt;-->
+<!--&lt;!&ndash;                <li>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a style="color:red;" th:href="">Edit Product</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </li>&ndash;&gt;-->
+<!--&lt;!&ndash;            </th:block>&ndash;&gt;-->
+<!--            <form method="post" th:action="@{/addToCart}" th:name="cart" th:object="${cart}">-->
+<!--                    <div class="col-sm-3">-->
+<!--                        <input type="number" name="quantity" min="1"-->
+<!--                               max="10" value="1"-->
+<!--                               class="form-control round-input form-control-sm"/>-->
+<!--                        <input type="hidden" name="id" th:value="${product.id}"/>-->
+<!--                    </div>-->
+<!--                    <button type="submit" class="text-center">Add To Cart</button>-->
+<!--            </form>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</div>-->
 <div class="container">
-    <div class="pt-5"><h1>View Products</h1></div>
-    <div th:each="product : ${products}">
-        <ul class="list-unstyled">
-            <li>
-                <img th:src="${product.pictureURL}" style="height:250px;width:200px;"/>
-            </li>
-            <li>Name: <span th:text="${product.name}"></span></li>
-            <li>Description: <span th:text="${product.description}"></span></li>
-            <li>Price: $  <span th:text="${product.price}"></span></li>
-<!--            <th:block sec:authorize="hasAuthority('ADMIN','VENDOR')">-->
-<!--                <li>-->
-<!--                    <a style="color:red;" th:href="">Edit Product</a>-->
-<!--                </li>-->
-<!--            </th:block>-->
-            <form method="post" th:action="@{/addToCart}" th:name="cart" th:object="${cart}">
-                    <div class="col-sm-3">
-                        <input type="number" name="quantity" min="1"
-                               max="10" value="1"
+    <div class="row justify-content-center text-center">
+        <div class="col-md-4" th:each="product:${products}">
+            <div class="content">
+                <div class="content-overlay"></div>
+                <img class="content-image" th:src="${product.pictureURL}">
+                <div class="content-details fadeIn-bottom">
+                    <h3 class="content-title" th:text="${product.name}">Geysers Valley Hotel</h3>
+                    <h4 class="content-text" th:text="${product.description}"></h4>
+                    <h4 class="content-text" th:text="${product.price}">$ </h4>
+                    <form method="post" th:action="@{/addToCart}" th:name="cart" th:object="${cart}">
+                        <input type="number" name="quantity" min="1" max="10" value="1"
                                class="form-control round-input form-control-sm"/>
                         <input type="hidden" name="id" th:value="${product.id}"/>
-                    </div>
-                    <button type="submit" class="text-center">Add To Cart</button>
-            </form>
-        </ul>
+                        <button type="submit" class="btn btn-success">Add To Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
 
 </body>
 </html>

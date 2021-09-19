@@ -33,12 +33,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr class="justify-content-center text-center" th:each=" cartItem : ${cart.cartItems}">
+            <tr th:each="cartItem : ${cart.cartItems}">
                 <td>
                     <img th:src="${cartItem.product.pictureURL}" style="height:250px;width:200px;"/>
                     <h3 th:text="${cartItem.product.name}"></h3>
                     <h5 th:text="${cartItem.product.description}"></h5>
-                    <h5 th:text="${cartItem.product.price}"></h5>
                 </td>
                 <td class="text-center">
                     <form th:action="@{/editCart}" th:object=${cart} th:name="cart"
