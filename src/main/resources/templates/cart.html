@@ -6,7 +6,7 @@
     <!-- Bootstrap stylesheets and script -->
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
     <link th:href="@{/css/techjobs.css}" rel="stylesheet" />
-    <link th:href="@{/css/productstyles.css}" rel="stylesheet" />
+<!--    <link th:href="@{/css/productstyles.css}" rel="stylesheet" />-->
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
@@ -56,7 +56,7 @@
                         </div>
                     </form>
                 </td>
-                <td class="text-center" th:text="${cartItem.product.price * cartItem.quantity}"></td>
+                <td class="text-center" th:text="'$ ' + ${cartItem.product.price * cartItem.quantity}"></td>
                 <td class="text-center">
                     <a th:href="@{/deleteCartItem/{id}(id=${cartItem.id})}" data-toggle="tooltip">
 <!--                        <i class="fa fa-trash"></i>-->
@@ -67,9 +67,8 @@
             </tbody>
         </table>
         <div class="d-flex p-2 text-center justify-content-center shadow-sm">
-            <h2>Subtotal: <span class="text-md" th:text="${cart.totalCost}"></span></h2>
-            <button type="button" class="btn btn-primary btn-lg btn-block
-">Checkout</button>
+            <h2>Subtotal: <span class="text-md" th:text="'$ ' + ${cart.totalCost}"></span></h2>
+            <button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
         </div>
     </div>
 </div>

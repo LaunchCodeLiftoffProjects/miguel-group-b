@@ -34,6 +34,4 @@ public class CartItem extends AbstractEntity{
     public void setProduct(Product product) {
         this.product = product;
     }
-
-
 }

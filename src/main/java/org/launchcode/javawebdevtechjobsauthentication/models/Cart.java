@@ -19,12 +19,6 @@ public class Cart extends AbstractEntity{
 
     public Cart(){}
 
-//    public Cart(int numberOfItems, List<CartItem> cartItems, String sessionToken) {
-//        this.numberOfItems = numberOfItems;
-//        this.cartItems = new ArrayList<>();
-//        this.sessionToken = sessionToken;
-//    }
-
     public Double getTotalCost() {
         Double sum = 0.00;
         for (CartItem item : this.cartItems) {
@@ -56,9 +50,6 @@ public class Cart extends AbstractEntity{
     public String getSessionToken() {
         return sessionToken;
     }
-    //    public String getTokenSession() {
-//        return this.tokenSession = UUID.randomUUID().toString();
-//    }
 
     public void setSessionToken(String sessionToken) {
         this.sessionToken = sessionToken;

@@ -52,6 +52,10 @@ img {
     border-radius: 5px
 }
 
+#product-btn{
+margin:15px;
+}
+
 .content-details {
     position: absolute;
     text-align: center;
