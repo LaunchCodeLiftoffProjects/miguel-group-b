@@ -36,14 +36,15 @@ public class LocationController {
 
     @PostMapping("addLocation")
     public String processAddLocationForm(@ModelAttribute @Valid Location newLocation,
-                                       Errors errors) {
+                                       Errors errors, Model model) {
 
         if (errors.hasErrors()) {
+            model.addAttribute("title","Add Location");
             return "addLocation";
         }
 
         locationRepository.save(newLocation);
-        return "addMenu:";
+        return "redirect:/";
     }
 
     @GetMapping("view/{locationId}")

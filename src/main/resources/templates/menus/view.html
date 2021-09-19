@@ -1,0 +1,31 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="https://www.thymeleaf.org/">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8"/>-->
+<!--    <title></title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<head th:replace="fragments :: head"></head>
+
+<body class="container  body-content">
+<h1 th:text="${'Menu: ' + menu.name}">Menu</h1>
+
+
+<nav th:replace="fragments :: page-header"></nav>
+
+<div class="menu-listing">
+<!--    <p sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')"></p>-->
+    <p th:text="${'ID: ' + menu.id}"></p>
+    <p th:text="${'Name: ' + menu.name}"></p>
+    <p th:text="${'Description: ' + menu.description}"></p>
+    <p th:text="${'Price: ' + menu.price}"></p>
+</div>
+</body>
+</html>

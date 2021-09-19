@@ -19,8 +19,8 @@ public class Menu extends AbstractEntity {
     private Double price;
 
     @ManyToOne
-    @JoinColumn(name ="location")
-
+    @JoinColumn
+//            (name ="location")
     private Location location;
 
     private String userId;
@@ -31,6 +31,7 @@ public class Menu extends AbstractEntity {
 
     // Initialize the id and value fields.
     public Menu(String aName, String aDescription, Double somePrice,Location location) {
+        super();
         this.name = aName;
         this.description = aDescription;
         this.price = somePrice;
@@ -71,20 +72,11 @@ public class Menu extends AbstractEntity {
         this.location = location;
     }
 
-    //    public List<Location> getLocations() {
-//        return locations;
-//    }
-//
-//    public void setLocations(List<Location> locations){
-//        this.locations.addAll(locations);
-//    }
 
     @Override
     public String toString() {
         return name;
     }
-
-
 
 }
 
