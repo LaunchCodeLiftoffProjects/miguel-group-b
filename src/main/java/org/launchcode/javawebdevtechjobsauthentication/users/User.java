@@ -1,15 +1,20 @@
 package org.launchcode.javawebdevtechjobsauthentication.users;
 
 import org.hibernate.annotations.Type;
+import org.launchcode.javawebdevtechjobsauthentication.vendors.Menu;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "users")
 public class User {
+//    @OneToMany (mappedBy = "user", cascade = CascadeType.ALL)
+//    private List<Menu> menus = new ArrayList<>();
 
     @Id
     @Column(name = "user_id")
@@ -22,7 +27,8 @@ public class User {
     @Column
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean enabled;
-    
+
+
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
@@ -42,6 +48,17 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
+
+
+
+//    public List<Menu> getMenus() {
+//        return menus;
+//    }
+//
+//    public void setMenus(List<Menu> menus) {
+//        this.menus = menus;
+//    }
+
     private Set<Role> roles = new HashSet<>();
 
     public Integer getId() {

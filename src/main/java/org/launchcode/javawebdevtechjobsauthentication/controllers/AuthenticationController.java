@@ -83,13 +83,16 @@ public class AuthenticationController {
 
         String password = registerFormDTO.getPassword();
         String verifyPassword = registerFormDTO.getVerifyPassword();
+
         if (!password.equals(verifyPassword)) {
             errors.rejectValue("password", "passwords.mismatch", "Passwords do not match");
             model.addAttribute("title", "Register");
             return "register";
         }
 
-        User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword(), User.isEnabled());
+        User newUser = new User(registerFormDTO.getUsername(),
+                                registerFormDTO.getPassword(),
+                                User.isEnabled());
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
 

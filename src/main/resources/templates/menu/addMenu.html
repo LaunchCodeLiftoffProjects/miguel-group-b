@@ -1,10 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5:3.0.4.RELEASE">
+<head th:replace="fragments :: head"></head>
+<body class="container body-content">
+
+<nav th:replace="fragments :: page-header"></nav>
+
+<h1>Add Menu</h1>
+
+<form method="post" style="max-width:600px;">
+    <div class="form-group">
+        <label th:for="name">Facility</label>
+        <input class="form-control" th:field="${menu.facility}" />
+        <span th:errors="${menu.facility}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="name">City</label>
+        <input class="form-control" th:field="${menu.city}" />
+        <span th:errors="${menu.city}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="name">State</label>
+        <input class="form-control" th:field="${menu.state}" />
+        <span th:errors="${menu.state}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="name">Address</label>
+        <input class="form-control" th:field="${menu.address}" />
+        <span th:errors="${menu.address}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="name">Service Description</label>
+        <input class="form-control" th:field="${menu.serviceDescription}" />
+        <span th:errors="${menu.serviceDescription}" class="error"></span>
+    </div>
+
+
+
+    <input type="submit" value="Add Menu" />
+</form>
+
+
+
 
 </body>
 </html>

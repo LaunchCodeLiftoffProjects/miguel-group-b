@@ -1,9 +1,17 @@
 package org.launchcode.javawebdevtechjobsauthentication.models;
 
+import org.launchcode.javawebdevtechjobsauthentication.vendors.Menu;
+
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Product extends AbstractEntity{
+    
+    @ManyToOne
+    @JoinColumn (name = "menu_id")
+    private Menu menu;
 
     private String name;
     private String description;
@@ -12,22 +20,31 @@ public class Product extends AbstractEntity{
 
     public Product(){}
 
-    public Product(String name, String description, Double price, String pictureURL) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.pictureURL = pictureURL;
+    public Product(Menu aMenu, String aName, String aDescription, Double aPrice, String aPictureURL) {
+        this.menu = aMenu;
+        this.name = aName;
+        this.description = aDescription;
+        this.price = aPrice;
+        this.pictureURL = aPictureURL;
     }
 
-    public Product(String name, String description, Double price) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
+    public Product(String aName, String aDescription, Double aPrice) {
+        this.name = aName;
+        this.description = aDescription;
+        this.price = aPrice;
     }
 
-    public Product(String name, Double price) {
-        this.name = name;
-        this.price = price;
+    public Product(String aName, Double aPrice) {
+        this.name = aName;
+        this.price = aPrice;
+    }
+
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
     }
 
     public String getName() {

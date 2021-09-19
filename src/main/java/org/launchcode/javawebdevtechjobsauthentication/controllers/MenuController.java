@@ -27,7 +27,7 @@ public class MenuController {
     @GetMapping("addMenu")
     public String displayAddMenuForm( Model model) {
         model.addAttribute(new Menu());
-        return "addMenu";
+        return "menu/addMenu";
     }
 
 
@@ -37,7 +37,7 @@ public class MenuController {
                                          Errors errors) {
 
         if (errors.hasErrors()) {
-            return "addMenu";
+            return "menu/addMenu";
         }
 
         menuRepository.save(newMenu);
@@ -51,7 +51,7 @@ public class MenuController {
         if (!optMenu.isEmpty()) {
             Menu menu = (Menu) optMenu.get();
             model.addAttribute("menu", menu);
-            return "view";
+            return "menu/view";
         } else {
             return "redirect:/";
         }

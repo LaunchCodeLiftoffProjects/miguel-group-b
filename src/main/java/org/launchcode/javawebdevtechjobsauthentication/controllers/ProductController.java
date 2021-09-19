@@ -17,7 +17,7 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
-    @GetMapping
+    @GetMapping("")
     public String index(Model model){
         model.addAttribute("title", "Products");
         model.addAttribute("products", productRepository.findAll());

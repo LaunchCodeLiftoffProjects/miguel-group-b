@@ -47,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/css/**").permitAll()
                 .antMatchers("/js/**").permitAll()
                 .antMatchers("/delete/**").hasAuthority("ADMIN")
-                .antMatchers("/addLocation/**").hasAnyAuthority("ADMIN", "VENDOR")
+                .antMatchers("/addMenu/**").hasAnyAuthority("ADMIN", "VENDOR")
                 .antMatchers("/view/**").hasAnyAuthority("USER", "ADMIN", "VENDOR")
                 .antMatchers("/index/**").hasAnyAuthority("USER", "ADMIN", "VENDOR")
                 .antMatchers("/register/**").permitAll()
