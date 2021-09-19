@@ -15,13 +15,13 @@
 <head th:replace="fragments :: head"></head>
 
 <body class="container  body-content">
-<h1 th:text="${'Menu: ' + menu.name}">Menu</h1>
+<h1 th:text="${'Menu: ' + menu.name}">Default Title</h1>
 
 
 <nav th:replace="fragments :: page-header"></nav>
 
 <div class="menu-listing">
-<!--    <p sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')"></p>-->
+<!--    <p sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')"></p>-->De
     <p th:text="${'ID: ' + menu.id}"></p>
     <p th:text="${'Name: ' + menu.name}"></p>
     <p th:text="${'Description: ' + menu.description}"></p>

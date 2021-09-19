@@ -52,7 +52,7 @@ public class MenuController {
 //        locationRepository.save(newLocation);
         menuRepository.save(newMenu);
 
-        return "redirect:../";
+        return "redirect:";
     }
 
     @GetMapping("/menus/view/{menuId}")
