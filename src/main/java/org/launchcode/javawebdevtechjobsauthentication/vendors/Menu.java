@@ -3,6 +3,8 @@ package org.launchcode.javawebdevtechjobsauthentication.vendors;
 import org.launchcode.javawebdevtechjobsauthentication.models.AbstractEntity;
 import org.launchcode.javawebdevtechjobsauthentication.models.Product;
 import org.launchcode.javawebdevtechjobsauthentication.users.User;
+import org.springframework.beans.factory.parsing.Location;
+import org.springframework.core.io.Resource;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -11,29 +13,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Menu extends AbstractEntity {
+public class Menu {
 
-//    @ManyToOne
-//    @JoinColumn (name = "user_id")
-//    private User user;
 
+    @Id
+    @Column(name = "menu_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @OneToMany (mappedBy = "menu", cascade = CascadeType.ALL)
-    private List<Product> product = new ArrayList<>();
+    private List<Product> products = new ArrayList<>();
 
     @NotNull
     @Size(min=3, max=50)
+
     private String facility;
     private String city;
     private String State;
     private String address;
     private String serviceDescription;
 
-    public Menu() {
-    }
+    public Menu(){}
 
-    public Menu(List<Product> product, String facility, String city, String state, String address, String serviceDescription) {
-        this.product = product;
+    public Menu(Integer id, String facility,
+                String city, String state, String address, String serviceDescription) {
+        this.id = id;
         this.facility = facility;
         this.city = city;
         State = state;
@@ -41,12 +45,12 @@ public class Menu extends AbstractEntity {
         this.serviceDescription = serviceDescription;
     }
 
-    public List<Product> getProduct() {
-        return product;
+    public Integer getId() {
+        return id;
     }
 
-    public void setProduct(List<Product> product) {
-        this.product = product;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getFacility() {
@@ -88,18 +92,13 @@ public class Menu extends AbstractEntity {
     public void setServiceDescription(String serviceDescription) {
         this.serviceDescription = serviceDescription;
     }
-
-    @Override
-    public String toString() {
-        return "Menu{" +
-                "product=" + product +
-                ", facility='" + facility + '\'' +
-                ", city='" + city + '\'' +
-                ", State='" + State + '\'' +
-                ", address='" + address + '\'' +
-                ", serviceDescription='" + serviceDescription + '\'' +
-                '}';
-    }
+//    public List<Product> getProducts() {
+//        return products;
+//    }
+//
+//    public void setProducts(List<Product> products) {
+//        this.products = products;
+//    }
 }
 
     

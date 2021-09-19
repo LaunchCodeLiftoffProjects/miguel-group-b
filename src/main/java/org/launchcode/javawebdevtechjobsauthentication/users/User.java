@@ -13,8 +13,8 @@ import java.util.Set;
 @Entity
 @Table(name = "users")
 public class User {
-//    @OneToMany (mappedBy = "user", cascade = CascadeType.ALL)
-//    private List<Menu> menus = new ArrayList<>();
+
+
 
     @Id
     @Column(name = "user_id")
@@ -48,18 +48,29 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-
-
-
-//    public List<Menu> getMenus() {
-//        return menus;
-//    }
-//
-//    public void setMenus(List<Menu> menus) {
-//        this.menus = menus;
-//    }
-
     private Set<Role> roles = new HashSet<>();
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "users_menus",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "menu_id")
+    )
+    private Set<Menu> menus = new HashSet<>();
+
+//
+//    @OneToMany (mappedBy = "menuOwner", cascade = CascadeType.ALL)
+//    private List<Menu> menus = new ArrayList<>();
+
+
+
+    public Set<Menu> getMenus() {
+        return menus;
+    }
+
+    public void setMenus(Set<Menu> menus) {
+        this.menus = menus;
+    }
 
     public Integer getId() {
         return id;
