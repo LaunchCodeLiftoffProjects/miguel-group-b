@@ -22,6 +22,7 @@ public class CartController {
 
     @PostMapping("/addToCart")
     public String addToCart(HttpServletRequest request, Model model, @RequestParam("id")int id, @RequestParam("quantity") int quantity){
+
         String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
 
         if(sessionToken == null){
@@ -35,25 +36,25 @@ public class CartController {
         return "redirect:/cart";
     }
 
-//    @GetMapping("/cart")
-//    public String viewCart(HttpServletRequest request,  Model model){
-//        String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
-//        if(sessionToken == null){
-//            return "redirect:";
-//        } else {
-//            Cart cart = cartService.findBySessionToken(sessionToken);
-//            model.addAttribute("cart", cart);
-////        }
-//            return "cart";
-//        }
-//    }
     @GetMapping("/cart")
     public String viewCart(HttpServletRequest request,  Model model){
         String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
-        Cart cart = cartService.findBySessionToken(sessionToken);
-        model.addAttribute("cart", cart);
-        return "cart";
+        if(sessionToken == null){
+            return "redirect:";
+        } else {
+            Cart cart = cartService.findBySessionToken(sessionToken);
+            model.addAttribute("cart", cart);
+//        }
+            return "cart";
+        }
     }
+//    @GetMapping("/cart")
+//    public String viewCart(HttpServletRequest request,  Model model){
+//        String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
+//        Cart cart = cartService.findBySessionToken(sessionToken);
+//        model.addAttribute("cart", cart);
+//        return "cart";
+//    }
 
 //    @GetMapping("/cart")
 //    public String viewCart(String sessionToken,  Model model){
