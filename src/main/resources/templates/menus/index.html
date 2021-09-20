@@ -30,13 +30,13 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5:3.0.4.RELE
 <!--    </div>-->
     <h2>Menus</h2>
     <ul>
-        <li th:each="menu : ${menu}">
+        <li th:each="menu : ${menus}">
             <a th:href="@{'/menus/view/' + ${menu.id}}" th:text="${menu.name}"></a>
 <!--            <span th:errors="${menu.name}" class="error"></span>-->
         </li>
 
     </ul>
-    <a th:href="@{'/menus/add'}">Add Menu</a>
+<!--    <a th:href="@{'/menus/add'}">Add Menu</a>-->
 
 
 </div>

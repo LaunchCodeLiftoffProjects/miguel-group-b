@@ -15,27 +15,33 @@ public class Menu extends AbstractEntity {
     @NotNull
     @Size(min=3, max=50)
     private String name;
+
+    @NotNull(message = "Please provide a description for the menu.")
     private String description;
+
+    @NotNull(message = "Please enter price e.g. '99.99' ")
     private Double price;
 
-    @ManyToOne
-    @JoinColumn
-//            (name ="location")
-    private Location location;
-
-    private String userId;
-
+//    @JoinColumn(name="menuId")
+//    @OneToOne
+//            (mappedBy="menuId")
+//    private Location location;
+//    @ManyToOne
+//    @JoinColumn(name ="user_id")
+//    private String userId;
+    @ManyToMany(mappedBy= "menus")
+    private List<Location> location = new ArrayList<>();
 
     public Menu() {
     }
 
     // Initialize the id and value fields.
-    public Menu(String aName, String aDescription, Double somePrice,Location location) {
+    public Menu(String aName, String aDescription, Double somePrice) {
         super();
         this.name = aName;
         this.description = aDescription;
         this.price = somePrice;
-        this.location = location;
+//        this.location = location;
     }
 
     // Getters and setters.
@@ -64,14 +70,22 @@ public class Menu extends AbstractEntity {
         this.price = price;
     }
 
-    public Location getLocation() {
+//    public Location getLocation() {
+//        return location;
+//    }
+//
+//    public void setLocation(Location location) {
+//        this.location = location;
+//    }
+
+
+    public List<Location> getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(List<Location> location) {
         this.location = location;
     }
-
 
     @Override
     public String toString() {

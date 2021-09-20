@@ -19,8 +19,10 @@ public class Location extends AbstractEntity {
 
 
 
-//    @OneToMany(mappedBy = "menu",cascade = CascadeType.ALL)
-//    private List<Menu> menu = new ArrayList<>();
+    @ManyToMany
+//            (mappedBy = "")
+//    ,cascade = CascadeType.ALL)
+    private List<Menu> menus = new ArrayList<>();
 
     public Location() {
     }
@@ -60,13 +62,14 @@ public class Location extends AbstractEntity {
         this.service = service;
     }
 
-//    public List<Menu> getMenu() {
-//        return menu;
-//    }
-//
-//    public void setMenu(List<Menu> menu){
-//        this.menu = menu;
-//    }
+    public List<Menu> getMenus() {
+        return menus;
+    }
+
+
+    public void setMenus(List<Menu> menus) {
+        this.menus = menus;
+    }
 
     @Override
     public String toString() {
