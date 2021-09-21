@@ -23,7 +23,7 @@
     <h2>Locations</h2>
     <ul>
         <li th:each="menu : ${menus}">
-            <a th:href="@{'/view/' + ${menu.id}}" th:text="${menu.facility}"></a>
+            <a th:href="@{'/menu/view/' + ${menu.id}}" th:text="${menu.facility}"></a>
         </li>
     </ul>
 

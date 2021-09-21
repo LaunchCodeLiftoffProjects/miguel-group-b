@@ -18,11 +18,7 @@ public class MenuController {
     @Autowired
     private MenuRepository menuRepository;
 
-    @RequestMapping("index")
-    public String index(Model model) {
-        model.addAttribute("menus", menuRepository.findAll());
-        return "index";
-    }
+
 
     @GetMapping("addMenu")
     public String displayAddMenuForm( Model model) {
