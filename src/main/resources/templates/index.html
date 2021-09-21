@@ -4,20 +4,14 @@
 <head th:replace="fragments :: head">
 </head>
 <body>
-
 <div th:replace="fragments :: page-header"></div>
-
-<div>
-
-
-
 <div class="container body-content">
 
     <div>
         Welcome <b><span sec:authentication="name">Username</span></b>
         &nbsp;
         <span sec:authorize="hasAnyAuthority('ADMIN')"
-                sec:authentication="principal.authorities">Roles</span>
+              sec:authentication="principal.authorities">Roles</span>
     </div>
 
     <h2>Locations</h2>
@@ -26,8 +20,6 @@
             <a th:href="@{'/menu/view/' + ${menu.id}}" th:text="${menu.facility}"></a>
         </li>
     </ul>
-
-</div>
 
 </div>
 </body>

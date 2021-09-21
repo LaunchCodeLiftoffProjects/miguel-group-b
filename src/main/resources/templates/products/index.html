@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head">
+<head th:fragment="head">
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <link th:href="@{/css/techjobs.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+    <title th:text="'SnapSnap' + ${title == null ? '' : ' :: ' + title}">SnapSnap</title>
 </head>
 <body>
-
 <div th:replace="fragments :: page-header"></div>
+
+<th:block th:if="${products == null || products.size() <= 0}">
+    <p>No products to display!</p>
+    <a th:href="@{/}">Go To Home Page</a>
+</th:block>
 
 <div class="container body-content">
     <h2>Products</h2>
@@ -14,7 +22,20 @@
         </li>
     </ul>
 
+<div class="container body-content">
+    <div class="job-listing" th:each="product:${products}">
+        <img class="content-image" th:src="${product.pictureURL}" style="height:250px;width:200px;">
+        <p th:text="${'Name: ' + product.name}"></p>
+        <p th:text="${'Description: ' + product.description}"></p>
+        <p th:text="${'Price: ' + product.price}"></p>
+        <form method="post" th:action="@{/addToCart}" th:name="cart" th:object="${cart}">
+            <input type="number" name="quantity" min="1" max="10" value="1"
+                   class="form-control round-input form-control-sm"/>
+            <input type="hidden" name="id" th:value="${product.id}"/>
+            <button id="product-btn" type="submit" class="btn btn-success">Add To Cart</button>
+        </form>
+    </div>
 </div>
-
+</div>
 </body>
 </html>

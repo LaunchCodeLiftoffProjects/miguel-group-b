@@ -7,11 +7,15 @@
 <nav th:replace="fragments :: page-header"></nav>
 
 <div class="job-listing">
-<!--    <p th:text="${'ID: ' + product.id}"></p>-->
     <img th:src="${product.pictureURL}" />
     <p th:text="${'Name: ' + product.name}"></p>
     <p th:text="${'Description: ' + product.description}"></p>
     <p th:text="${'Price: ' + product.price}"></p>
+    <form method="post" th:action="@{/addToCart}" th:object="${cart}">
+        <input type="number" name="quantity" class="form-control"/>
+        <input type="hidden" name="id" th:value="${product.id}"/>
+        <button type="submit">Add To Cart</button>
+    </form>
 </div>
 
 

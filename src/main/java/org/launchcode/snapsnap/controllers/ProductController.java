@@ -50,4 +50,43 @@ public class ProductController {
             return "redirect:";
         }
     }
+
+    @GetMapping("delete")
+    public String renderDeleteProduct(Model model){
+        model.addAttribute("title", "Delete Item");
+        model.addAttribute("products", productRepository.findAll());
+        return "products/delete";
+    }
+
+    @PostMapping("delete")
+    public String processDeleteProduct(@RequestParam(required = false) int[] productIds) {
+        if (productIds != null) {
+            for(int id : productIds) {
+                productRepository.deleteById(id);
+            }
+        }
+        return "redirect:";
+    }
+
+
+@GetMapping("view")
+public String displayProducts(@RequestParam(required = false) Integer productId, Model model) {
+
+    if (productId == null) {
+        model.addAttribute("title", "All Products");
+        model.addAttribute("products", productRepository.findAll());
+    } else {
+        Optional<Product> result = productRepository.findById(productId);
+        if (result.isEmpty()) {
+            model.addAttribute("title", "Invalid ID: " + productId);
+        } else {
+            Product product = result.get();
+            model.addAttribute("title", "Products: " + product.getName());
+            model.addAttribute("products", product.getId());
+            return "products/view/{productId}";
+            }
+        }
+        return "products/view";
+    }
+
 }
