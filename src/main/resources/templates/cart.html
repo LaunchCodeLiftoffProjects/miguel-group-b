@@ -12,7 +12,13 @@
 <body>
 
 <div th:replace="fragments :: page-header"></div>
-
+<div class="container body-content">
+<th:block th:if="${cart.cartItems.size == 0}">
+    <h2>Your cart is empty!</h2>
+    <h4>Start building your cart!</h4>
+    <a th:href="@{'/products'}">View Products</a>
+</th:block>
+</div>
 <div class="container body-content">
     <h1>Review Order</h1>
     <table class="job-listing">
@@ -57,6 +63,5 @@
             <button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
         </div>
 </div>
-
 </body>
 </html>
