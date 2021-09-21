@@ -48,6 +48,7 @@ public class CartController {
             return "cart";
         }
     }
+
 //    @GetMapping("/cart")
 //    public String viewCart(HttpServletRequest request,  Model model){
 //        String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
