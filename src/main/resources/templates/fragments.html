@@ -3,7 +3,8 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5:3.0.4.RELEASE">
 
 <head th:fragment="head">
-
+<!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
     <!-- Bootstrap stylesheets and script -->
 <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">-->
 <!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>-->
@@ -24,6 +25,9 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')"><a th:href="@{/addLocation}">Add Location</a></li>
+                <li sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')"><a th:href="@{/products/add}">Add Products</a></li>
+                <li sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR', 'USER')"><a th:href="@{/products}">View Products</a></li>
+                <li sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR', 'USER')"><a th:href="@{/cart}">View Cart</a></li>
                 <li><a th:href="@{/logout}">Logout</a></li>
             </ul>
         </div>
