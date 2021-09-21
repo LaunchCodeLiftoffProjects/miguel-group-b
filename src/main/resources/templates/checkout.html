@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+
+    <th:block th:if="${cart.cartItems = 0}">
+        <h2>Your cart is empty!</h2>
+        <h4>Start building your cart!</h4>
+        <a th:href="@{/products}">View Products</a>
+    </th:block>
+</div>
+</body>
+</html>
