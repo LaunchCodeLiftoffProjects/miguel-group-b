@@ -22,7 +22,7 @@ public class Cart extends AbstractEntity{
     public Double getTotalCost() {
         Double sum = 0.00;
         for (CartItem item : this.cartItems) {
-            sum = sum + item.getProduct().getPrice();
+            sum = sum + item.getProduct().getPrice() * item.getQuantity();
         }
         return sum;
     }
