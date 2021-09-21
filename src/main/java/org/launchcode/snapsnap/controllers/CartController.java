@@ -1,8 +1,8 @@
-package org.launchcode.javawebdevtechjobsauthentication.controllers;
+package org.launchcode.snapsnap.controllers;
 
-import org.launchcode.javawebdevtechjobsauthentication.models.Cart;
-import org.launchcode.javawebdevtechjobsauthentication.services.CartService;
-import org.launchcode.javawebdevtechjobsauthentication.services.ProductService;
+import org.launchcode.snapsnap.models.Cart;
+import org.launchcode.snapsnap.services.CartService;
+import org.launchcode.snapsnap.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

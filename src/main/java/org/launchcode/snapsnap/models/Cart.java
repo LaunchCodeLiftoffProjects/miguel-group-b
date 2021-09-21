@@ -1,4 +1,4 @@
-package org.launchcode.javawebdevtechjobsauthentication.models;
+package org.launchcode.snapsnap.models;
 
 import javax.persistence.*;
 import java.util.*;

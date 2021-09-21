@@ -1,6 +1,6 @@
-package org.launchcode.javawebdevtechjobsauthentication.models.data;
+package org.launchcode.snapsnap.models.data;
 
-import org.launchcode.javawebdevtechjobsauthentication.models.Cart;
+import org.launchcode.snapsnap.models.Cart;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

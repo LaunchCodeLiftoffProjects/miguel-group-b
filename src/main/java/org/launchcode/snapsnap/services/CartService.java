@@ -1,10 +1,10 @@
-package org.launchcode.javawebdevtechjobsauthentication.services;
+package org.launchcode.snapsnap.services;
 
-import org.launchcode.javawebdevtechjobsauthentication.models.Cart;
-import org.launchcode.javawebdevtechjobsauthentication.models.CartItem;
-import org.launchcode.javawebdevtechjobsauthentication.models.Product;
-import org.launchcode.javawebdevtechjobsauthentication.models.data.CartItemRepository;
-import org.launchcode.javawebdevtechjobsauthentication.models.data.CartRepository;
+import org.launchcode.snapsnap.models.Cart;
+import org.launchcode.snapsnap.models.CartItem;
+import org.launchcode.snapsnap.models.Product;
+import org.launchcode.snapsnap.models.data.CartItemRepository;
+import org.launchcode.snapsnap.models.data.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package org.launchcode.javawebdevtechjobsauthentication.models;
+package org.launchcode.snapsnap.models;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;

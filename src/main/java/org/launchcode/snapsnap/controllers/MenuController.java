@@ -44,7 +44,7 @@ public class MenuController {
 
     @GetMapping("addProducts")
     public String displayAddProductsForm( Model model) {
-        model.addAttribute("products", menu<products>);
+        model.addAttribute("products");
         return "menu/addProducts";
     }
 
