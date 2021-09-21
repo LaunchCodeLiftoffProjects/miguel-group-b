@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Optional;
 
+import static java.awt.SystemColor.menu;
+
 @Controller
 @RequestMapping("menu")
 public class MenuController {
@@ -40,6 +42,26 @@ public class MenuController {
         return "menu/addProducts";
     }
 
+    @GetMapping("addProducts")
+    public String displayAddProductsForm( Model model) {
+        model.addAttribute("products", menu<products>);
+        return "menu/addProducts";
+    }
+
+
+
+    @PostMapping("addProducts")
+    public String processAddProductsForm(@ModelAttribute @Valid Menu newMenu,
+                                     Errors errors) {
+
+        if (errors.hasErrors()) {
+            return "menu/addProduct";
+        }
+
+        menuRepository.save(newMenu);
+        return "menu/addProducts";
+    }
+
     @GetMapping("view/{menuId}")
     public String displayViewMenu(Model model, @PathVariable int menuId) {
 
@@ -52,4 +74,6 @@ public class MenuController {
             return "redirect:/";
         }
     }
+
+
 }
