@@ -37,7 +37,7 @@ public class MenuController {
         }
 
         menuRepository.save(newMenu);
-        return "redirect:/";
+        return "menu/addProducts";
     }
 
     @GetMapping("view/{menuId}")

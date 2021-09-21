@@ -20,7 +20,12 @@
 <div class ="container">
     <table>
         <tbody>
-        <tr
+        <tr th:each="product : ${menu.products}">
+            <li th:text="{product.name}"/>
+            <li th:text="{product.description}"/>
+            <li th:text="{product.price}"/>
+            <li th:text="{product.pictureURL}"/>
+        </tr>
         </tbody>
     </table>
 </div>
