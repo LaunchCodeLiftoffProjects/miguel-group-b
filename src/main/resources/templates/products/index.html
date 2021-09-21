@@ -9,12 +9,11 @@
 <body>
 <div th:replace="fragments :: page-header"></div>
 
-<<<<<<< HEAD
 <th:block th:if="${products == null || products.size() <= 0}">
     <p>No products to display!</p>
     <a th:href="@{/}">Go To Home Page</a>
 </th:block>
-=======
+
 <div class="container body-content">
     <h2>Products</h2>
     <ul>
@@ -22,7 +21,6 @@
             <a th:href="@{'/view/' + ${product.id}}" th:text="${product.name}"></a>
         </li>
     </ul>
->>>>>>> main
 
 <div class="container body-content">
     <div class="job-listing" th:each="product:${products}">
@@ -38,6 +36,6 @@
         </form>
     </div>
 </div>
-
+</div>
 </body>
 </html>
