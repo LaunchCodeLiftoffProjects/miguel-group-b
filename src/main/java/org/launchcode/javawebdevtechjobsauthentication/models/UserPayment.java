@@ -8,33 +8,29 @@ import java.util.Date;
 @Entity
 public class UserPayment extends AbstractEntity{
 
-    @NotNull(message = "Must not be null")
-    @Size(max=13, message = "Invalid, must be 13-digit")
-    private Double creditCardNo;
+//    @NotNull(message = "Must not be null")
+//    @Size(max=13, message = "Invalid, must be 13-digit")
+    private String creditCardNo;
 //
 //    @NotNull(message = "Must not be null")
-    @Size(min = 3, max = 3, message = "Invalid, must be 3-digit")
+//    @Size(min = 3, max = 3, message = "Invalid, must be 3-digit")
     private Integer cvcNo;
 
-    @NotNull(message = "Must not be null")
+//    @NotNull(message = "Must not be null")
     private String expirationDate;
-
-    private Double amountDue;
 
     public UserPayment() {
     }
 
-    public UserPayment(Double acreditCardNo, Integer acvcNo,  String anexpirationDate, Double amountDue) {
-        super();
+    public UserPayment(String acreditCardNo, Integer acvcNo,  String anexpirationDate) {
         this.creditCardNo = acreditCardNo;
         this.cvcNo = acvcNo;
         this.expirationDate = anexpirationDate;
-        this.amountDue = amountDue;
     }
 
     // Getters and setters.
 
-    public Double getCreditCardNo() {
+    public String getCreditCardNo() {
         return creditCardNo;
     }
 
@@ -46,7 +42,7 @@ public class UserPayment extends AbstractEntity{
         return expirationDate;
     }
 
-    public void setCreditCardNo(Double creditCardNo) {
+    public void setCreditCardNo(String creditCardNo) {
         this.creditCardNo = creditCardNo;
     }
 
@@ -58,12 +54,5 @@ public class UserPayment extends AbstractEntity{
         this.expirationDate = expirationDate;
     }
 
-    public Double getAmountDue() {
-        return amountDue;
-    }
-
-    public void setAmountDue(Double amountDue) {
-        this.amountDue = amountDue;
-    }
 }
 

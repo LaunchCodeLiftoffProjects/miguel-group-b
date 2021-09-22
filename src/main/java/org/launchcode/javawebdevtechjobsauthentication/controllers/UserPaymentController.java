@@ -34,14 +34,14 @@ public class UserPaymentController {
         return "payment/checkout";
     }
 
-    @PostMapping("payment")
-    public String processCheckoutForm(@ModelAttribute @Valid UserPayment newUserPayment, Errors errors){
+    @PostMapping("checkout")
+    public String processCheckoutForm(@ModelAttribute UserPayment newUserPayment, Errors errors){
         if(errors.hasErrors()){
-            return "redirect:/cart";
+            return "redirect:";
         }
 
         paymentRepository.save(newUserPayment);
-        return "payment/paymentSuccess";
+        return "payment/process";
     }
 
 //    @RequestMapping(value = "add", method = RequestMethod.POST)
