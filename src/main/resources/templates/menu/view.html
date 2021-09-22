@@ -30,7 +30,7 @@
             <form method="post" th:action="@{/addToCart}" th:name="cart" th:object="${cart}">
                 <input type="number" name="quantity" min="1" max="10" value="1"
                        class="form-control round-input form-control-sm"/>
-                <input type="hidden" name="id" th:value="${product.id}"/>
+                <input  type="hidden" name="id" th:value="${product.id}"/>
                 <button id="product-btn" type="submit" class="btn btn-success">Add To Cart</button>
             </form>
         </tr>
@@ -54,7 +54,8 @@
 <!--    </div>-->
 <!--</div>-->
 
-<form th:action="@{'/products/add/' + ${menuId}}"  method="get" style="max-width:600px;">
+<form th:action="@{'/products/add/' + ${menuId}}"  method="get" style="max-width:600px;"
+      sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')">
 
     <input type="submit" value="Add Product" />
 </form>
