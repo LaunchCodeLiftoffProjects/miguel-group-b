@@ -29,12 +29,12 @@ public class UserPaymentController {
     @GetMapping("checkout")
     public String displayCheckoutForm(Model model, String sessionToken) {
         Cart cart = cartService.findBySessionToken(sessionToken);
-//        model.addAttribute(new UserPayment());
+        model.addAttribute(new UserPayment());
 //        model.addAttribute("totalCost", cart.getTotalCost());
         return "payment/checkout";
     }
 
-    @PostMapping("paymentSuccess")
+    @PostMapping("payment")
     public String processCheckoutForm(@ModelAttribute @Valid UserPayment newUserPayment, Errors errors){
         if(errors.hasErrors()){
             return "redirect:/cart";

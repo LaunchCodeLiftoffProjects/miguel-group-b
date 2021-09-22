@@ -19,14 +19,17 @@ public class UserPayment extends AbstractEntity{
     @NotNull(message = "Must not be null")
     private String expirationDate;
 
+    private Double amountDue;
+
     public UserPayment() {
     }
 
-    public UserPayment(Double acreditCardNo, Integer acvcNo,  String anexpirationDate) {
+    public UserPayment(Double acreditCardNo, Integer acvcNo,  String anexpirationDate, Double amountDue) {
         super();
         this.creditCardNo = acreditCardNo;
         this.cvcNo = acvcNo;
         this.expirationDate = anexpirationDate;
+        this.amountDue = amountDue;
     }
 
     // Getters and setters.
@@ -53,6 +56,14 @@ public class UserPayment extends AbstractEntity{
 
     public void setExpirationDate(String expirationDate) {
         this.expirationDate = expirationDate;
+    }
+
+    public Double getAmountDue() {
+        return amountDue;
+    }
+
+    public void setAmountDue(Double amountDue) {
+        this.amountDue = amountDue;
     }
 }
 
