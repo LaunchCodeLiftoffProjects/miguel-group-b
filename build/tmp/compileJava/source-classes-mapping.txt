@@ -34,8 +34,8 @@ org/launchcode/javawebdevtechjobsauthentication/users/MyUserDetails.java
  org.launchcode.javawebdevtechjobsauthentication.users.MyUserDetails
 org/launchcode/javawebdevtechjobsauthentication/models/DTO/LoginFormDTO.java
  org.launchcode.javawebdevtechjobsauthentication.models.DTO.LoginFormDTO
-org/launchcode/javawebdevtechjobsauthentication/models/UserPayment.java
- org.launchcode.javawebdevtechjobsauthentication.models.UserPayment
+org/launchcode/javawebdevtechjobsauthentication/models/CartItem.java
+ org.launchcode.javawebdevtechjobsauthentication.models.CartItem
 org/launchcode/javawebdevtechjobsauthentication/models/data/PaymentRepository.java
  org.launchcode.javawebdevtechjobsauthentication.models.data.PaymentRepository
 org/launchcode/javawebdevtechjobsauthentication/controllers/CartController.java
@@ -54,7 +54,9 @@ org/launchcode/javawebdevtechjobsauthentication/models/Product.java
  org.launchcode.javawebdevtechjobsauthentication.models.Product
 org/launchcode/javawebdevtechjobsauthentication/services/CartService.java
  org.launchcode.javawebdevtechjobsauthentication.services.CartService
-org/launchcode/javawebdevtechjobsauthentication/models/CartItem.java
- org.launchcode.javawebdevtechjobsauthentication.models.CartItem
+org/launchcode/javawebdevtechjobsauthentication/controllers/CreditCardController.java
+ org.launchcode.javawebdevtechjobsauthentication.controllers.CreditCardController
+org/launchcode/javawebdevtechjobsauthentication/models/UserPayment.java
+ org.launchcode.javawebdevtechjobsauthentication.models.UserPayment
 org/launchcode/javawebdevtechjobsauthentication/controllers/UserPaymentController.java
  org.launchcode.javawebdevtechjobsauthentication.controllers.UserPaymentController
