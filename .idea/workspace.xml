@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4bbf245d-7a05-4e01-8acc-8b3bd00cf48b" name="Changes" comment="Changed routing in userpayment to confirmation page">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4bbf245d-7a05-4e01-8acc-8b3bd00cf48b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,9 +133,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.miguel-group-b [bootRun]" />
         <item itemvalue="Application.JavaWebDevTechjobsAuthenticationApplication" />
         <item itemvalue="Gradle.miguel-group-b [bootRun]" />
+        <item itemvalue="Gradle.miguel-group-b [bootRun]" />
+        <item itemvalue="Application.JavaWebDevTechjobsAuthenticationApplication" />
         <item itemvalue="Gradle.miguel-group-b [bootRun]" />
       </list>
     </recent_temporary>
