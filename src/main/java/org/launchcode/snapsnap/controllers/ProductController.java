@@ -88,7 +88,7 @@ public class ProductController {
         return "products/delete";
     }
 
-    @PostMapping("delete")
+    @PostMapping("delete/{productId}")
     public String processDeleteProduct(@RequestParam(required = false) int[] productIds) {
         if (productIds != null) {
             for(int id : productIds) {
