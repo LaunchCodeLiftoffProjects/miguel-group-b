@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4bbf245d-7a05-4e01-8acc-8b3bd00cf48b" name="Changes" comment="Unversioned files">
+    <list default="true" id="4bbf245d-7a05-4e01-8acc-8b3bd00cf48b" name="Changes" comment="Changed Payment Controller">
       <change beforePath="$PROJECT_DIR$/.gradle/6.8/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.8/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.bin" afterDir="false" />
@@ -15,18 +15,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/launchcode/javawebdevtechjobsauthentication/controllers/UserPaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/launchcode/javawebdevtechjobsauthentication/controllers/UserPaymentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/launchcode/javawebdevtechjobsauthentication/models/UserPayment.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/launchcode/javawebdevtechjobsauthentication/models/UserPayment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/userPayment.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/launchcode/javawebdevtechjobsauthentication/controllers/CreditCardController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/launchcode/javawebdevtechjobsauthentication/controllers/EmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/launchcode/javawebdevtechjobsauthentication/controllers/EmailController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/launchcode/javawebdevtechjobsauthentication/controllers/UserPaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/launchcode/javawebdevtechjobsauthentication/controllers/UserPaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/launchcode/javawebdevtechjobsauthentication/models/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/launchcode/javawebdevtechjobsauthentication/services/EmailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/launchcode/javawebdevtechjobsauthentication/models/UserPayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/launchcode/javawebdevtechjobsauthentication/models/UserPayment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/launchcode/javawebdevtechjobsauthentication/users/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/launchcode/javawebdevtechjobsauthentication/users/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/paymentSuccess.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/payment/paymentSuccess.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/userPayment.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/payment/checkout.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,6 +177,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added payment routing in controller" />
     <MESSAGE value="Unversioned files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Unversioned files" />
+    <MESSAGE value="Changed Payment Controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed Payment Controller" />
   </component>
 </project>

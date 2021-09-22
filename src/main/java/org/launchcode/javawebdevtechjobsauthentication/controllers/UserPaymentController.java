@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("payment")
@@ -23,22 +24,22 @@ public class UserPaymentController {
     @Autowired
     private PaymentRepository paymentRepository;
 
+//    TODO: GET CART COST
+
     @GetMapping("checkout")
-    public String index(Model model) {
-        model.addAttribute("title", "userPayment");
-        model.addAttribute(new UserPayment());
+    public String displayCheckoutForm(Model model, String sessionToken) {
+        Cart cart = cartService.findBySessionToken(sessionToken);
+//        model.addAttribute(new UserPayment());
+//        model.addAttribute("totalCost", cart.getTotalCost());
         return "payment/checkout";
     }
 
-//    Get cart's total cost
     @PostMapping("paymentSuccess")
-    public String processCartPayment(@ModelAttribute @Valid UserPayment newUserPayment, Model model, String sessionToken, Errors errors){
+    public String processCheckoutForm(@ModelAttribute @Valid UserPayment newUserPayment, Errors errors){
         if(errors.hasErrors()){
             return "redirect:/cart";
         }
-        Cart cart = cartService.findBySessionToken(sessionToken);
-        cart.getTotalCost();
-        model.addAttribute("userPayment",newUserPayment);
+
         paymentRepository.save(newUserPayment);
         return "payment/paymentSuccess";
     }
