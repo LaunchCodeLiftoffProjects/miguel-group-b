@@ -9,14 +9,27 @@
 <nav th:replace="fragments :: page-header"></nav>
 
 <div class="menu-listing">
-    <p sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')" th:text="${'ID: ' + menu.id}"></p>
+<!--    <p sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')" th:text="${'ID: ' + menu.id}"></p>-->
     <p th:text="${'Name: ' + menu.facility}"></p>
     <p th:text="${'Address: ' + menu.city}"></p>
     <p th:text="${'Address: ' + menu.state}"></p>
     <p th:text="${'Address: ' + menu.address}"></p>
     <p th:text="${'Service: ' + menu.serviceDescription}"></p>
+    <p th:text="${menu.products}"></p>
 </div>
 
+<!--<div class ="container">-->
+<!--    <table>-->
+<!--        <tbody>-->
+<!--        <tr th:each="product : ${menu.products}">-->
+<!--            <td th:text="{product.name}"></td>-->
+<!--            <td th:text="{product.description}"></td>-->
+<!--            <td th:text="{product.price}"></td>-->
+<!--            <td th:text="{product.pictureURL}"></td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+<!--</div>-->
 
 </body>
 </html>

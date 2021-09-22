@@ -76,4 +76,9 @@ public class Product extends AbstractEntity{
     public void setPictureURL(String pictureURL) {
         this.pictureURL = pictureURL;
     }
+
+    @Override
+    public String toString() {
+        return name + "  :  " + description;
+    }
 }

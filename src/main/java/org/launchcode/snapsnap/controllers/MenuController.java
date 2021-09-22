@@ -9,9 +9,8 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
-
-import static java.awt.SystemColor.menu;
 
 @Controller
 @RequestMapping("menu")
@@ -65,15 +64,18 @@ public class MenuController {
     @GetMapping("view/{menuId}")
     public String displayViewMenu(Model model, @PathVariable int menuId) {
 
-        Optional optMenu = menuRepository.findById(menuId);
-        if (!optMenu.isEmpty()) {
-            Menu menu = (Menu) optMenu.get();
+        Menu menu = menuRepository.findById(menuId).get();
+
+//        Optional optMenu = menuRepository.findById(menuId);
+//
+//        if (!optMenu.isEmpty()) {
+//            Menu menu = (Menu) optMenu.get();
             model.addAttribute("menu", menu);
             return "menu/view";
-        } else {
-            return "redirect:/";
+//        } else {
+//            return "redirect:/";
         }
     }
 
 
-}
+
