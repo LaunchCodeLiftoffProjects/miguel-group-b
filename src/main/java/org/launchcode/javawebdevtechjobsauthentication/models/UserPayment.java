@@ -19,8 +19,7 @@ public class UserPayment extends AbstractEntity{
 //    @NotNull(message = "Must not be null")
     private String expirationDate;
 
-    public UserPayment() {
-    }
+    public UserPayment() {}
 
     public UserPayment(String acreditCardNo, Integer acvcNo,  String anexpirationDate) {
         this.creditCardNo = acreditCardNo;

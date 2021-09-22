@@ -1,12 +1,14 @@
 package org.launchcode.javawebdevtechjobsauthentication.models;
 
+import org.launchcode.javawebdevtechjobsauthentication.users.User;
+
 import javax.persistence.*;
 import java.util.*;
 
 @Entity
 public class Cart extends AbstractEntity{
 
-    @Transient
+//    @Transient
     private Double totalCost;
 
     @Transient
@@ -16,6 +18,8 @@ public class Cart extends AbstractEntity{
     private List<CartItem> cartItems = new ArrayList<>();
 
     private String sessionToken;
+
+    private User userId;
 
     public Cart(){}
 
@@ -53,6 +57,14 @@ public class Cart extends AbstractEntity{
 
     public void setSessionToken(String sessionToken) {
         this.sessionToken = sessionToken;
+    }
+
+    public User getUserId() {
+        return userId;
+    }
+
+    public void setUserId(User userId) {
+        this.userId = userId;
     }
 
     @Override
