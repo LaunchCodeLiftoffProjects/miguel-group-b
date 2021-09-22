@@ -63,14 +63,14 @@ public class MenuController {
 
     @GetMapping("view/{menuId}")
     public String displayViewMenu(Model model, @PathVariable int menuId) {
-//        Optional optItem = productRepository.findById(menuId);
+        Optional product = productRepository.findById(menuId);
         Optional optMenu = menuRepository.findById(menuId);
 
         if (!optMenu.isEmpty()) {
             Menu menu = (Menu) optMenu.get();
 //            Product product = (Product) optItem.get();
             model.addAttribute("menu", menu);
-//            model.addAttribute("product", optItem);
+            model.addAttribute("product", product);
             return "menu/view";
         } else {
             return "redirect:/";
