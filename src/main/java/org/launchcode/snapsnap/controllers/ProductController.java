@@ -56,7 +56,7 @@ public class ProductController {
             return "403";
         }
         productRepository.save(newProduct);
-        return "redirect:/index";
+        return "redirect:/menu/view/{menuId}";
     }
 
 
