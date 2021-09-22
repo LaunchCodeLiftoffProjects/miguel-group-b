@@ -9,13 +9,12 @@
 <nav th:replace="fragments :: page-header"></nav>
 
 <div class="menu-listing">
-<!--    <p sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')" th:text="${'ID: ' + menu.id}"></p>-->
+    <p sec:authorize="hasAuthority('ADMIN')" th:text="${'ID: ' + menu.id}"></p>
     <p th:text="${'Name: ' + menu.facility}"></p>
     <p th:text="${'City: ' + menu.city}"></p>
     <p th:text="${'State: ' + menu.state}"></p>
     <p th:text="${'Address: ' + menu.address}"></p>
     <p th:text="${'Service: ' + menu.serviceDescription}"></p>
-<!--    <p th:text="${menu.products}"></p>-->
 </div>
 
 <div class ="container body-content">
@@ -56,7 +55,6 @@
 
 <form th:action="@{'/products/add/' + ${menuId}}"  method="get" style="max-width:600px;"
       sec:authorize="hasAnyAuthority('ADMIN', 'VENDOR')">
-
     <input type="submit" value="Add Product" />
 </form>
 
