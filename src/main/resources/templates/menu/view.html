@@ -15,21 +15,28 @@
     <p th:text="${'Address: ' + menu.state}"></p>
     <p th:text="${'Address: ' + menu.address}"></p>
     <p th:text="${'Service: ' + menu.serviceDescription}"></p>
-    <p th:text="${menu.products}"></p>
+<!--    <p th:text="${menu.products}"></p>-->
 </div>
 
-<!--<div class ="container">-->
-<!--    <table>-->
-<!--        <tbody>-->
-<!--        <tr th:each="product : ${menu.products}">-->
-<!--            <td th:text="{product.name}"></td>-->
-<!--            <td th:text="{product.description}"></td>-->
-<!--            <td th:text="{product.price}"></td>-->
-<!--            <td th:text="{product.pictureURL}"></td>-->
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--    </table>-->
-<!--</div>-->
+<div class ="container">
+    <table>
+        <tbody>
+        <tr th:each="product : ${menu.products}">
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.description}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.pictureURL}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<form th:action="@{'/products/add/' + ${menuId}}"  method="get" style="max-width:600px;">
+
+    <input type="submit" value="Add Product" />
+</form>
+
 
 </body>
 </html>

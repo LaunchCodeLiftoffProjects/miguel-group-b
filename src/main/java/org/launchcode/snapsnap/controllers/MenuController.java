@@ -15,67 +15,63 @@ import java.util.Optional;
 @Controller
 @RequestMapping("menu")
 public class MenuController {
-    
+
     @Autowired
     private MenuRepository menuRepository;
 
 
-
     @GetMapping("addMenu")
-    public String displayAddMenuForm( Model model) {
+    public String displayAddMenuForm(Model model) {
         model.addAttribute(new Menu());
         return "menu/addMenu";
     }
 
 
-
     @PostMapping("addMenu")
     public String processAddMenuForm(@ModelAttribute @Valid Menu newMenu,
-                                         Errors errors) {
+                                     Errors errors) {
 
         if (errors.hasErrors()) {
             return "menu/addMenu";
         }
 
         menuRepository.save(newMenu);
-        return "menu/addProducts";
+        return "menu/addProductToMenu";
     }
 
-    @GetMapping("addProducts")
-    public String displayAddProductsForm( Model model) {
-        model.addAttribute("products");
-        return "menu/addProducts";
+    @GetMapping("addProductToMenu")
+    public String displayAddProductForm(Model model) {
+        return "menu/addProductToMenu";
     }
 
 
-
-    @PostMapping("addProducts")
-    public String processAddProductsForm(@ModelAttribute @Valid Menu newMenu,
-                                     Errors errors) {
+    @PostMapping("addProductToMenu")
+    public String processAddProductForm(@ModelAttribute @Valid Menu newMenu,
+                                        Errors errors) {
 
         if (errors.hasErrors()) {
-            return "menu/addProduct";
+            return "menu/addProductToMenu";
         }
 
         menuRepository.save(newMenu);
-        return "menu/addProducts";
+        return "menu/addProduct";
     }
 
     @GetMapping("view/{menuId}")
     public String displayViewMenu(Model model, @PathVariable int menuId) {
 
-        Menu menu = menuRepository.findById(menuId).get();
 
-//        Optional optMenu = menuRepository.findById(menuId);
-//
-//        if (!optMenu.isEmpty()) {
-//            Menu menu = (Menu) optMenu.get();
+        Optional optMenu = menuRepository.findById(menuId);
+
+        if (!optMenu.isEmpty()) {
+            Menu menu = (Menu) optMenu.get();
             model.addAttribute("menu", menu);
             return "menu/view";
-//        } else {
-//            return "redirect:/";
+        } else {
+            return "redirect:/";
         }
     }
+}
 
 
 

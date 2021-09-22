@@ -17,4 +17,9 @@ public class HomeController {
         model.addAttribute("menus", menuRepository.findAll());
         return "/index";
     }
+    @RequestMapping("index")
+    public String indexHome(Model model) {
+        model.addAttribute("menus", menuRepository.findAll());
+        return "/index";
+    }
 }

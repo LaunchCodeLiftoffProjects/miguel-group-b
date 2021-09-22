@@ -1,6 +1,8 @@
 package org.launchcode.snapsnap.controllers;
 
+import org.launchcode.snapsnap.models.Menu;
 import org.launchcode.snapsnap.models.Product;
+import org.launchcode.snapsnap.models.data.MenuRepository;
 import org.launchcode.snapsnap.models.data.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -16,6 +19,9 @@ public class ProductController {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private MenuRepository menuRepository;
 
     @GetMapping("")
     public String index(Model model){
@@ -30,13 +36,37 @@ public class ProductController {
         return "products/add";
     }
 
+
+    @GetMapping("add/{menuId}")
+    public String displayAddProductToMenuForm(@PathVariable("menuId") Integer menuId,
+                                              Model model){
+        List<Menu> menuList = menuRepository.findAll();
+        Menu menu = menuRepository.findById(menuId).get();
+        Product product = new Product();
+        product.setMenu(menu);
+        model.addAttribute("menuList", menuList);
+        model.addAttribute("product", product);
+        return "products/add";
+    }
+
+    @PostMapping("add/{menuId}")
+    public String processAddProductToMenuForm(@ModelAttribute Product newProduct, Errors errors){
+
+        if(errors.hasErrors()){
+            return "403";
+        }
+        productRepository.save(newProduct);
+        return "redirect:/index";
+    }
+
+
     @PostMapping("add")
     public String processAddProductForm(@ModelAttribute Product newProduct, Errors errors){
         if(errors.hasErrors()){
-            return "products/add";
+            return "403";
         }
         productRepository.save(newProduct);
-        return "redirect:";
+        return "product/index";
     }
 
     @GetMapping("view/{productId}")
