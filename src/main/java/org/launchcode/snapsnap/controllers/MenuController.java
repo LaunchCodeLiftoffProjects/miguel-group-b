@@ -43,23 +43,6 @@ public class MenuController {
         return "redirect:/index";
     }
 
-    @GetMapping("addProductToMenu")
-    public String displayAddProductForm(Model model) {
-        return "menu/addProductToMenu";
-    }
-
-
-    @PostMapping("addProductToMenu")
-    public String processAddProductForm(@ModelAttribute @Valid Menu newMenu,
-                                        Errors errors) {
-
-        if (errors.hasErrors()) {
-            return "menu/addProductToMenu";
-        }
-
-        menuRepository.save(newMenu);
-        return "menu/addProduct";
-    }
 
     @GetMapping("view/{menuId}")
     public String displayViewMenu(Model model, @PathVariable int menuId) {
