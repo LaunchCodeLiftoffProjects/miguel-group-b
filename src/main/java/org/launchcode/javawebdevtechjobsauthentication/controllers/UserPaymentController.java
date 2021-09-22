@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/userPayment")
+@RequestMapping("payment")
 public class UserPaymentController {
 
     @Autowired
@@ -23,22 +23,24 @@ public class UserPaymentController {
     @Autowired
     private PaymentRepository paymentRepository;
 
-    @GetMapping
+    @GetMapping("checkout")
     public String index(Model model) {
         model.addAttribute("title", "userPayment");
         model.addAttribute(new UserPayment());
-        return "userPayment";
+        return "payment/checkout";
     }
 
-    @PostMapping("userPayment")
-    public String processCartPayment(@ModelAttribute @Valid UserPayment newUserPayment, String sessionToken, Errors errors){
+//    Get cart's total cost
+    @PostMapping("paymentSuccess")
+    public String processCartPayment(@ModelAttribute @Valid UserPayment newUserPayment, Model model, String sessionToken, Errors errors){
         if(errors.hasErrors()){
             return "redirect:/cart";
         }
         Cart cart = cartService.findBySessionToken(sessionToken);
         cart.getTotalCost();
+        model.addAttribute("userPayment",newUserPayment);
         paymentRepository.save(newUserPayment);
-        return "userPayment/paymentSuccess";
+        return "payment/paymentSuccess";
     }
 
 //    @RequestMapping(value = "add", method = RequestMethod.POST)

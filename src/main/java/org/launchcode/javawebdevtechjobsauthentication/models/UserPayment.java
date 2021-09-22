@@ -8,15 +8,15 @@ import java.util.Date;
 @Entity
 public class UserPayment extends AbstractEntity{
 
-//    @NotNull(message = "Must not be null")
-//    @Size(min=13, max=13, message = "Invalid, must be 13-digit")
+    @NotNull(message = "Must not be null")
+    @Size(max=13, message = "Invalid, must be 13-digit")
     private Double creditCardNo;
 //
 //    @NotNull(message = "Must not be null")
-//    @Size(min = 3, max = 3, message = "Invalid, must be 3-digit")
+    @Size(min = 3, max = 3, message = "Invalid, must be 3-digit")
     private Integer cvcNo;
 
-//    @NotNull(message = "Must not be null")
+    @NotNull(message = "Must not be null")
     private String expirationDate;
 
     public UserPayment() {

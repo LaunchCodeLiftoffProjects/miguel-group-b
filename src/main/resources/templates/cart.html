@@ -62,7 +62,7 @@
     </table>
         <div class="d-flex p-2 text-center justify-content-center shadow-sm">
             <h2>Subtotal: <span class="text-md" th:text="'$ ' + ${cart.totalCost}"></span></h2>
-            <a th:href="@{/userPayment}"><button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button></a>
+            <a th:href="@{/payment/checkout}"><button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button></a>
         </div>
 </div>
 </body>

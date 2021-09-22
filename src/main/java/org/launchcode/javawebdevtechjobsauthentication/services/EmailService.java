@@ -1,4 +1,4 @@
-package org.launchcode.javawebdevtechjobsauthentication.models;
+package org.launchcode.javawebdevtechjobsauthentication.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
