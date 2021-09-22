@@ -68,7 +68,6 @@ public class MenuController {
 
         if (!optMenu.isEmpty()) {
             Menu menu = (Menu) optMenu.get();
-//            Product product = (Product) optItem.get();
             model.addAttribute("menu", menu);
             model.addAttribute("product", product);
             return "menu/view";

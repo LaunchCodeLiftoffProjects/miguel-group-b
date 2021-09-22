@@ -18,25 +18,41 @@
 <!--    <p th:text="${menu.products}"></p>-->
 </div>
 
-<div class ="container">
-    <table>
+<div class ="container body-content">
+   <div class="job-listing">
+    <table th:each="product : ${menu.products}">
         <tbody>
-        <tr th:each="product : ${menu.products}">
-            <td th:text="${product.pictureURL}"></td>
-            <td th:text="${product.name}"></td>
-            <td th:text="${product.description}"></td>
-            <td th:text="${product.price}"></td>
-            <td method="post" th:action="@{/addToCart}" th:object="${cart}">
+        <tr>
+            <img th:src="${product.pictureURL}"></img>
+            <p th:text="${product.name}"></p>
+            <p th:text="${product.description}"></p>
+            <p th:text="${product.price}"></p>
+            <form method="post" th:action="@{/addToCart}" th:name="cart" th:object="${cart}">
                 <input type="number" name="quantity" min="1" max="10" value="1"
                        class="form-control round-input form-control-sm"/>
                 <input type="hidden" name="id" th:value="${product.id}"/>
                 <button id="product-btn" type="submit" class="btn btn-success">Add To Cart</button>
-            </td>
+            </form>
         </tr>
         </tbody>
     </table>
+   </div>
 </div>
 
+<!--<div class="container body-content">-->
+<!--    <div class="job-listing" th:each="product:${menu.products}">-->
+<!--        <img class="content-image" th:src="${product.pictureURL}" style="height:250px;width:200px;">-->
+<!--        <p th:text="${'Name: ' + product.name}"></p>-->
+<!--        <p th:text="${'Description: ' + product.description}"></p>-->
+<!--        <p th:text="${'Price: ' + product.price}"></p>-->
+<!--        <form method="post" th:action="@{/addToCart}" th:name="cart" th:object="${cart}">-->
+<!--            <input type="number" name="quantity" min="1" max="10" value="1"-->
+<!--                   class="form-control round-input form-control-sm"/>-->
+<!--            <input type="hidden" name="id" th:value="${product.id}"/>-->
+<!--            <button id="product-btn" type="submit" class="btn btn-success">Add To Cart</button>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</div>-->
 
 <form th:action="@{'/products/add/' + ${menuId}}"  method="get" style="max-width:600px;">
 
