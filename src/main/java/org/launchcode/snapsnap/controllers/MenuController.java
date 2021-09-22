@@ -60,7 +60,6 @@ public class MenuController {
     @GetMapping("view/{menuId}")
     public String displayViewMenu(Model model, @PathVariable int menuId) {
 
-
         Optional optMenu = menuRepository.findById(menuId);
 
         if (!optMenu.isEmpty()) {
