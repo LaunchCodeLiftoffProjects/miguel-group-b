@@ -1,7 +1,9 @@
 package org.launchcode.snapsnap.controllers;
 
+import org.launchcode.snapsnap.models.Product;
 import org.launchcode.snapsnap.models.data.MenuRepository;
 import org.launchcode.snapsnap.models.Menu;
+import org.launchcode.snapsnap.models.data.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,8 @@ public class MenuController {
     @Autowired
     private MenuRepository menuRepository;
 
+    @Autowired
+    private ProductRepository productRepository;
 
     @GetMapping("addMenu")
     public String displayAddMenuForm(Model model) {
@@ -36,7 +40,7 @@ public class MenuController {
         }
 
         menuRepository.save(newMenu);
-        return "menu/addProductToMenu";
+        return "redirect:/index";
     }
 
     @GetMapping("addProductToMenu")
@@ -59,12 +63,14 @@ public class MenuController {
 
     @GetMapping("view/{menuId}")
     public String displayViewMenu(Model model, @PathVariable int menuId) {
-
+//        Optional optItem = productRepository.findById(menuId);
         Optional optMenu = menuRepository.findById(menuId);
 
         if (!optMenu.isEmpty()) {
             Menu menu = (Menu) optMenu.get();
+//            Product product = (Product) optItem.get();
             model.addAttribute("menu", menu);
+//            model.addAttribute("product", optItem);
             return "menu/view";
         } else {
             return "redirect:/";
