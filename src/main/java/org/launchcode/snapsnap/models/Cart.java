@@ -1,10 +1,16 @@
 package org.launchcode.snapsnap.models;
 
+import org.launchcode.snapsnap.users.User;
+
 import javax.persistence.*;
 import java.util.*;
 
 @Entity
 public class Cart extends AbstractEntity{
+
+    @OneToOne
+    @JoinColumn(name="user_id")
+    private User user;
 
     @Transient
     private Double totalCost;
@@ -17,9 +23,15 @@ public class Cart extends AbstractEntity{
 
     private String sessionToken;
 
-    private int userId;
-
     public Cart(){}
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Double getTotalCost() {
         Double sum = 0.00;
@@ -27,14 +39,6 @@ public class Cart extends AbstractEntity{
             sum = sum + item.getProduct().getPrice() * item.getQuantity();
         }
         return sum;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     public int getNumberOfItems() {

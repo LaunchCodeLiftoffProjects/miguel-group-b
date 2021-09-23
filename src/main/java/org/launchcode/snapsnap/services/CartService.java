@@ -5,6 +5,7 @@ import org.launchcode.snapsnap.models.CartItem;
 import org.launchcode.snapsnap.models.Product;
 import org.launchcode.snapsnap.models.data.CartItemRepository;
 import org.launchcode.snapsnap.models.data.CartRepository;
+import org.launchcode.snapsnap.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,9 @@ public class CartService {
     @Autowired
     private CartItemRepository cartItemRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     public Cart addFirstCart(int id, String sessionToken, int quantity) {
         Cart cart = new Cart();
         CartItem cartItem = new CartItem();
@@ -27,6 +31,7 @@ public class CartService {
         cartItem.setProduct(productService.getProductById(id));
         cart.getCartItems().add(cartItem);
         cart.setSessionToken(sessionToken);
+
         return cartRepository.save(cart);
     }
 

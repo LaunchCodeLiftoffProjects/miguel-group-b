@@ -1,6 +1,7 @@
 package org.launchcode.snapsnap.users;
 
 import org.hibernate.annotations.Type;
+import org.launchcode.snapsnap.models.Cart;
 import org.launchcode.snapsnap.models.Menu;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -12,21 +13,16 @@ import java.util.Set;
 @Table(name = "users")
 public class User {
 
-
-
     @Id
     @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String username;
     private String password;
 
     @Column
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean enabled;
-
-
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
@@ -37,8 +33,6 @@ public class User {
         this.password = encoder.encode(password);
         this.enabled = enabled;
     }
-
-
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
@@ -59,8 +53,6 @@ public class User {
 //
 //    @OneToMany (mappedBy = "menuOwner", cascade = CascadeType.ALL)
 //    private List<Menu> menus = new ArrayList<>();
-
-
 
     public Set<Menu> getMenus() {
         return menus;

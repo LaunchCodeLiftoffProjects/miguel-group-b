@@ -1,6 +1,7 @@
 package org.launchcode.snapsnap.controllers;
 
 import org.launchcode.snapsnap.models.Cart;
+import org.launchcode.snapsnap.models.data.UserRepository;
 import org.launchcode.snapsnap.services.CartService;
 import org.launchcode.snapsnap.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class CartController {
     @Autowired
     private ProductService productService;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @PostMapping("/addToCart")
     public String addToCart(HttpServletRequest request, Model model, @RequestParam("id")int id, @RequestParam("quantity") int quantity){
 
@@ -29,6 +33,7 @@ public class CartController {
         if(sessionToken == null){
             sessionToken = UUID.randomUUID().toString();
             request.getSession().setAttribute("sessionToken", sessionToken);
+
             cartService.addFirstCart(id, sessionToken, quantity);
         } else {
             cartService.findBySessionToken(sessionToken);
