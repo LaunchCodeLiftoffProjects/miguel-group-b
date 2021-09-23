@@ -17,6 +17,8 @@ public class Cart extends AbstractEntity{
 
     private String sessionToken;
 
+    private int userId;
+
     public Cart(){}
 
     public Double getTotalCost() {
@@ -27,6 +29,13 @@ public class Cart extends AbstractEntity{
         return sum;
     }
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public int getNumberOfItems() {
         return this.cartItems.size();
