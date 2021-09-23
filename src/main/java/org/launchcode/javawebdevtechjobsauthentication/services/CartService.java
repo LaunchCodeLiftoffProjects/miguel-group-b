@@ -5,6 +5,8 @@ import org.launchcode.javawebdevtechjobsauthentication.models.CartItem;
 import org.launchcode.javawebdevtechjobsauthentication.models.Product;
 import org.launchcode.javawebdevtechjobsauthentication.models.data.CartItemRepository;
 import org.launchcode.javawebdevtechjobsauthentication.models.data.CartRepository;
+import org.launchcode.javawebdevtechjobsauthentication.models.data.UserRepository;
+import org.launchcode.javawebdevtechjobsauthentication.users.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,20 +21,25 @@ public class CartService {
     private CartRepository cartRepository;
     @Autowired
     private CartItemRepository cartItemRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-    public Cart addFirstCart(int id, String sessionToken, int quantity) {
+    public Cart addFirstCart(int id, String sessionToken, int quantity, Integer userId) {
         Cart cart = new Cart();
         CartItem cartItem = new CartItem();
         cartItem.setQuantity(quantity);
         cartItem.setProduct(productService.getProductById(id));
         cart.getCartItems().add(cartItem);
         cart.setSessionToken(sessionToken);
+        cart.setUser(userRepository.getUserById(userId));
         return cartRepository.save(cart);
     }
 
-    public Cart addToExistingCart(int id, String sessionToken, int quantity) {
+    public Cart addToExistingCart(int id, String sessionToken, int quantity, int userId) {
         Cart cart = cartRepository.findBySessionToken(sessionToken);
         Product product = productService.getProductById(id);
+        User user = userRepository.getUserById(userId);
+        cart.setUser(user);
         Boolean productInCart = false;
         if (cart!=null) {
             List<CartItem> cartItems = cart.getCartItems();
@@ -53,7 +60,8 @@ public class CartService {
             cart.getCartItems().add(newCartItem);
             return cartRepository.saveAndFlush(cart);
         }
-       return this.addFirstCart(id, sessionToken, quantity);
+       return this.addFirstCart(id, sessionToken, quantity, userId
+       );
     }
 
     public Cart findBySessionToken(String sessionToken){

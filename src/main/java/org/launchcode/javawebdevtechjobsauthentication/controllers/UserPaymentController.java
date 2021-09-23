@@ -29,7 +29,6 @@ public class UserPaymentController {
     @GetMapping("checkout")
     public String displayCheckoutForm(Model model, String sessionToken) {
         Cart cart = cartService.findBySessionToken(sessionToken);
-        cart.getUserId();
 
         model.addAttribute(new UserPayment());
 //        model.addAttribute("totalCost", cart.getTotalCost());

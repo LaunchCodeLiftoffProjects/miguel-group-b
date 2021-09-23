@@ -1,10 +1,12 @@
 package org.launchcode.javawebdevtechjobsauthentication.users;
 
 import org.hibernate.annotations.Type;
+import org.launchcode.javawebdevtechjobsauthentication.models.Cart;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -22,7 +24,9 @@ public class User {
     @Column
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean enabled;
-    
+
+    @OneToOne
+    private Cart cart;
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
@@ -43,6 +47,14 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<Role> roles = new HashSet<>();
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 
     public Integer getId() {
         return id;

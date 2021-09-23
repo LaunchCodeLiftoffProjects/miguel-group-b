@@ -19,7 +19,8 @@ public class Cart extends AbstractEntity{
 
     private String sessionToken;
 
-    private User userId;
+    @OneToOne
+    private User user;
 
     public Cart(){}
 
@@ -30,6 +31,7 @@ public class Cart extends AbstractEntity{
         }
         return sum;
     }
+
 
     public int getNumberOfItems() {
         return this.cartItems.size();
@@ -59,12 +61,12 @@ public class Cart extends AbstractEntity{
         this.sessionToken = sessionToken;
     }
 
-    public User getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(User userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

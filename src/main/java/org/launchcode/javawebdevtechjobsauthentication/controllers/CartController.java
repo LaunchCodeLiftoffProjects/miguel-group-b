@@ -21,17 +21,17 @@ public class CartController {
     private ProductService productService;
 
     @PostMapping("/addToCart")
-    public String addToCart(HttpServletRequest request, Model model, @RequestParam("id")int id, @RequestParam("quantity") int quantity){
+    public String addToCart(HttpServletRequest request, Model model, Integer userId, @RequestParam("id")int id, @RequestParam("quantity") int quantity){
 
         String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
 
         if(sessionToken == null){
             sessionToken = UUID.randomUUID().toString();
             request.getSession().setAttribute("sessionToken", sessionToken);
-            cartService.addFirstCart(id, sessionToken, quantity);
+            cartService.addFirstCart(id, sessionToken, quantity, userId);
         } else {
             cartService.findBySessionToken(sessionToken);
-            cartService.addToExistingCart(id,sessionToken, quantity);
+            cartService.addToExistingCart(id,sessionToken, quantity, userId);
         }
         return "redirect:/cart";
     }
