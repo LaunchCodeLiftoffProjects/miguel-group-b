@@ -4,6 +4,7 @@ import org.launchcode.snapsnap.models.Cart;
 import org.launchcode.snapsnap.models.data.UserRepository;
 import org.launchcode.snapsnap.services.CartService;
 import org.launchcode.snapsnap.services.ProductService;
+import org.launchcode.snapsnap.users.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,11 +30,12 @@ public class CartController {
     public String addToCart(HttpServletRequest request, Model model, @RequestParam("id")int id, @RequestParam("quantity") int quantity){
 
         String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
-
+//        User user = (User) request.getSession(true).getAttribute("user");
         if(sessionToken == null){
             sessionToken = UUID.randomUUID().toString();
+//            user = userRepository.findById(user.getId()).get();
             request.getSession().setAttribute("sessionToken", sessionToken);
-
+//            request.getSession().setAttribute("user", user);
             cartService.addFirstCart(id, sessionToken, quantity);
         } else {
             cartService.findBySessionToken(sessionToken);
