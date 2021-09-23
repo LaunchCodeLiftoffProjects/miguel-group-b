@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5:3.0.4.RELEASE">
+<head th:replace="fragments :: head"></head>
+<body class="container body-content">
+
+<nav th:replace="fragments :: page-header"></nav>
+
+<div class = "container body-content">
+    <h1>Success!</h1>
+    <h3>Your order has been processed and received.</h3>
+    <h4>A confirmation email with order details will be sent to you shortly.</h4>
+    <a th:href="@{/}">Go To Home Page</a>
+</div>
+
+</body>
+</html>

@@ -27,6 +27,7 @@ public class Cart extends AbstractEntity{
         return sum;
     }
 
+
     public int getNumberOfItems() {
         return this.cartItems.size();
     }
