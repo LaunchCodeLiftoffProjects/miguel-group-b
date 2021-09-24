@@ -8,8 +8,11 @@ import java.util.*;
 @Entity
 public class Cart extends AbstractEntity{
 
-    @OneToOne
-    @JoinColumn(name="user_id")
+//    @OneToOne
+//    @JoinColumn(name="user_id")
+//    private User user;
+
+    @ManyToOne
     private User user;
 
     @Transient
@@ -23,15 +26,20 @@ public class Cart extends AbstractEntity{
 
     private String sessionToken;
 
+    private static final String userSessionKey = "user";
+
     public Cart(){}
 
-    public User getUser() {
-        return user;
+    public Cart(User user) {
+        this.user.getCart();
     }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+    //    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     public Double getTotalCost() {
         Double sum = 0.00;
@@ -39,6 +47,14 @@ public class Cart extends AbstractEntity{
             sum = sum + item.getProduct().getPrice() * item.getQuantity();
         }
         return sum;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public int getNumberOfItems() {
