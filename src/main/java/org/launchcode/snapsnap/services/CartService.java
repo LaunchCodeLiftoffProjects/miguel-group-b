@@ -25,7 +25,7 @@ public class CartService {
     private UserService userService;
 
 //    Added userId as a method parameter
-    public Cart addFirstCart(int id, String sessionToken, int quantity, int userId) {
+    public Cart addFirstCart(int id, String sessionToken, int quantity, Integer userId) {
         Cart cart = new Cart();
         CartItem cartItem = new CartItem();
         cartItem.setQuantity(quantity);

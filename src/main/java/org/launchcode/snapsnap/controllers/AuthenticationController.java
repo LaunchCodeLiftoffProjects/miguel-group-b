@@ -25,13 +25,7 @@ public class AuthenticationController {
     @Autowired
     UserRepository userRepository;
 
-//    @Autowired
-//    RoleRepository roleRepository;
-
     private static final String userSessionKey = "user";
-
-//    List <Role> listRoles = roleRepository.findAll();
-
 
     public User getUserFromSession(HttpSession session) {
         Integer userId = (Integer) session.getAttribute(userSessionKey);
