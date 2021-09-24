@@ -27,7 +27,9 @@ public class CartController {
     private UserRepository userRepository;
 
     @PostMapping("/addToCart")
-    public String addToCart(HttpServletRequest request, Model model, @RequestParam("id")int id, @RequestParam("quantity") int quantity){
+    public String addToCart(HttpServletRequest request, Model model,
+                            @RequestParam("id")int id,
+                            @RequestParam("quantity") int quantity){
 
         String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
 //        User user = (User) request.getSession(true).getAttribute("user");
