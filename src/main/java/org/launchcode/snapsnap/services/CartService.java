@@ -25,24 +25,26 @@ public class CartService {
     @Autowired
     private UserService userService;
 
-    public Cart addFirstCart(int id, String sessionToken, int quantity) {
+    public Cart addFirstCart(int id, String sessionToken, int quantity, int userId) {
         Cart cart = new Cart();
         CartItem cartItem = new CartItem();
         cartItem.setQuantity(quantity);
         cartItem.setProduct(productService.getProductById(id));
         cart.getCartItems().add(cartItem);
+        cart.setUser(userService.getUserById(userId));
         cart.setSessionToken(sessionToken);
 //        cart.setUser(userService.getUserById(userId));
         return cartRepository.save(cart);
     }
 
-    public Cart addToExistingCart(int id, String sessionToken, int quantity) {
+    public Cart addToExistingCart(int id, String sessionToken, int quantity, int userId) {
         Cart cart = cartRepository.findBySessionToken(sessionToken);
         Product product = productService.getProductById(id);
-//        User user = userService.getUserById(userId);
+        User user = userService.getUserById(userId);
         Boolean productInCart = false;
         if (cart!=null) {
             List<CartItem> cartItems = cart.getCartItems();
+            cart.setUser(user);
             for (CartItem item : cartItems) {
                 if (item.getProduct().equals(product)) {
                     productInCart = true;
@@ -58,9 +60,10 @@ public class CartService {
             newCartItem.setQuantity(quantity);
             newCartItem.setProduct(product);
             cart.getCartItems().add(newCartItem);
+            cart.setUser(user);
             return cartRepository.saveAndFlush(cart);
         }
-       return this.addFirstCart(id, sessionToken, quantity);
+       return this.addFirstCart(id, sessionToken, quantity, userId);
     }
 
     public Cart findBySessionToken(String sessionToken){

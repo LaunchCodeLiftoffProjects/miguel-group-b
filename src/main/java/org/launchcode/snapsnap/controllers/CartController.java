@@ -27,7 +27,7 @@ public class CartController {
     private UserRepository userRepository;
 
     @PostMapping("/addToCart")
-    public String addToCart(HttpServletRequest request, Model model,
+    public String addToCart(HttpServletRequest request, Model model, @RequestParam int userId,
                             @RequestParam("id")int id,
                             @RequestParam("quantity") int quantity){
 
@@ -38,10 +38,10 @@ public class CartController {
 //            user = userRepository.findById(user.getId()).get();
             request.getSession().setAttribute("sessionToken", sessionToken);
 //            request.getSession().setAttribute("user", user);
-            cartService.addFirstCart(id, sessionToken, quantity);
+            cartService.addFirstCart(id, sessionToken, quantity, userId);
         } else {
             cartService.findBySessionToken(sessionToken);
-            cartService.addToExistingCart(id,sessionToken, quantity);
+            cartService.addToExistingCart(id,sessionToken, quantity, userId);
         }
         return "redirect:/cart";
     }
