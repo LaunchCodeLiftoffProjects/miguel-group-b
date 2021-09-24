@@ -26,6 +26,7 @@ public class CartController {
     @Autowired
     private UserRepository userRepository;
 
+// Added userId as a method param instead of session attribute
     @PostMapping("/addToCart")
     public String addToCart(HttpServletRequest request, Model model, @RequestParam int userId,
                             @RequestParam("id")int id,

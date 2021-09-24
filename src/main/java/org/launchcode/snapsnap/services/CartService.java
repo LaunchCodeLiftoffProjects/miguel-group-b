@@ -21,10 +21,10 @@ public class CartService {
     private CartRepository cartRepository;
     @Autowired
     private CartItemRepository cartItemRepository;
-
     @Autowired
     private UserService userService;
 
+//    Added userId as a method parameter
     public Cart addFirstCart(int id, String sessionToken, int quantity, int userId) {
         Cart cart = new Cart();
         CartItem cartItem = new CartItem();
@@ -37,6 +37,7 @@ public class CartService {
         return cartRepository.save(cart);
     }
 
+//    Added userId as a method parameter
     public Cart addToExistingCart(int id, String sessionToken, int quantity, int userId) {
         Cart cart = cartRepository.findBySessionToken(sessionToken);
         Product product = productService.getProductById(id);
