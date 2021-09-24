@@ -25,27 +25,26 @@ public class CartService {
     private UserService userService;
 
 //    Added userId as a method parameter
-    public Cart addFirstCart(int id, String sessionToken, int quantity, Integer userId) {
+    public Cart addFirstCart(int id, String sessionToken, int quantity) {
         Cart cart = new Cart();
         CartItem cartItem = new CartItem();
         cartItem.setQuantity(quantity);
         cartItem.setProduct(productService.getProductById(id));
         cart.getCartItems().add(cartItem);
-        cart.setUser(userService.getUserById(userId));
         cart.setSessionToken(sessionToken);
 //        cart.setUser(userService.getUserById(userId));
         return cartRepository.save(cart);
     }
 
 //    Added userId as a method parameter
-    public Cart addToExistingCart(int id, String sessionToken, int quantity, int userId) {
+    public Cart addToExistingCart(int id, String sessionToken, int quantity) {
         Cart cart = cartRepository.findBySessionToken(sessionToken);
         Product product = productService.getProductById(id);
-        User user = userService.getUserById(userId);
+//        User user = userService.getUserById(userId);
         Boolean productInCart = false;
         if (cart!=null) {
             List<CartItem> cartItems = cart.getCartItems();
-            cart.setUser(user);
+//            cart.setUser(user);
             for (CartItem item : cartItems) {
                 if (item.getProduct().equals(product)) {
                     productInCart = true;
@@ -61,10 +60,10 @@ public class CartService {
             newCartItem.setQuantity(quantity);
             newCartItem.setProduct(product);
             cart.getCartItems().add(newCartItem);
-            cart.setUser(user);
+//            cart.setUser(user);
             return cartRepository.saveAndFlush(cart);
         }
-       return this.addFirstCart(id, sessionToken, quantity, userId);
+       return this.addFirstCart(id, sessionToken, quantity);
     }
 
     public Cart findBySessionToken(String sessionToken){

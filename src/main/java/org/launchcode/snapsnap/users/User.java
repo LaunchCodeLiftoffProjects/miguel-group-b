@@ -13,7 +13,7 @@ import java.util.Set;
 @Table(name = "users")
 public class User {
 
-    @OneToOne
+    @OneToMany
     private Cart cart;
 
     @Id
