@@ -13,6 +13,9 @@ import java.util.Set;
 @Table(name = "users")
 public class User {
 
+    @OneToOne
+    private Cart cart;
+
     @Id
     @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,9 +53,13 @@ public class User {
     )
     private Set<Menu> menus = new HashSet<>();
 
-//
-//    @OneToMany (mappedBy = "menuOwner", cascade = CascadeType.ALL)
-//    private List<Menu> menus = new ArrayList<>();
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 
     public Set<Menu> getMenus() {
         return menus;
