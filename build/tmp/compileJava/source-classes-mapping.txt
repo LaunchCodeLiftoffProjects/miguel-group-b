@@ -1,9 +1,9 @@
 org/launchcode/javawebdevtechjobsauthentication/models/data/UserRepository.java
  org.launchcode.javawebdevtechjobsauthentication.models.data.UserRepository
+org/launchcode/javawebdevtechjobsauthentication/models/data/LocationRepository.java
+ org.launchcode.javawebdevtechjobsauthentication.models.data.LocationRepository
 org/launchcode/javawebdevtechjobsauthentication/models/AbstractEntity.java
  org.launchcode.javawebdevtechjobsauthentication.models.AbstractEntity
-org/launchcode/javawebdevtechjobsauthentication/models/data/RoleRepository.java
- org.launchcode.javawebdevtechjobsauthentication.models.data.RoleRepository
 org/launchcode/javawebdevtechjobsauthentication/JavaWebDevTechjobsAuthenticationApplication.java
  org.launchcode.javawebdevtechjobsauthentication.JavaWebDevTechjobsAuthenticationApplication
 org/launchcode/javawebdevtechjobsauthentication/models/UserPayment.java
@@ -16,8 +16,6 @@ org/launchcode/javawebdevtechjobsauthentication/users/WebSecurityConfig.java
  org.launchcode.javawebdevtechjobsauthentication.users.WebSecurityConfig
 org/launchcode/javawebdevtechjobsauthentication/users/AppUserRole.java
  org.launchcode.javawebdevtechjobsauthentication.users.AppUserRole
-org/launchcode/javawebdevtechjobsauthentication/models/data/VendorRepository.java
- org.launchcode.javawebdevtechjobsauthentication.models.data.VendorRepository
 org/launchcode/javawebdevtechjobsauthentication/controllers/UserPaymentController.java
  org.launchcode.javawebdevtechjobsauthentication.controllers.UserPaymentController
 org/launchcode/javawebdevtechjobsauthentication/models/EmailService.java
@@ -26,16 +24,16 @@ org/launchcode/javawebdevtechjobsauthentication/users/User.java
  org.launchcode.javawebdevtechjobsauthentication.users.User
 org/launchcode/javawebdevtechjobsauthentication/controllers/EmailController.java
  org.launchcode.javawebdevtechjobsauthentication.controllers.EmailController
-org/launchcode/javawebdevtechjobsauthentication/models/Vendor.java
- org.launchcode.javawebdevtechjobsauthentication.models.Vendor
+org/launchcode/javawebdevtechjobsauthentication/vendors/Location.java
+ org.launchcode.javawebdevtechjobsauthentication.vendors.Location
+org/launchcode/javawebdevtechjobsauthentication/controllers/LocationController.java
+ org.launchcode.javawebdevtechjobsauthentication.controllers.LocationController
 org/launchcode/javawebdevtechjobsauthentication/users/Role.java
  org.launchcode.javawebdevtechjobsauthentication.users.Role
 org/launchcode/javawebdevtechjobsauthentication/users/MyUserDetails.java
  org.launchcode.javawebdevtechjobsauthentication.users.MyUserDetails
 org/launchcode/javawebdevtechjobsauthentication/models/DTO/LoginFormDTO.java
  org.launchcode.javawebdevtechjobsauthentication.models.DTO.LoginFormDTO
-org/launchcode/javawebdevtechjobsauthentication/controllers/HomeController.java
- org.launchcode.javawebdevtechjobsauthentication.controllers.HomeController
 org/launchcode/javawebdevtechjobsauthentication/users/UserDetailsServiceImpl.java
  org.launchcode.javawebdevtechjobsauthentication.users.UserDetailsServiceImpl
 org/launchcode/javawebdevtechjobsauthentication/models/DTO/RegisterFormDTO.java
