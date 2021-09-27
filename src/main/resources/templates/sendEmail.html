@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5:3.0.4.RELEASE">
+<head th:replace="fragments :: head">
+</head>
+<body>
+<div th:replace="fragments :: page-header"></div>
+<div class="container body-content">
+
+    <div>
+        </br>
+        <h3>Yay...Payment processed Successfully!</h3></br>
+
+        <p>Congrats, your payment has been processed successfully,  <b><span sec:authentication="name">Username</span>!<span></span></b> </p>
+
+        </br>
+
+        <h4> <i>If you want us to send you a confirmation email, please <a href="/api/sendEmail">click here</a> </i> </h4>
+        &nbsp;
+    </div>
+
+
+</div>
+</body>
+</html>

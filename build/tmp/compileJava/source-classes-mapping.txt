@@ -4,8 +4,8 @@ org/launchcode/snapsnap/models/CartItem.java
  org.launchcode.snapsnap.models.CartItem
 org/launchcode/snapsnap/models/Product.java
  org.launchcode.snapsnap.models.Product
-org/launchcode/snapsnap/models/EmailService.java
- org.launchcode.snapsnap.models.EmailService
+org/launchcode/snapsnap/users/WebSecurityConfig.java
+ org.launchcode.snapsnap.users.WebSecurityConfig
 org/launchcode/snapsnap/models/UserPayment.java
  org.launchcode.snapsnap.models.UserPayment
 org/launchcode/snapsnap/models/data/RoleRepository.java
@@ -36,8 +36,8 @@ org/launchcode/snapsnap/users/MyUserDetails.java
  org.launchcode.snapsnap.users.MyUserDetails
 org/launchcode/snapsnap/models/data/CartItemRepository.java
  org.launchcode.snapsnap.models.data.CartItemRepository
-org/launchcode/snapsnap/controllers/UserPaymentController.java
- org.launchcode.snapsnap.controllers.UserPaymentController
+org/launchcode/snapsnap/models/data/PaymentRepository.java
+ org.launchcode.snapsnap.models.data.PaymentRepository
 org/launchcode/snapsnap/models/DTO/RegisterFormDTO.java
  org.launchcode.snapsnap.models.DTO.RegisterFormDTO
 org/launchcode/snapsnap/models/AbstractEntity.java
@@ -50,13 +50,13 @@ org/launchcode/snapsnap/users/Role.java
  org.launchcode.snapsnap.users.Role
 org/launchcode/snapsnap/models/data/MenuRepository.java
  org.launchcode.snapsnap.models.data.MenuRepository
-org/launchcode/snapsnap/controllers/EmailController.java
- org.launchcode.snapsnap.controllers.EmailController
+org/launchcode/snapsnap/controllers/UserPaymentController.java
+ org.launchcode.snapsnap.controllers.UserPaymentController
 org/launchcode/snapsnap/controllers/HomeController.java
  org.launchcode.snapsnap.controllers.HomeController
 org/launchcode/snapsnap/models/data/UserRepository.java
  org.launchcode.snapsnap.models.data.UserRepository
-org/launchcode/snapsnap/users/WebSecurityConfig.java
- org.launchcode.snapsnap.users.WebSecurityConfig
-org/launchcode/snapsnap/models/data/PaymentRepository.java
- org.launchcode.snapsnap.models.data.PaymentRepository
+org/launchcode/snapsnap/controllers/EmailController.java
+ org.launchcode.snapsnap.controllers.EmailController
+org/launchcode/snapsnap/models/EmailService.java
+ org.launchcode.snapsnap.models.EmailService

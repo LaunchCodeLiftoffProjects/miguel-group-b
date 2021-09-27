@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5:3.0.4.RELEASE">
+<head th:replace="fragments :: head">
+</head>
+<body>
+<div th:replace="fragments :: page-header"></div>
+<div class="container body-content">
+
+    <div>
+        <b><span sec:authentication="name">Username</span>,<span></span> Email sent, please check your inbox.</b>
+        <h4>Thank you so much for shopping with us!.</h4>
+        <p>We are preparing your fav drink, our rider will be around the corner soon.</p>
+        <p>Enjoy your drink, have a good time.</p>
+        <h4>We hope to see you again soon!</h4>
+    </div>
+
+    <a href="/index">Want to shop more?</a>
+
+</div>
+</body>
+</html>

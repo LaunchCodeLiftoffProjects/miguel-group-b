@@ -32,7 +32,6 @@ public class UserPaymentController {
 //    }
 
     @PostMapping("add")
-    @ResponseBody
     public String processUserPaymentForm(@ModelAttribute @Valid UserPayment newUserPayment, Errors errors) {
         if (errors.hasErrors()) {
             return "add";
@@ -40,12 +39,6 @@ public class UserPaymentController {
         paymentRepository.save(newUserPayment);
 //        EmailController.sendEmail();
 
-        return "<html>" +
-                "<head>" +
-                "<body>" +
-                "<a href='/api/sendEmail'>Send Email</a>" +
-                "</body>" +
-                "</head>" +
-                "</html>";
+        return "/sendEmail";
     }
     }
