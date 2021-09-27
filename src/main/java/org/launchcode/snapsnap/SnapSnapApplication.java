@@ -9,13 +9,12 @@ import javax.annotation.PostConstruct;
 
 @SpringBootApplication
 public class SnapSnapApplication {
-
+//Keys in application.properties
 	@Value("${stripe.api.key}")
 	private String stripeApiKey;
 
 	@PostConstruct
 	public void setup(){
-//		Secret Key
 		Stripe.apiKey = stripeApiKey;
 	}
 
