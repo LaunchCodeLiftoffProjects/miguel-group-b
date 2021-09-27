@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5:3.0.4.RELEASE">
+<head th:fragment="head">
+
+    <!-- Bootstrap stylesheets and script -->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <link th:href="@{/css/techjobs.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+    <title th:text="'SnapSnap' + ${title == null ? '' : ' :: ' + title}">SnapSnap</title>
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+    <h1>Review Order</h1>
+    <table class="job-listing">
+        <thead>
+            <tr>
+                <th scope="col">PRODUCT</th>
+                <th scope="col">QUANTITY</th>
+                <th scope="col">PRICE</th>
+                <th scope="col">REMOVE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="cartItem : ${cart.cartItems}">
+                <td>
+                    <img th:src="${cartItem.product.pictureURL}" style="height:250px;width:200px;"/>
+                    <h3 th:text="${cartItem.product.name}"></h3>
+                    <h5 th:text="${cartItem.product.description}"></h5>
+                </td>
+                <td class="text-center">
+                    <form th:action="@{/editCart}" th:object=${cart} th:name="cart" method="post">
+                        <input type="hidden" th:value="${cartItem.id}" name="product_id"/>
+                            <div class="input-group justify-content-center">
+                                <input type="number" name="quantity" min="1"
+                                       th:value="${cartItem.quantity}"
+                                       class="form-control form-control-sm round-input" />
+                                <!--th:attr="max=${cartItem.product.quantity}"-->
+                                <button class="btn btn-success btn-sm" type="submit">Update Quantity</button>
+                            </div>
+                    </form>
+                </td>
+                <td class="text-center" th:text="'$ ' + ${cartItem.product.price * cartItem.quantity}"></td>
+                <td class="text-center">
+                    <a th:href="@{/deleteCartItem/{id}(id=${cartItem.id})}" data-toggle="tooltip">
+                        <button class="btn btn-danger">Remove</button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+<!--    <td class="text-center"><form th:action="@{/menu/view/{menuId}}" method="get">-->
+<!--        <button type="button" class="btn btn-primary btn-lg btn-block">-->
+<!--            Return To Menu</button></form></td>-->
+
+        <div class="d-flex p-2 text-center justify-content-center shadow-sm">
+            <h2>Subtotal: <span class="text-md" th:text="'$ ' + ${cart.totalCost}"></span></h2>
+            <button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+        </div>
+</div>
+
+</body>
+</html>
