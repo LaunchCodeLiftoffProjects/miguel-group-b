@@ -1,40 +1,62 @@
-org/launchcode/javawebdevtechjobsauthentication/models/data/UserRepository.java
- org.launchcode.javawebdevtechjobsauthentication.models.data.UserRepository
-org/launchcode/javawebdevtechjobsauthentication/models/data/LocationRepository.java
- org.launchcode.javawebdevtechjobsauthentication.models.data.LocationRepository
-org/launchcode/javawebdevtechjobsauthentication/models/AbstractEntity.java
- org.launchcode.javawebdevtechjobsauthentication.models.AbstractEntity
-org/launchcode/javawebdevtechjobsauthentication/JavaWebDevTechjobsAuthenticationApplication.java
- org.launchcode.javawebdevtechjobsauthentication.JavaWebDevTechjobsAuthenticationApplication
-org/launchcode/javawebdevtechjobsauthentication/models/UserPayment.java
- org.launchcode.javawebdevtechjobsauthentication.models.UserPayment
-org/launchcode/javawebdevtechjobsauthentication/controllers/AuthenticationController.java
- org.launchcode.javawebdevtechjobsauthentication.controllers.AuthenticationController
-org/launchcode/javawebdevtechjobsauthentication/models/data/PaymentRepository.java
- org.launchcode.javawebdevtechjobsauthentication.models.data.PaymentRepository
-org/launchcode/javawebdevtechjobsauthentication/users/WebSecurityConfig.java
- org.launchcode.javawebdevtechjobsauthentication.users.WebSecurityConfig
-org/launchcode/javawebdevtechjobsauthentication/users/AppUserRole.java
- org.launchcode.javawebdevtechjobsauthentication.users.AppUserRole
-org/launchcode/javawebdevtechjobsauthentication/controllers/UserPaymentController.java
- org.launchcode.javawebdevtechjobsauthentication.controllers.UserPaymentController
-org/launchcode/javawebdevtechjobsauthentication/models/EmailService.java
- org.launchcode.javawebdevtechjobsauthentication.models.EmailService
-org/launchcode/javawebdevtechjobsauthentication/users/User.java
- org.launchcode.javawebdevtechjobsauthentication.users.User
-org/launchcode/javawebdevtechjobsauthentication/controllers/EmailController.java
- org.launchcode.javawebdevtechjobsauthentication.controllers.EmailController
-org/launchcode/javawebdevtechjobsauthentication/vendors/Location.java
- org.launchcode.javawebdevtechjobsauthentication.vendors.Location
-org/launchcode/javawebdevtechjobsauthentication/controllers/LocationController.java
- org.launchcode.javawebdevtechjobsauthentication.controllers.LocationController
-org/launchcode/javawebdevtechjobsauthentication/users/Role.java
- org.launchcode.javawebdevtechjobsauthentication.users.Role
-org/launchcode/javawebdevtechjobsauthentication/users/MyUserDetails.java
- org.launchcode.javawebdevtechjobsauthentication.users.MyUserDetails
-org/launchcode/javawebdevtechjobsauthentication/models/DTO/LoginFormDTO.java
- org.launchcode.javawebdevtechjobsauthentication.models.DTO.LoginFormDTO
-org/launchcode/javawebdevtechjobsauthentication/users/UserDetailsServiceImpl.java
- org.launchcode.javawebdevtechjobsauthentication.users.UserDetailsServiceImpl
-org/launchcode/javawebdevtechjobsauthentication/models/DTO/RegisterFormDTO.java
- org.launchcode.javawebdevtechjobsauthentication.models.DTO.RegisterFormDTO
+org/launchcode/snapsnap/users/User.java
+ org.launchcode.snapsnap.users.User
+org/launchcode/snapsnap/models/CartItem.java
+ org.launchcode.snapsnap.models.CartItem
+org/launchcode/snapsnap/models/Product.java
+ org.launchcode.snapsnap.models.Product
+org/launchcode/snapsnap/models/EmailService.java
+ org.launchcode.snapsnap.models.EmailService
+org/launchcode/snapsnap/models/UserPayment.java
+ org.launchcode.snapsnap.models.UserPayment
+org/launchcode/snapsnap/models/data/RoleRepository.java
+ org.launchcode.snapsnap.models.data.RoleRepository
+org/launchcode/snapsnap/models/data/CartRepository.java
+ org.launchcode.snapsnap.models.data.CartRepository
+org/launchcode/snapsnap/controllers/AuthenticationController.java
+ org.launchcode.snapsnap.controllers.AuthenticationController
+org/launchcode/snapsnap/SnapSnapApplication.java
+ org.launchcode.snapsnap.SnapSnapApplication
+org/launchcode/snapsnap/models/Menu.java
+ org.launchcode.snapsnap.models.Menu
+org/launchcode/snapsnap/models/DTO/LoginFormDTO.java
+ org.launchcode.snapsnap.models.DTO.LoginFormDTO
+org/launchcode/snapsnap/models/data/ProductRepository.java
+ org.launchcode.snapsnap.models.data.ProductRepository
+org/launchcode/snapsnap/controllers/ProductController.java
+ org.launchcode.snapsnap.controllers.ProductController
+org/launchcode/snapsnap/controllers/MenuController.java
+ org.launchcode.snapsnap.controllers.MenuController
+org/launchcode/snapsnap/users/UserDetailsServiceImpl.java
+ org.launchcode.snapsnap.users.UserDetailsServiceImpl
+org/launchcode/snapsnap/services/ProductService.java
+ org.launchcode.snapsnap.services.ProductService
+org/launchcode/snapsnap/controllers/CartController.java
+ org.launchcode.snapsnap.controllers.CartController
+org/launchcode/snapsnap/users/MyUserDetails.java
+ org.launchcode.snapsnap.users.MyUserDetails
+org/launchcode/snapsnap/models/data/CartItemRepository.java
+ org.launchcode.snapsnap.models.data.CartItemRepository
+org/launchcode/snapsnap/controllers/UserPaymentController.java
+ org.launchcode.snapsnap.controllers.UserPaymentController
+org/launchcode/snapsnap/models/DTO/RegisterFormDTO.java
+ org.launchcode.snapsnap.models.DTO.RegisterFormDTO
+org/launchcode/snapsnap/models/AbstractEntity.java
+ org.launchcode.snapsnap.models.AbstractEntity
+org/launchcode/snapsnap/services/CartService.java
+ org.launchcode.snapsnap.services.CartService
+org/launchcode/snapsnap/models/Cart.java
+ org.launchcode.snapsnap.models.Cart
+org/launchcode/snapsnap/users/Role.java
+ org.launchcode.snapsnap.users.Role
+org/launchcode/snapsnap/models/data/MenuRepository.java
+ org.launchcode.snapsnap.models.data.MenuRepository
+org/launchcode/snapsnap/controllers/EmailController.java
+ org.launchcode.snapsnap.controllers.EmailController
+org/launchcode/snapsnap/controllers/HomeController.java
+ org.launchcode.snapsnap.controllers.HomeController
+org/launchcode/snapsnap/models/data/UserRepository.java
+ org.launchcode.snapsnap.models.data.UserRepository
+org/launchcode/snapsnap/users/WebSecurityConfig.java
+ org.launchcode.snapsnap.users.WebSecurityConfig
+org/launchcode/snapsnap/models/data/PaymentRepository.java
+ org.launchcode.snapsnap.models.data.PaymentRepository

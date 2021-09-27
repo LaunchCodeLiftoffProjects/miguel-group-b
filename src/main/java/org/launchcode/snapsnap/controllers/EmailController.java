@@ -1,6 +1,6 @@
-package org.launchcode.javawebdevtechjobsauthentication.controllers;
+package org.launchcode.snapsnap.controllers;
 
-import org.launchcode.javawebdevtechjobsauthentication.models.EmailService;
+import org.launchcode.snapsnap.models.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

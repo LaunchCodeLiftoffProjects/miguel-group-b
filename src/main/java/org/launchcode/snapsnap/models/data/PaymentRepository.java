@@ -1,6 +1,6 @@
-package org.launchcode.javawebdevtechjobsauthentication.models.data;
+package org.launchcode.snapsnap.models.data;
 
-import org.launchcode.javawebdevtechjobsauthentication.models.UserPayment;
+import org.launchcode.snapsnap.models.UserPayment;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
