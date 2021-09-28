@@ -4,16 +4,22 @@ import org.launchcode.snapsnap.models.Cart;
 import org.launchcode.snapsnap.services.CartService;
 import org.launchcode.snapsnap.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.UUID;
 
 @Controller
-
 public class CartController {
+
+    @Value("${stripe.public.key}")
+    private String stripePublicKey;
+
 
     @Autowired
     private CartService cartService;
@@ -50,21 +56,6 @@ public class CartController {
         }
     }
 
-//    @GetMapping("/cart")
-//    public String viewCart(HttpServletRequest request,  Model model){
-//        String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
-//        Cart cart = cartService.findBySessionToken(sessionToken);
-//        model.addAttribute("cart", cart);
-//        return "cart";
-//    }
-
-//    @GetMapping("/cart")
-//    public String viewCart(String sessionToken,  Model model){
-//        Cart cart = cartService.findBySessionToken(sessionToken);
-//        model.addAttribute("cart", cart);
-//        return "cart";
-//    }
-
     @PostMapping("/editCart")
     public String editCart(@RequestParam("product_id") int id, @RequestParam("quantity") int quantity){
         cartService.editProductInCart(id, quantity);
@@ -77,5 +68,30 @@ public class CartController {
         cartService.deleteProductsFromCart(sessionToken, productId);
         return"redirect:/cart";
     }
+
+    @GetMapping("/order")
+    public String viewOrder(HttpServletRequest request,  Model model){
+        String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
+        if(sessionToken == null){
+            return "redirect:";
+        } else {
+            Cart cart = cartService.findBySessionToken(sessionToken);
+            model.addAttribute("amount", cart.getTotalCost());
+//        }
+            return "checkout";
+        }
+    }
+
+    @PostMapping("/checkout")
+    public String checkout(@ModelAttribute @Valid Cart newCart, BindingResult bindingResult, Model model){
+        if(bindingResult.hasErrors()){
+            return "review-order";
+        }
+        model.addAttribute("stripePublicKey", stripePublicKey);
+        model.addAttribute("amount", newCart.getTotalCost());
+        return "checkout";
+    }
+
+
 
 }

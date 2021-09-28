@@ -7,14 +7,20 @@
 </head>
 
 <body>
-<!-- Display a payment form -->
-<form id="payment-form" th:action="@{/orderForm}" th:object="${checkoutForm}" method="post">
-  <p>Proceed to the checkout form</p>
-  <p>Email:<input type="text" th:field="*{email}" placeholder="Email Address"/></p>
-  <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color:red;"></p>
-  <p>Amount:<input type="text" th:field="*{amount}"placeholder="Amount"/></p>
-  <p th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}" style="color:red;"></p>
-  <p><input type="submit"></p>
+<form id="payment-form" th:action="@{/viewOrder}" th:object="${cart}" method="post">
+  <p>Confirm Order Total</p>
+  <p th:text="${cart.amount}"></p>
+  <button type="submit" th:href="@{/checkout}">Confirm</button>
 </form>
+
+<!-- Display a payment form -->
+<!--<form id="payment-form" th:action="@{/orderForm}" th:object="${checkoutForm}" method="post">-->
+<!--  <p>Proceed to the checkout form</p>-->
+<!--  <p>Email:<input type="text" th:field="*{email}" placeholder="Email Address"/></p>-->
+<!--  <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color:red;"></p>-->
+<!--  <p>Amount:<input type="text" th:field="*{amount}"placeholder="Amount"/></p>-->
+<!--  <p th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}" style="color:red;"></p>-->
+<!--  <p><input type="submit"></p>-->
+<!--</form>-->
 </body>
 </html>
