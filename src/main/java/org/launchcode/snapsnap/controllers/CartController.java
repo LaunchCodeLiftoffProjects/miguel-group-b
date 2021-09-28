@@ -7,11 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import java.util.UUID;
 
 @Controller
@@ -69,29 +70,27 @@ public class CartController {
         return"redirect:/cart";
     }
 
-    @GetMapping("/order")
-    public String viewOrder(HttpServletRequest request,  Model model){
-        String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
-        if(sessionToken == null){
-            return "redirect:";
-        } else {
-            Cart cart = cartService.findBySessionToken(sessionToken);
-            model.addAttribute("amount", cart.getTotalCost());
+//    @GetMapping("/order")
+//    public String viewOrder(HttpServletRequest request,  Model model){
+//        String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
+//        if(sessionToken == null){
+//            return "redirect:";
+//        } else {
+//            Cart cart = cartService.findBySessionToken(sessionToken);
+//            model.addAttribute("amount", cart.getTotalCost());
+////        }
+//            return "order";
 //        }
-            return "checkout";
-        }
-    }
-
-    @PostMapping("/checkout")
-    public String checkout(@ModelAttribute @Valid Cart newCart, BindingResult bindingResult, Model model){
-        if(bindingResult.hasErrors()){
-            return "review-order";
-        }
-        model.addAttribute("stripePublicKey", stripePublicKey);
-        model.addAttribute("amount", newCart.getTotalCost());
-        return "checkout";
-    }
-
-
+//    }
+//
+//    @PostMapping("/order")
+//    public String checkout(@ModelAttribute @Valid Cart newCart, BindingResult bindingResult, Model model){
+//        if(bindingResult.hasErrors()){
+//            return "redirect:";
+//        }
+//        model.addAttribute("stripePublicKey", stripePublicKey);
+//        model.addAttribute("amount", newCart.getTotalCost());
+//        return "checkout";
+//    }
 
 }
