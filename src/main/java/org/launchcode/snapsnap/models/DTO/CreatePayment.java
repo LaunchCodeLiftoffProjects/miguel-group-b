@@ -1,20 +1,31 @@
 package org.launchcode.snapsnap.models.DTO;
 
-import javax.validation.constraints.NotNull;
+import com.sun.istack.NotNull;
+import org.launchcode.snapsnap.models.Cart;
 
 public class CreatePayment {
 
     @NotNull
-    private double amount;
+    private Cart cart;
 
-    public double getAmount() {
-        return amount;
+    @NotNull
+    private Double amount;
+
+    public Cart getCart() {
+        return cart;
     }
 
-    public void setAmount(double amount) {
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    public Long getAmount() {
+        return this.cart.getTotalCost().longValue();
+    }
+
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
-
 }
 //
 //    @SerializedName("items")

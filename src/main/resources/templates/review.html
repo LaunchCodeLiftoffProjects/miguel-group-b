@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
-  <meta charset="utf-8" />
-  <title>Accept a card payment</title>
-  <link th:href="@{/css/global.css}" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <title>Accept a card payment</title>
+    <link th:href="@{/css/global.css}" rel="stylesheet" />
 </head>
 
 <body>
-<form id="payment-form" th:action="@{/viewOrder}" th:object="${cart}" method="post">
-  <p>Confirm Order Total</p>
-  <p th:text="${cart.totalCost}"></p>
-  <button type="submit" th:href="@{/checkout}">Confirm</button>
+<form id="payment-form" th:action="@{/checkout}" th:object="${cart}" method="post">
+    <h2>Confirm Order Total</h2>
+    <p>Total Cost: <span th:text="${cart.totalCost}"></span></p>
+    <button type="submit" th:href="@{/checkout}">Confirm</button>
 </form>
 
 <!-- Display a payment form -->
