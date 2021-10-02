@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="utf-8"/>
+    <title>Accept a card payment</title>
+    <link th:href="@{/css/global.css}" rel="stylesheet" />
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script type="text/javascript" th:src="@{/js/client.js}" defer></script>
+    <script th:inline="javascript">
+    var stripePublicKey = /*[[${stripePublicKey}]]*/ null;
+    var amount = /*[[${amount}]]*/ null;
+</script>
+</head>
+
+<body>
+<!-- Display a payment form -->
+<form id="payment-form">
+    <p>You will be billed <span th:text="${amount}"></span></p>
+    <input type="text" id="email" placeholder="Email Address"/>
+    <div id="card-element"><!--Stripe.js injects the Card Element--></div>
+    <button id="submit">
+        <div class="spinner hidden" id="spinner"></div>
+        <span id="button-text">Pay now</span>
+    </button>
+    <p id="card-error" role="alert"></p>
+    <p class="result-message hidden">
+        Payment succeeded, see the result in your
+        <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to pay again.
+    </p>
+</form>
+</body>
+</html>

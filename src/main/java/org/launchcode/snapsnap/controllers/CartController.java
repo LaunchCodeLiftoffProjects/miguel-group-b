@@ -50,21 +50,6 @@ public class CartController {
         }
     }
 
-//    @GetMapping("/cart")
-//    public String viewCart(HttpServletRequest request,  Model model){
-//        String sessionToken = (String) request.getSession(true).getAttribute("sessionToken");
-//        Cart cart = cartService.findBySessionToken(sessionToken);
-//        model.addAttribute("cart", cart);
-//        return "cart";
-//    }
-
-//    @GetMapping("/cart")
-//    public String viewCart(String sessionToken,  Model model){
-//        Cart cart = cartService.findBySessionToken(sessionToken);
-//        model.addAttribute("cart", cart);
-//        return "cart";
-//    }
-
     @PostMapping("/editCart")
     public String editCart(@RequestParam("product_id") int id, @RequestParam("quantity") int quantity){
         cartService.editProductInCart(id, quantity);
