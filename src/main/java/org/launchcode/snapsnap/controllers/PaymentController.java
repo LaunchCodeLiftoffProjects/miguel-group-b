@@ -25,7 +25,7 @@ public class PaymentController {
 
         PaymentIntentCreateParams createParams = new PaymentIntentCreateParams.Builder()
                 .setCurrency("usd")
-                .setAmount(cartService.findBySessionToken(sessionToken).getTotalCost().longValue())
+                .setAmount((long) (cartService.findBySessionToken(sessionToken).getTotalCost() * 100L))
                 .build();
 //        create a PaymentIntent with the order amount and currency
         PaymentIntent intent = PaymentIntent.create(createParams);

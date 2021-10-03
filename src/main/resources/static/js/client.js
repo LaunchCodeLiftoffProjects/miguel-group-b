@@ -3,7 +3,7 @@ var stripe = Stripe(stripePublicKey);
 
 // The items the customer wants to buy
 var purchase = {
-  items: [{ id: "xl-tshirt" }]
+  items: []
 };
 
 // Disable the button until we have Stripe set up on the page
